@@ -1,5 +1,4 @@
 #include "Application/Application.h"
-
 // エントリーポイント
 #ifdef _DEBUG
 int main()
@@ -8,9 +7,9 @@ int __stdcall WinMain(void* hInstance, void* hPrevInstance, char* lpCmdLine, int
 #endif
 {
 	Application& a = Application::Get();
-
 	while (a.CheckMsg())
 	{
+	
 	}
 
 	return 0;

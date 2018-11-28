@@ -46,9 +46,6 @@
     <Filter Include="Depth">
       <UniqueIdentifier>{db7ab169-6a3a-4c92-9f79-5b5736ec967c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Texture">
-      <UniqueIdentifier>{58648df5-ab3b-4ee6-a800-785ffcdcb20c}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -83,15 +80,6 @@
     </ClCompile>
     <ClCompile Include="Depth\Depth.cpp">
       <Filter>Depth</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture\TextureLoader.cpp">
-      <Filter>Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture\WICTextureLoader12.cpp">
-      <Filter>Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture\Texture.cpp">
-      <Filter>Texture</Filter>
     </ClCompile>
     <ClCompile Include="etc\Func.cpp">
       <Filter>etc</Filter>
@@ -137,17 +125,11 @@
     <ClInclude Include="Depth\Depth.h">
       <Filter>Depth</Filter>
     </ClInclude>
-    <ClInclude Include="Texture\TextureLoader.h">
-      <Filter>Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture\WICTextureLoader12.h">
-      <Filter>Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture\Texture.h">
-      <Filter>Texture</Filter>
-    </ClInclude>
     <ClInclude Include="etc\Func.h">
       <Filter>etc</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
