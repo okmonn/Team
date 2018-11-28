@@ -12,6 +12,7 @@
 #include "../Pipe/PipeMane.h"
 #include "../Pipe/Pipe.h"
 #include "../Texture/Texture.h"
+#include "../Effector/Effector.h"
 #include <d3d12.h>
 #include <dxgi1_6.h>
 
@@ -96,6 +97,8 @@ void Union::Create(void)
 	tex = std::make_unique<Texture>(win, dev, root.Get(rootNo["texture"]), pipe.Get(pipeNo["texture"]));
 	tex->Load("avicii.png", n);
 	tex->Load("avicii.png", a);
+
+	effector = std::make_shared<Effector>(dev, L"Shader/Effect.hlsl");
 }
 
 // •`‰æ

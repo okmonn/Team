@@ -23,6 +23,7 @@
     <ClCompile Include="Depth\Depth.cpp" />
     <ClCompile Include="DescriptorMane\DescriptorMane.cpp" />
     <ClCompile Include="Device\Device.cpp" />
+    <ClCompile Include="Effector\Effector.cpp" />
     <ClCompile Include="etc\Func.cpp" />
     <ClCompile Include="Fence\Fence.cpp" />
     <ClCompile Include="Input\Input.cpp" />
@@ -34,6 +35,10 @@
     <ClCompile Include="Render\Render.cpp" />
     <ClCompile Include="Root\Root.cpp" />
     <ClCompile Include="Root\RootMane.cpp" />
+    <ClCompile Include="Sound\Sound.cpp" />
+    <ClCompile Include="Sound\SoundFunc\SoundFunc.cpp" />
+    <ClCompile Include="Sound\SoundLoader\SoundLoader.cpp" />
+    <ClCompile Include="Sound\XAudio2\XAudio2.cpp" />
     <ClCompile Include="Swap\Swap.cpp" />
     <ClCompile Include="Texture\Texture.cpp" />
     <ClCompile Include="Texture\TextureLoader.cpp" />
@@ -46,6 +51,7 @@
     <ClInclude Include="Depth\Depth.h" />
     <ClInclude Include="DescriptorMane\DescriptorMane.h" />
     <ClInclude Include="Device\Device.h" />
+    <ClInclude Include="Effector\Effector.h" />
     <ClInclude Include="etc\Func.h" />
     <ClInclude Include="etc\KeyData.h" />
     <ClInclude Include="etc\Release.h" />
@@ -59,6 +65,12 @@
     <ClInclude Include="Render\Render.h" />
     <ClInclude Include="Root\Root.h" />
     <ClInclude Include="Root\RootMane.h" />
+    <ClInclude Include="Sound\Destroy.h" />
+    <ClInclude Include="Sound\Sound.h" />
+    <ClInclude Include="Sound\SoundFunc\SoundFunc.h" />
+    <ClInclude Include="Sound\SoundLoader\SoundLoader.h" />
+    <ClInclude Include="Sound\XAudio2\VoiceCallback.h" />
+    <ClInclude Include="Sound\XAudio2\XAudio2.h" />
     <ClInclude Include="Swap\Swap.h" />
     <ClInclude Include="Texture\Texture.h" />
     <ClInclude Include="Texture\TextureLoader.h" />
@@ -72,6 +84,28 @@
     <ResourceCompile Include="Window\Icon.rc" />
   </ItemGroup>
   <ItemGroup>
+    <FxCompile Include="Shader\Effect.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">5.1</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">5.1</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">5.1</ShaderModel>
+      <EntryPointName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </EntryPointName>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Compute</ShaderType>
+      <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.1</ShaderModel>
+    </FxCompile>
     <FxCompile Include="Shader\Texture.hlsl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>

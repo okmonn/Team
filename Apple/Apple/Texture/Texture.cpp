@@ -230,7 +230,6 @@ void Texture::Draw(std::weak_ptr<List>list, int & i, const DirectX::XMFLOAT2 & p
 			 &DirectX::XMFLOAT2(size.x / static_cast<float>(win.lock()->GetX()), size.y / static_cast<float>(win.lock()->GetY()))))
 	   * DirectX::XMMatrixTranslationFromVector(
 			 DirectX::XMLoadFloat2(&DirectX::XMFLOAT2(pos.x, pos.y)))
-	      
 	 );
 	 tex[&i].info->uvPos   = uvPos;
 	 tex[&i].info->uvSize  = uvSize;

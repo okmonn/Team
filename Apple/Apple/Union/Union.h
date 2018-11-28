@@ -15,6 +15,7 @@ class Render;
 class Depth;
 class Fence;
 class Texture;
+class Effector;
 
 class Union
 {
@@ -78,4 +79,7 @@ private:
 
 	// テクスチャ
 	std::unique_ptr<Texture>tex;
+
+	// エフェクター
+	std::shared_ptr<Effector>effector;
 };

@@ -61,6 +61,21 @@
     <Filter Include="Pipe">
       <UniqueIdentifier>{3a17e734-c982-4b5c-8bf6-bc6c43960bc9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Sound">
+      <UniqueIdentifier>{3cb0e648-28ec-4725-b657-c2144cb78169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\SoundLoader">
+      <UniqueIdentifier>{d107f19a-ec8f-4fd6-acca-a1fb6a8b5ba1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\XAudio2">
+      <UniqueIdentifier>{6e6761cf-2e6c-49cc-b453-6c37a67148f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Sound\SoundFunc">
+      <UniqueIdentifier>{914fb0e9-6065-4159-9fc8-7e271227d5ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Effector">
+      <UniqueIdentifier>{b2f3db8a-18d4-4b83-a4dd-43f4e734a602}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -125,6 +140,21 @@
     </ClCompile>
     <ClCompile Include="Pipe\Pipe.cpp">
       <Filter>Pipe</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound\Sound.cpp">
+      <Filter>Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound\SoundLoader\SoundLoader.cpp">
+      <Filter>Sound\SoundLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound\XAudio2\XAudio2.cpp">
+      <Filter>Sound\XAudio2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound\SoundFunc\SoundFunc.cpp">
+      <Filter>Sound\SoundFunc</Filter>
+    </ClCompile>
+    <ClCompile Include="Effector\Effector.cpp">
+      <Filter>Effector</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -203,6 +233,27 @@
     <ClInclude Include="Pipe\Pipe.h">
       <Filter>Pipe</Filter>
     </ClInclude>
+    <ClInclude Include="Sound\Sound.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\Destroy.h">
+      <Filter>Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\SoundLoader\SoundLoader.h">
+      <Filter>Sound\SoundLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\XAudio2\XAudio2.h">
+      <Filter>Sound\XAudio2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\XAudio2\VoiceCallback.h">
+      <Filter>Sound\XAudio2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\SoundFunc\SoundFunc.h">
+      <Filter>Sound\SoundFunc</Filter>
+    </ClInclude>
+    <ClInclude Include="Effector\Effector.h">
+      <Filter>Effector</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Window\Icon.rc">
@@ -211,6 +262,9 @@
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\Texture.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\Effect.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
   </ItemGroup>
