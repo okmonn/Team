@@ -85,17 +85,17 @@ long Render::CreateRsc(void)
 }
 
 // レンダーターゲットのクリア
-void Render::Clear(std::shared_ptr<List>list, ID3D12DescriptorHeap * depth)
+void Render::Clear(std::weak_ptr<List>list, ID3D12DescriptorHeap * depth)
 {
 	//ヒープの先頭ハンドルの取得
 	D3D12_CPU_DESCRIPTOR_HANDLE handle = heap->GetCPUDescriptorHandleForHeapStart();
 	handle.ptr += dev.lock()->Get()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE::D3D12_DESCRIPTOR_HEAP_TYPE_RTV) * swap.lock()->Get()->GetCurrentBackBufferIndex();
 
 	//レンダーターゲットのセット
-	list->GetList()->OMSetRenderTargets(1, &handle, false, &depth->GetCPUDescriptorHandleForHeapStart());
+	list.lock()->GetList()->OMSetRenderTargets(1, &handle, false, &depth->GetCPUDescriptorHandleForHeapStart());
 
 	//レンダーターゲットのクリア
-	list->GetList()->ClearRenderTargetView(handle, color, 0, nullptr);
+	list.lock()->GetList()->ClearRenderTargetView(handle, color, 0, nullptr);
 }
 
 // リソースの取得

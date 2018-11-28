@@ -1,19 +1,19 @@
 #include "Texture.h"
-#include "../Application.h"
 #include "../DescriptorMane/DescriptorMane.h"
 #include "TextureLoader.h"
+#include "../Window/Window.h"
 #include "../Device/Device.h"
 #include "../List/List.h"
 #include "../Root/Root.h"
 #include "../Pipe/Pipe.h"
-#include "../Release.h"
+#include "../etc/Release.h"
 
 // 頂点数
 #define VERTEX_MAX 4
 
 // コンストラクタ
-Texture::Texture(std::weak_ptr<Device>dev, std::weak_ptr<Root>root, std::weak_ptr<Pipe>pipe) :
-	descMane(DescriptorMane::Get()), loader(TextureLoad::Get()), dev(dev), root(root), pipe(pipe)
+Texture::Texture(std::weak_ptr<Window>win, std::weak_ptr<Device>dev, std::weak_ptr<Root>root, std::weak_ptr<Pipe>pipe) :
+	descMane(DescriptorMane::Get()), loader(TextureLoad::Get()), win(win), dev(dev), root(root), pipe(pipe)
 {
 	vertex.resize(VERTEX_MAX);
 
@@ -27,16 +27,17 @@ Texture::~Texture()
 {
 	for (auto itr = tex.begin(); itr != tex.end(); ++itr)
 	{
-		UnMap(descMane.GetRsc(itr->second.cRsc));
+		descMane.GetRsc(itr->second.cRsc)->Unmap(0, nullptr);
 	}
 }
 
+// 頂点のセット
 void Texture::SetVertex(void)
 {
-	vertex[0] = { { 0.0f, 0.0f, 0.0f }, { 0.0f, 0.0f } };
-	vertex[1] = { { (float)Application::GetWidth(), 0.0f, 0.0f }, { 1.0f, 0.0f } };
-	vertex[2] = { { 0.0f, (float)Application::GetHeight(), 0.0f }, { 0.0f, 1.0f } };
-	vertex[3] = { {(float)Application::GetWidth(), (float)Application::GetHeight(), 0.0f}, { 1.0f, 1.0f } };
+	vertex[0] = { { 0.0f,                      0.0f,                     0.0f }, { 0.0f, 0.0f } };
+	vertex[1] = { { (float)win.lock()->GetX(), 0.0f,                     0.0f }, { 1.0f, 0.0f } };
+	vertex[2] = { { 0.0f,                     (float)win.lock()->GetY(), 0.0f }, { 0.0f, 1.0f } };
+	vertex[3] = { {(float)win.lock()->GetX(), (float)win.lock()->GetY(), 0.0f }, { 1.0f, 1.0f } };
 }
 
 // 定数リソースの生成
@@ -72,7 +73,7 @@ void Texture::CreateConView(int * i)
 	desc.SizeInBytes = (sizeof(tex::Info) + 0xff) &~0xff;
 
 	auto handle = descMane.GetHeap(*i)->GetCPUDescriptorHandleForHeapStart();
-	dev.lock()->GetDev()->CreateConstantBufferView(&desc, handle);
+	dev.lock()->Get()->CreateConstantBufferView(&desc, handle);
 }
 
 // 定数バッファのマップ
@@ -85,7 +86,7 @@ long Texture::MapCon(int * i)
 		return hr;
 	}
 
-	tex[i].info->window = { static_cast<float>(Application::GetWidth()), static_cast<float>(Application::GetHeight()) };
+	tex[i].info->window = { static_cast<float>(win.lock()->GetX()), static_cast<float>(win.lock()->GetY()) };
 
 	return hr;
 }
@@ -101,8 +102,8 @@ void Texture::CreateShaderView(int * i)
 	desc.Shader4ComponentMapping   = D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
 
 	auto handle = descMane.GetHeap(*i)->GetCPUDescriptorHandleForHeapStart();
-	handle.ptr += dev.lock()->GetDev()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE::D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
-	dev.lock()->GetDev()->CreateShaderResourceView(tex[i].rsc, &desc, handle);
+	handle.ptr += dev.lock()->Get()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE::D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
+	dev.lock()->Get()->CreateShaderResourceView(tex[i].rsc, &desc, handle);
 }
 
 // サブリソースに書き込み
@@ -172,15 +173,15 @@ void Texture::SetBundle(int * i)
 {
 	tex[i].list->Reset(pipe.lock()->Get());
 
-	tex[i].list->SetRoot(root.lock()->Get());
-	tex[i].list->SetPipe(pipe.lock()->Get());
+	tex[i].list->GetList()->SetGraphicsRootSignature(root.lock()->Get());
+	tex[i].list->GetList()->SetPipelineState(pipe.lock()->Get());
 
 	auto heap = descMane.GetHeap(*i);
 	tex[i].list->GetList()->SetDescriptorHeaps(1, &heap);
 
 	auto handle = descMane.GetHeap(*i)->GetGPUDescriptorHandleForHeapStart();
 	tex[i].list->GetList()->SetGraphicsRootDescriptorTable(0, handle);
-	handle.ptr += dev.lock()->GetDev()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE::D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
+	handle.ptr += dev.lock()->Get()->GetDescriptorHandleIncrementSize(D3D12_DESCRIPTOR_HEAP_TYPE::D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV);
 
 	D3D12_VERTEX_BUFFER_VIEW view{};
 	view.BufferLocation = descMane.GetRsc(tex[i].vRsc)->GetGPUVirtualAddress();
@@ -193,7 +194,7 @@ void Texture::SetBundle(int * i)
 	tex[i].list->GetList()->SetGraphicsRootDescriptorTable(1, handle);
 	tex[i].list->GetList()->DrawInstanced(vertex.size(), 1, 0, 0);
 
-	tex[i].list->Close();
+	tex[i].list->GetList()->Close();
 }
 
 // 読み込み
@@ -226,7 +227,7 @@ void Texture::Draw(std::weak_ptr<List>list, int & i, const DirectX::XMFLOAT2 & p
 {
 	 XMStoreFloat4x4(&tex[&i].info->matrix, 
 		 DirectX::XMMatrixScalingFromVector(DirectX::XMLoadFloat2(
-			 &DirectX::XMFLOAT2(size.x / static_cast<float>(Application::GetWidth()), size.y / static_cast<float>(Application::GetHeight()))))
+			 &DirectX::XMFLOAT2(size.x / static_cast<float>(win.lock()->GetX()), size.y / static_cast<float>(win.lock()->GetY()))))
 	   * DirectX::XMMatrixTranslationFromVector(
 			 DirectX::XMLoadFloat2(&DirectX::XMFLOAT2(pos.x, pos.y)))
 	      
@@ -246,7 +247,7 @@ void Texture::Delete(int & i)
 {
 	if (tex.find(&i) != tex.end())
 	{
-		UnMap(descMane.GetRsc(tex[&i].cRsc));
+		descMane.GetRsc(tex[&i].cRsc)->Unmap(0, nullptr);
 		descMane.DeleteRsc(tex[&i].cRsc);
 		descMane.DeleteRsc(tex[&i].vRsc);
 		descMane.DeleteHeap(i);

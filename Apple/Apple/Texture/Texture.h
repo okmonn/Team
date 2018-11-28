@@ -10,6 +10,7 @@ struct D3D12_SUBRESOURCE_DATA;
 struct ID3D12Resource;
 class DescriptorMane;
 class TextureLoad;
+class Window;
 class Device;
 class List;
 class Root;
@@ -65,7 +66,7 @@ class Texture
 
 public:
 	// コンストラクタ
-	Texture(std::weak_ptr<Device>dev, std::weak_ptr<Root>root, std::weak_ptr<Pipe>pipe);
+	Texture(std::weak_ptr<Window>win, std::weak_ptr<Device>dev, std::weak_ptr<Root>root, std::weak_ptr<Pipe>pipe);
 	// デストラクタ
 	~Texture();
 
@@ -115,6 +116,9 @@ private:
 
 	// テクスチャローダー
 	TextureLoad& loader;
+
+	// ウィンドウ
+	std::weak_ptr<Window>win;
 
 	// デバイス
 	std::weak_ptr<Device>dev;

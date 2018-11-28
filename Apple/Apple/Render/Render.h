@@ -17,7 +17,7 @@ public:
 	~Render();
 
 	// レンダーターゲットのクリア
-	void Clear(std::shared_ptr<List>list, ID3D12DescriptorHeap* depth = nullptr);
+	void Clear(std::weak_ptr<List>list, ID3D12DescriptorHeap* depth = nullptr);
 
 	// ヒープの取得
 	ID3D12DescriptorHeap* GetHeap(void) const {
