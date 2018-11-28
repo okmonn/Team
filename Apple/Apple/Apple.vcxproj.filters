@@ -46,6 +46,21 @@
     <Filter Include="Depth">
       <UniqueIdentifier>{db7ab169-6a3a-4c92-9f79-5b5736ec967c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{82771ea7-1575-4ca9-92a6-9f766820c023}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DescriptorMane">
+      <UniqueIdentifier>{8a9e1da1-f5d2-42fe-9f33-3e699996ba1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture">
+      <UniqueIdentifier>{d6429587-db40-41ba-89c2-faf6626213d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Root">
+      <UniqueIdentifier>{6c8245c5-428d-4c56-8520-34bc790db9d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pipe">
+      <UniqueIdentifier>{3a17e734-c982-4b5c-8bf6-bc6c43960bc9}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -83,6 +98,33 @@
     </ClCompile>
     <ClCompile Include="etc\Func.cpp">
       <Filter>etc</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\Input.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="DescriptorMane\DescriptorMane.cpp">
+      <Filter>DescriptorMane</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture\WICTextureLoader12.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture\Texture.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture\TextureLoader.cpp">
+      <Filter>Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="Root\RootMane.cpp">
+      <Filter>Root</Filter>
+    </ClCompile>
+    <ClCompile Include="Root\Root.cpp">
+      <Filter>Root</Filter>
+    </ClCompile>
+    <ClCompile Include="Pipe\PipeMane.cpp">
+      <Filter>Pipe</Filter>
+    </ClCompile>
+    <ClCompile Include="Pipe\Pipe.cpp">
+      <Filter>Pipe</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,13 +170,48 @@
     <ClInclude Include="etc\Func.h">
       <Filter>etc</Filter>
     </ClInclude>
+    <ClInclude Include="Input\Input.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="etc\KeyData.h">
+      <Filter>etc</Filter>
+    </ClInclude>
+    <ClInclude Include="DescriptorMane\DescriptorMane.h">
+      <Filter>DescriptorMane</Filter>
+    </ClInclude>
     <ClInclude Include="Vector2.h">
-      <Filter>ヘッダー ファイル</Filter>
+      <Filter>etc</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture\TextureLoader.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture\WICTextureLoader12.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture\Texture.h">
+      <Filter>Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Root\RootMane.h">
+      <Filter>Root</Filter>
+    </ClInclude>
+    <ClInclude Include="Root\Root.h">
+      <Filter>Root</Filter>
+    </ClInclude>
+    <ClInclude Include="Pipe\PipeMane.h">
+      <Filter>Pipe</Filter>
+    </ClInclude>
+    <ClInclude Include="Pipe\Pipe.h">
+      <Filter>Pipe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Window\Icon.rc">
       <Filter>Window</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="Shader\Texture.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

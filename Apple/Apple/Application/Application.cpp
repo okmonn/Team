@@ -1,5 +1,6 @@
 #include "Application.h"
 #include "../Window/Window.h"
+#include "../Input/Input.h"
 #include "../Union/Union.h"
 #include <Windows.h>
 
@@ -17,8 +18,9 @@ Application::~Application()
 // クラスの生成
 void Application::Create(void)
 {
-	win = std::make_shared<Window>();
-	un  = std::make_shared<Union>(win);
+	win   = std::make_shared<Window>();
+	input = std::make_shared<Input>(win);
+	un    = std::make_shared<Union>(win);
 }
 
 // メッセージの確認
@@ -45,4 +47,10 @@ bool Application::CheckMsg(void)
 	}
 
 	return true;
+}
+
+// キーの入力
+bool Application::InputKey(const int & i)
+{
+	return input->CheckKey(i);
 }
