@@ -15,7 +15,6 @@ class Render;
 class Depth;
 class Fence;
 class Texture;
-class Effector;
 
 class Union
 {
@@ -25,8 +24,23 @@ public:
 	// デストラクタ
 	~Union();
 
-	// 描画
-	void Draw(void);
+	// 画像の読み込み
+	void LoadImg(const std::string& fileName, int& i);
+
+	// 画像の描画
+	void DrawImg(int& i, const float& x, const float& y, const float& sizeX, const float& sizeY, const float& rectX, const float& rectY, 
+		const float& rectSizexX, const float& rectSizeY, const float& alpha = 1.0f, const bool& turnX = false, const bool& turnY = false);
+
+	// 画面クリア
+	void Clear(void);
+
+	// 実行
+	void Execution(void);
+
+	// デバイスの取得
+	std::shared_ptr<Device>GetDev(void) const {
+		return dev;
+	}
 
 private:
 	// ルートシグネチャの生成
@@ -79,7 +93,4 @@ private:
 
 	// テクスチャ
 	std::unique_ptr<Texture>tex;
-
-	// エフェクター
-	std::shared_ptr<Effector>effector;
 };

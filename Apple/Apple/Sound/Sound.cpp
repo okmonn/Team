@@ -2,6 +2,7 @@
 #include "XAudio2/XAudio2.h"
 #include "XAudio2/VoiceCallback.h"
 #include "SoundLoader/SoundLoader.h"
+#include "../Effector/Effector.h"
 #include "Destroy.h"
 #include <ks.h>
 #include <ksmedia.h>
@@ -24,6 +25,16 @@ const DWORD spk[] = {
 // コンストラクタ
 Sound::Sound() :
 	audio(XAudio2::Get()), loader(SoundLoader::Get()),
+	voice(nullptr), loop(false), end(false), threadFlag(true), read(0), index(0)
+{
+	wave.resize(BUF_MAX);
+
+	call = std::make_unique<VoiceCallback>();
+}
+
+// コンストラクタ
+Sound::Sound(std::weak_ptr<Effector>effe) :
+	audio(XAudio2::Get()), loader(SoundLoader::Get()), effe(effe),
 	voice(nullptr), loop(false), end(false), threadFlag(true), read(0), index(0)
 {
 	wave.resize(BUF_MAX);
@@ -104,6 +115,15 @@ void Sound::Stream(void)
 		if (loader.GetWave(name)->find(read) == loader.GetWave(name)->end())
 		{
 			continue;
+		}
+
+		if (!effe.expired())
+		{
+			effe.lock()->Execution(loader.GetWave(name)->at(read), wave[index], read);
+		}
+		else
+		{
+			wave[index] = loader.GetWave(name)->at(read);
 		}
 
 		XAUDIO2_BUFFER buf{};

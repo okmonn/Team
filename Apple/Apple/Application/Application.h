@@ -5,6 +5,8 @@
 class Window;
 class Input;
 class Union;
+class Effector;
+class Sound;
 
 class Application
 {
@@ -23,6 +25,9 @@ public:
 
 	// キーの入力
 	bool InputKey(const int& i);
+
+	// 描画
+	void Draw(void);
 
 private:
 	// コンストラクタ
@@ -44,4 +49,10 @@ private:
 
 	// ユニオン
 	std::shared_ptr<Union>un;
+
+	// エフェクター
+	std::shared_ptr<Effector>effector;
+
+	// サウンド
+	std::shared_ptr<Sound>sound;
 };

@@ -31,6 +31,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Pipe\Pipe.cpp" />
     <ClCompile Include="Pipe\PipeMane.cpp" />
+    <ClCompile Include="Primitive\Primitive.cpp" />
     <ClCompile Include="Queue\Queue.cpp" />
     <ClCompile Include="Render\Render.cpp" />
     <ClCompile Include="Root\Root.cpp" />
@@ -61,6 +62,7 @@
     <ClInclude Include="List\List.h" />
     <ClInclude Include="Pipe\Pipe.h" />
     <ClInclude Include="Pipe\PipeMane.h" />
+    <ClInclude Include="Primitive\Primitive.h" />
     <ClInclude Include="Queue\Queue.h" />
     <ClInclude Include="Render\Render.h" />
     <ClInclude Include="Root\Root.h" />

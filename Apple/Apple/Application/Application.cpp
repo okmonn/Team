@@ -2,6 +2,8 @@
 #include "../Window/Window.h"
 #include "../Input/Input.h"
 #include "../Union/Union.h"
+#include "../Effector/Effector.h"
+#include "../Sound/Sound.h"
 #include <Windows.h>
 
 // コンストラクタ
@@ -18,9 +20,13 @@ Application::~Application()
 // クラスの生成
 void Application::Create(void)
 {
-	win   = std::make_shared<Window>();
-	input = std::make_shared<Input>(win);
-	un    = std::make_shared<Union>(win);
+	win      = std::make_shared<Window>();
+	input    = std::make_shared<Input>(win);
+	un       = std::make_shared<Union>(win);
+	effector = std::make_shared<Effector>(un->GetDev(), L"Shader/Effect.hlsl");
+	sound = std::make_shared<Sound>();
+	sound->Load("animal.wav");
+	sound->Play(false);
 }
 
 // メッセージの確認
@@ -41,10 +47,6 @@ bool Application::CheckMsg(void)
 		//1つのウィドウプロシージャにメッセージを送出する
 		DispatchMessage(&msg);
 	}
-	else
-	{
-		un->Draw();
-	}
 
 	return true;
 }
@@ -53,4 +55,14 @@ bool Application::CheckMsg(void)
 bool Application::InputKey(const int & i)
 {
 	return input->CheckKey(i);
+}
+
+// 描画
+void Application::Draw(void)
+{
+	un->Clear();
+
+	//ここに描画・処理
+
+	un->Execution();
 }

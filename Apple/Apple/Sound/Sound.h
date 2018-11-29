@@ -10,12 +10,14 @@ struct IXAudio2SourceVoice;
 class XAudio2;
 class VoiceCallback;
 class SoundLoader;
+class Effector;
 
 class Sound
 {
 public:
 	// コンストラクタ
 	Sound();
+	Sound(std::weak_ptr<Effector>effe);
 	// デストラクタ
 	~Sound();
 
@@ -52,6 +54,11 @@ public:
 	}
 
 private:
+	Sound(const Sound&);
+	void operator=(const Sound&) {
+	}
+
+
 	// ソースボイスの生成
 	long CreateVoice(const std::string& filName);
 
@@ -64,6 +71,9 @@ private:
 
 	// ローダー
 	SoundLoader& loader;
+
+	// エフェクター
+	std::weak_ptr<Effector>effe;
 	
 	// コールバック
 	std::unique_ptr<VoiceCallback>call;

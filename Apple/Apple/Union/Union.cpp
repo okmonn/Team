@@ -19,9 +19,6 @@
 #pragma comment(lib, "d3d12.lib")
 #pragma comment(lib, "dxgi.lib")
 
-int n = 0;
-int a = 0;
-
 // コンストラクタ
 Union::Union(std::weak_ptr<Window>win) : 
 	root(RootMane::Get()), pipe(PipeMane::Get()), win(win)
@@ -95,14 +92,23 @@ void Union::Create(void)
 	CreatePipe();
 
 	tex = std::make_unique<Texture>(win, dev, root.Get(rootNo["texture"]), pipe.Get(pipeNo["texture"]));
-	tex->Load("avicii.png", n);
-	tex->Load("avicii.png", a);
-
-	effector = std::make_shared<Effector>(dev, L"Shader/Effect.hlsl");
 }
 
-// 描画
-void Union::Draw(void)
+// 画像の読み込み
+void Union::LoadImg(const std::string & fileName, int & i)
+{
+	tex->Load(fileName, i);
+}
+
+// 画像の描画
+void Union::DrawImg(int & i, const float & x, const float & y, const float & sizeX, const float & sizeY, const float & rectX, const float & rectY, 
+	const float & rectSizexX, const float & rectSizeY, const float & alpha, const bool & turnX, const bool & turnY)
+{
+	tex->Draw(list, i, { x, y }, { sizeX, sizeY }, { rectX, rectY }, { rectSizexX, rectSizeY }, alpha, turnX, turnY);
+}
+
+// 画面クリア
+void Union::Clear(void)
 {
 	list->Reset();
 
@@ -113,10 +119,11 @@ void Union::Draw(void)
 
 	depth->Clear(list);
 	ren->Clear(list, depth->GetHeap());
+}
 
-	tex->Draw(list, n, { 0,0 }, { 320,480 }, { 0,0 }, { 320,320 });
-	tex->Draw(list, a, { 320,0 }, { 320,480 }, { 0,0 }, { 320,320 }, 0.5f, true, true);
-
+// 実行
+void Union::Execution(void)
+{
 	list->SetBarrier(D3D12_RESOURCE_STATES::D3D12_RESOURCE_STATE_RENDER_TARGET, D3D12_RESOURCE_STATES::D3D12_RESOURCE_STATE_PRESENT, ren->Get());
 
 	list->GetList()->Close();

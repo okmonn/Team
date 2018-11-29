@@ -268,11 +268,20 @@ void DFT(void)
 	}
 
 	auto hanning = [&](const int& index, const int& size)->float {
-		return (size % 2 == 0) ?
+		float tmp = 0.0f;
+
+		tmp = (size % 2 == 0) ?
 			//‹ô”
 			0.5f - 0.5f * cosf(2.0f * p * (float)index / (float)size) :
 			//Šï”
 			0.5f - 0.5f * cosf(2.0f * p * ((float)index + 0.5f) / (float)size);
+
+		if (tmp == 0.0f)
+		{
+			tmp = 1.0f;
+		}
+
+		return tmp;
 	};
 
 	//À•”
@@ -292,11 +301,11 @@ void DFT(void)
 			tmp.x = cosf(2.0f * p * i * n / size);
 			tmp.y = -sinf(2.0f * p * i * n / size);
 
-			real[i] += tmp.x * origin[n] - tmp.y * 0.0f;
-			imag[i] += tmp.x * 0.0f      + tmp.y * origin[n];
+			real[i] += tmp.x * (origin[n] * 1) - tmp.y * 0.0f;
+			imag[i] += tmp.x * 0.0f            + tmp.y * (origin[n] * 1);
 		}
 	}
-
+	
 	/* ü”g”“Á« */
 	for (int i = 0; i < size; ++i)
 	{
@@ -306,6 +315,59 @@ void DFT(void)
 		float d = tanf(imag[i] / real[i]) / 2;
 
 		printf("%f %f\n", a, d);
+	}
+
+	getchar();
+}
+
+// ‹t—£Uƒt[ƒŠƒG•ÏŠ·
+void IDFT(const std::vector<float>& real, const std::vector<float>&imag)
+{
+	//‰~ü—¦
+	const float p = 3.14159265f;
+	auto size = real.size();
+
+	auto hanning = [&](const int& index, const int& size)->float {
+		float tmp = 0.0f;
+
+		tmp = (size % 2 == 0) ?
+			//‹ô”
+			0.5f - 0.5f * cosf(2.0f * p * (float)index / (float)size) :
+			//Šï”
+			0.5f - 0.5f * cosf(2.0f * p * ((float)index + 0.5f) / (float)size);
+
+		if (tmp == 0.0f)
+		{
+			tmp = 1.0f;
+		}
+
+		return tmp;
+	};
+
+	DirectX::XMFLOAT2 tmp;
+
+	//Œ³‚Ì”gŒ`ƒf[ƒ^
+	std::vector<float>reReal(size, 0.0f);
+	//–³‹
+	std::vector<float>reImag(size, 0.0f);
+	for (int i = 0; i < size; ++i)
+	{
+		for (int n = 0; n < size; ++n)
+		{
+			tmp.x = cosf(2.0f * p * i * n / size);
+			tmp.y = sinf(2.0f * p * i * n / size);
+
+			reReal[i] += (tmp.x * real[n] - tmp.y * imag[n]) / size;
+			reImag[i] += (tmp.x * imag[n] + tmp.y * real[n]) / size;
+		}
+
+		reReal[i] /= hanning(i, size);
+		reImag[i] /= hanning(i, size);
+	}
+
+	for (int i = 0; i < size; ++i)
+	{
+		printf("%f %f\n", reReal[i], reImag[i]);
 	}
 
 	getchar();

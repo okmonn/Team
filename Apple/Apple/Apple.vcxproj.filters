@@ -76,6 +76,9 @@
     <Filter Include="Effector">
       <UniqueIdentifier>{b2f3db8a-18d4-4b83-a4dd-43f4e734a602}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Primitive">
+      <UniqueIdentifier>{9bf7056e-d5d5-493a-b88f-881d04486af2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -155,6 +158,9 @@
     </ClCompile>
     <ClCompile Include="Effector\Effector.cpp">
       <Filter>Effector</Filter>
+    </ClCompile>
+    <ClCompile Include="Primitive\Primitive.cpp">
+      <Filter>Primitive</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +259,9 @@
     </ClInclude>
     <ClInclude Include="Effector\Effector.h">
       <Filter>Effector</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitive\Primitive.h">
+      <Filter>Primitive</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
