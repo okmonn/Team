@@ -85,6 +85,9 @@
     <Filter Include="Primitive\Line">
       <UniqueIdentifier>{6c1df845-10b7-472d-b667-5ede344ec1b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Primitive\Triangle">
+      <UniqueIdentifier>{8837522a-c4cf-4089-bf71-a2164e1fb658}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -170,6 +173,12 @@
     </ClCompile>
     <ClCompile Include="Primitive\Point.cpp">
       <Filter>Primitive\Point</Filter>
+    </ClCompile>
+    <ClCompile Include="Primitive\Line.cpp">
+      <Filter>Primitive\Line</Filter>
+    </ClCompile>
+    <ClCompile Include="Primitive\Triangle.cpp">
+      <Filter>Primitive\Triangle</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -277,6 +286,9 @@
     </ClInclude>
     <ClInclude Include="Primitive\Line.h">
       <Filter>Primitive\Line</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitive\Triangle.h">
+      <Filter>Primitive\Triangle</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

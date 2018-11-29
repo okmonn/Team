@@ -17,6 +17,8 @@ class Depth;
 class Fence;
 class Texture;
 class Point;
+class Line;
+class Triangle;
 
 class Union
 {
@@ -35,6 +37,18 @@ public:
 
 	// 点の描画
 	void DrawPoint(const float& x, const float& y, const float& r, const float& g, const float& b, const float& alpha = 1.0f);
+
+	// 線の描画
+	void DrawLine(const float& x1, const float& y1, const float& x2, const float& y2, 
+		const float& r, const float& g, const float& b, const float& alpha = 1.0f);
+
+	// 三角形の描画
+	void DrawTriangle(const float& x1, const float& y1, const float& x2, const float& y2, const float& x3, const float& y3,
+		const float& r, const float& g, const float& b, const float& alpha = 1.0f);
+
+	// 四角形の描画
+	void DrawBox(const float& x, const float& y, const float& sizeX, const float& sizeY,
+		const float& r, const float& g, const float& b, const float& alpha = 1.0f);
 
 	// 画面クリア
 	void Clear(void);
@@ -101,4 +115,10 @@ private:
 
 	// ポイント
 	std::list<std::shared_ptr<Point>>point;
+
+	// ライン
+	std::list<std::shared_ptr<Line>>line;
+
+	// トライアングル
+	std::list<std::shared_ptr<Triangle>>triangle;
 };

@@ -13,6 +13,8 @@
 #include "../Pipe/Pipe.h"
 #include "../Texture/Texture.h"
 #include "../Primitive/Point.h"
+#include "../Primitive/Line.h"
+#include "../Primitive/Triangle.h"
 #include <d3d12.h>
 #include <dxgi1_6.h>
 
@@ -32,6 +34,8 @@ Union::Union(std::weak_ptr<Window>win) :
 	rootNo.clear();
 	pipeNo.clear();
 	point.clear();
+	line.clear();
+	triangle.clear();
 
 	Create();
 }
@@ -120,6 +124,35 @@ void Union::DrawPoint(const float & x, const float & y, const float & r, const f
 	point.back()->Draw(list);
 }
 
+// ü‚Ì•`‰æ
+void Union::DrawLine(const float & x1, const float & y1, const float & x2, const float & y2, 
+	const float & r, const float & g, const float & b, const float & alpha)
+{
+	line.push_back(std::make_shared<Line>(win, dev, root.Get(rootNo["primitive"]), pipe.Get(pipeNo["line"])));
+	line.back()->SetVertex({ x1, y1 }, { x2, y2 }, { r, g, b }, alpha);
+	line.back()->Draw(list);
+}
+
+// OŠpŒ`‚Ì•`‰æ
+void Union::DrawTriangle(const float & x1, const float & y1, const float & x2, const float & y2, const float & x3, const float & y3, const float & r, const float & g, const float & b, const float & alpha)
+{
+	triangle.push_back(std::make_shared<Triangle>(win, dev, root.Get(rootNo["primitive"]), pipe.Get(pipeNo["triangle"])));
+	triangle.back()->SetVertex({ x1, y1 }, { x2, y2 }, { x3, y3 }, { r, g, b }, alpha);
+	triangle.back()->Draw(list);
+}
+
+// lŠpŒ`‚Ì•`‰æ
+void Union::DrawBox(const float & x, const float & y, const float & sizeX, const float & sizeY, const float & r, const float & g, const float & b, const float & alpha)
+{
+	triangle.push_back(std::make_shared<Triangle>(win, dev, root.Get(rootNo["primitive"]), pipe.Get(pipeNo["triangle"])));
+	triangle.back()->SetVertex({ x, y }, { x + sizeX, y }, { x, y + sizeY }, { r, g, b }, alpha);
+	triangle.back()->Draw(list);
+
+	triangle.push_back(std::make_shared<Triangle>(win, dev, root.Get(rootNo["primitive"]), pipe.Get(pipeNo["triangle"])));
+	triangle.back()->SetVertex({ x + sizeX, y }, { x + sizeX, y + sizeY }, { x, y + sizeY }, { r, g, b }, alpha);
+	triangle.back()->Draw(list);
+}
+
 // ‰æ–ÊƒNƒŠƒA
 void Union::Clear(void)
 {
@@ -151,4 +184,6 @@ void Union::Execution(void)
 	fence->Wait();
 
 	point.clear();
+	line.clear();
+	triangle.clear();
 }
