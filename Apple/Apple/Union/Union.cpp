@@ -12,7 +12,7 @@
 #include "../Pipe/PipeMane.h"
 #include "../Pipe/Pipe.h"
 #include "../Texture/Texture.h"
-#include "../Effector/Effector.h"
+#include "../Primitive/Point.h"
 #include <d3d12.h>
 #include <dxgi1_6.h>
 
@@ -31,6 +31,7 @@ Union::Union(std::weak_ptr<Window>win) :
 
 	rootNo.clear();
 	pipeNo.clear();
+	point.clear();
 
 	Create();
 }
@@ -56,6 +57,7 @@ void Union::CreateRoot(const std::string & name, const std::tstring & fileName)
 void Union::CreateRoot(void)
 {
 	CreateRoot("texture", L"Shader/Texture.hlsl");
+	CreateRoot("primitive", L"Shader/Primitive.hlsl");
 }
 
 // パイプラインの生成
@@ -74,7 +76,10 @@ void Union::CreatePipe(const std::string & name, const std::string & rootName, c
 // パイプラインの生成
 void Union::CreatePipe(void)
 {
-	CreatePipe("texture", "texture", D3D12_PRIMITIVE_TOPOLOGY_TYPE::D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE, { 0, 2 }, false);
+	CreatePipe("texture",  "texture",   D3D12_PRIMITIVE_TOPOLOGY_TYPE::D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE, { 0, 2 }, false);
+	CreatePipe("point",    "primitive", D3D12_PRIMITIVE_TOPOLOGY_TYPE::D3D12_PRIMITIVE_TOPOLOGY_TYPE_POINT,    { 0, 3 }, false);
+	CreatePipe("line",     "primitive", D3D12_PRIMITIVE_TOPOLOGY_TYPE::D3D12_PRIMITIVE_TOPOLOGY_TYPE_LINE,     { 0, 3 }, false);
+	CreatePipe("triangle", "primitive", D3D12_PRIMITIVE_TOPOLOGY_TYPE::D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE, { 0, 3 }, false);
 }
 
 // クラスの生成
@@ -107,6 +112,14 @@ void Union::DrawImg(int & i, const float & x, const float & y, const float & siz
 	tex->Draw(list, i, { x, y }, { sizeX, sizeY }, { rectX, rectY }, { rectSizexX, rectSizeY }, alpha, turnX, turnY);
 }
 
+// 点の描画
+void Union::DrawPoint(const float & x, const float & y, const float & r, const float & g, const float & b, const float & alpha)
+{
+	point.push_back(std::make_shared<Point>(win, dev, root.Get(rootNo["primitive"]), pipe.Get(pipeNo["point"])));
+	point.back()->SetVertex({ x, y }, { r, g, b }, alpha);
+	point.back()->Draw(list);
+}
+
 // 画面クリア
 void Union::Clear(void)
 {
@@ -136,4 +149,6 @@ void Union::Execution(void)
 	swap->Get()->Present(1, 0);
 
 	fence->Wait();
+
+	point.clear();
 }

@@ -63,6 +63,10 @@ void Application::Draw(void)
 	un->Clear();
 
 	//‚±‚±‚É•`‰æEˆ—
+	for (int i = 0; i < 100; ++i)
+	{
+		un->DrawPoint(i, 50, 1, 0, 0, 1.0f);
+	}
 
 	un->Execution();
 }

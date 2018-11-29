@@ -1,6 +1,7 @@
 #pragma once
 #include "../etc/tString.h"
 #include <map>
+#include <list>
 #include <memory>
 
 enum D3D12_PRIMITIVE_TOPOLOGY_TYPE : int;
@@ -15,6 +16,7 @@ class Render;
 class Depth;
 class Fence;
 class Texture;
+class Point;
 
 class Union
 {
@@ -30,6 +32,9 @@ public:
 	// 画像の描画
 	void DrawImg(int& i, const float& x, const float& y, const float& sizeX, const float& sizeY, const float& rectX, const float& rectY, 
 		const float& rectSizexX, const float& rectSizeY, const float& alpha = 1.0f, const bool& turnX = false, const bool& turnY = false);
+
+	// 点の描画
+	void DrawPoint(const float& x, const float& y, const float& r, const float& g, const float& b, const float& alpha = 1.0f);
 
 	// 画面クリア
 	void Clear(void);
@@ -93,4 +98,7 @@ private:
 
 	// テクスチャ
 	std::unique_ptr<Texture>tex;
+
+	// ポイント
+	std::list<std::shared_ptr<Point>>point;
 };

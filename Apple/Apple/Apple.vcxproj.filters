@@ -79,6 +79,12 @@
     <Filter Include="Primitive">
       <UniqueIdentifier>{9bf7056e-d5d5-493a-b88f-881d04486af2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Primitive\Point">
+      <UniqueIdentifier>{6dec1960-ddd7-4774-a1fd-87779650186a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitive\Line">
+      <UniqueIdentifier>{6c1df845-10b7-472d-b667-5ede344ec1b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -161,6 +167,9 @@
     </ClCompile>
     <ClCompile Include="Primitive\Primitive.cpp">
       <Filter>Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="Primitive\Point.cpp">
+      <Filter>Primitive\Point</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -263,6 +272,12 @@
     <ClInclude Include="Primitive\Primitive.h">
       <Filter>Primitive</Filter>
     </ClInclude>
+    <ClInclude Include="Primitive\Point.h">
+      <Filter>Primitive\Point</Filter>
+    </ClInclude>
+    <ClInclude Include="Primitive\Line.h">
+      <Filter>Primitive\Line</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Window\Icon.rc">
@@ -274,6 +289,9 @@
       <Filter>リソース ファイル</Filter>
     </FxCompile>
     <FxCompile Include="Shader\Effect.hlsl">
+      <Filter>リソース ファイル</Filter>
+    </FxCompile>
+    <FxCompile Include="Shader\Primitive.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
   </ItemGroup>
