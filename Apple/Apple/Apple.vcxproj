@@ -26,6 +26,7 @@
     <ClCompile Include="Effector\Effector.cpp" />
     <ClCompile Include="etc\Func.cpp" />
     <ClCompile Include="Fence\Fence.cpp" />
+    <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Input\Input.cpp" />
     <ClCompile Include="List\List.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -39,6 +40,9 @@
     <ClCompile Include="Render\Render.cpp" />
     <ClCompile Include="Root\Root.cpp" />
     <ClCompile Include="Root\RootMane.cpp" />
+    <ClCompile Include="Scene\Play.cpp" />
+    <ClCompile Include="Scene\Scene.cpp" />
+    <ClCompile Include="Scene\Title.cpp" />
     <ClCompile Include="Sound\Sound.cpp" />
     <ClCompile Include="Sound\SoundFunc\SoundFunc.cpp" />
     <ClCompile Include="Sound\SoundLoader\SoundLoader.cpp" />
@@ -61,6 +65,7 @@
     <ClInclude Include="etc\Release.h" />
     <ClInclude Include="etc\tString.h" />
     <ClInclude Include="Fence\Fence.h" />
+    <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Input\Input.h" />
     <ClInclude Include="List\List.h" />
     <ClInclude Include="Pipe\Pipe.h" />
@@ -73,6 +78,9 @@
     <ClInclude Include="Render\Render.h" />
     <ClInclude Include="Root\Root.h" />
     <ClInclude Include="Root\RootMane.h" />
+    <ClInclude Include="Scene\Play.h" />
+    <ClInclude Include="Scene\Scene.h" />
+    <ClInclude Include="Scene\Title.h" />
     <ClInclude Include="Sound\Destroy.h" />
     <ClInclude Include="Sound\Sound.h" />
     <ClInclude Include="Sound\SoundFunc\SoundFunc.h" />

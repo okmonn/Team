@@ -1,0 +1,21 @@
+#pragma once
+#include "Scene.h"
+
+class Play :
+	public Scene
+{
+public:
+	// コンストラクタ
+	Play(std::weak_ptr<Input>in, std::weak_ptr<Union>un);
+	// デストラクタ
+	~Play();
+
+	// 処理
+	void UpData(void);
+
+	// 描画
+	void Draw(void);
+
+private:
+
+};

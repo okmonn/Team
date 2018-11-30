@@ -456,6 +456,8 @@ std::vector<float> FIR_LPF(const std::vector<float>&input)
 			out[i] += filterCof * input[i - n];
 		}
 	}
+
+	return out;
 }
 
 // é¿çs

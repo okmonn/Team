@@ -88,6 +88,18 @@
     <Filter Include="Primitive\Triangle">
       <UniqueIdentifier>{8837522a-c4cf-4089-bf71-a2164e1fb658}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{79714e58-28b4-4f4e-a242-a725b1f728bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene">
+      <UniqueIdentifier>{fdbbab66-82ce-406b-b688-7ae99d2c77d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Title">
+      <UniqueIdentifier>{6f9ad4d4-af94-407d-a545-47af6200d191}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Play">
+      <UniqueIdentifier>{5df67471-a6cf-44af-bd38-c52d88a53f10}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -179,6 +191,18 @@
     </ClCompile>
     <ClCompile Include="Primitive\Triangle.cpp">
       <Filter>Primitive\Triangle</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Scene.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Title.cpp">
+      <Filter>Scene\Title</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Play.cpp">
+      <Filter>Scene\Play</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -289,6 +313,18 @@
     </ClInclude>
     <ClInclude Include="Primitive\Triangle.h">
       <Filter>Primitive\Triangle</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Scene.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Title.h">
+      <Filter>Scene\Title</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Play.h">
+      <Filter>Scene\Play</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

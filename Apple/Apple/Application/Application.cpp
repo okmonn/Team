@@ -3,6 +3,7 @@
 #include "../Input/Input.h"
 #include "../Union/Union.h"
 #include "../Effector/Effector.h"
+#include "../Game/Game.h"
 #include "../Sound/Sound.h"
 #include <Windows.h>
 
@@ -24,9 +25,8 @@ void Application::Create(void)
 	input    = std::make_shared<Input>(win);
 	un       = std::make_shared<Union>(win);
 	effector = std::make_shared<Effector>(un->GetDev(), L"Shader/Effect.hlsl");
-	sound = std::make_shared<Sound>(effector);
-	sound->Load("animal.wav");
-	sound->Play(false);
+	
+	game     = std::make_shared<Game>(input, un);
 }
 
 // メッセージの確認
@@ -63,7 +63,7 @@ void Application::Draw(void)
 	un->Clear();
 
 	//ここに描画・処理
-	un->DrawBox(0,0,100,100, 1, 0, 0);
+	game->Run();
 
 	un->Execution();
 }

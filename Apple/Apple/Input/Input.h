@@ -1,4 +1,5 @@
 #pragma once
+#include "../etc/KeyData.h"
 #include <memory>
 
 struct IDirectInput8W;

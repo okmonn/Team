@@ -6,6 +6,7 @@ class Window;
 class Input;
 class Union;
 class Effector;
+class Game;
 class Sound;
 
 class Application
@@ -52,6 +53,9 @@ private:
 
 	// エフェクター
 	std::shared_ptr<Effector>effector;
+
+	// ゲーム
+	std::shared_ptr<Game>game;
 
 	// サウンド
 	std::shared_ptr<Sound>sound;
