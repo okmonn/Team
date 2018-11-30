@@ -129,6 +129,22 @@ void Limiter(uint index)
     }
 }
 
+// フェード
+void Fade(uint index)
+{
+    real[index] = origin[index];
+    uint2 size;
+    origin.GetDimensions(size.x, size.y);
+
+    //適応時間
+    float duration = 0.01f;
+    if(index < size.x * duration)
+    {
+        real[index] *= index / (size.x * duration);
+        real[size.x - index - 1] *= index / (size.x * duration);
+    }
+}
+
 // ハニング窓
 float Hanning(int index, uint size)
 {
@@ -262,7 +278,7 @@ void Vibrato(uint index)
 [numthreads(1, 1, 1)]
 void CS(uint3 gID : SV_GroupID, uint3 gtID : SV_GroupThreadID, uint3 disID : SV_DispatchThreadID)
 {
-    Tremolo(gID.x);
+    Fade(gID.x);
 
     AllMemoryBarrierWithGroupSync();
 }

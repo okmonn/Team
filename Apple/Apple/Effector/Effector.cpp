@@ -252,74 +252,6 @@ void Effector::Init(void)
 
 #include <DirectXMath.h>
 
-// 離散フーリエ変換
-void DFT(void)
-{
-	//円周率
-	const float p = 3.14159265f;
-	//データサイズ
-	int size = 64;
-
-	//元データ
-	std::vector<float>origin(size);
-	for (int i = 0; i < size; ++i)
-	{
-		origin[i] = 0.25f * sinf(2.0f * p * 250.0f * i / 8000);
-	}
-
-	auto hanning = [&](const int& index, const int& size)->float {
-		float tmp = 0.0f;
-
-		tmp = (size % 2 == 0) ?
-			//偶数
-			0.5f - 0.5f * cosf(2.0f * p * (float)index / (float)size) :
-			//奇数
-			0.5f - 0.5f * cosf(2.0f * p * ((float)index + 0.5f) / (float)size);
-
-		if (tmp == 0.0f)
-		{
-			tmp = 1.0f;
-		}
-
-		return tmp;
-	};
-
-	//実部
-	std::vector<float>real(size, 0.0f);
-	//虚部
-	std::vector<float>imag(size, 0.0f);
-
-	memcpy(real.data(), origin.data(), sizeof(float) * size);
-
-	//ダミー
-	DirectX::XMFLOAT2 tmp;
-
-	for (int i = 0; i < size; ++i)
-	{
-		for (int n = 0; n < size; ++n)
-		{
-			tmp.x = cosf(2.0f * p * i * n / size);
-			tmp.y = -sinf(2.0f * p * i * n / size);
-
-			real[i] += tmp.x * (origin[n] * 1) - tmp.y * 0.0f;
-			imag[i] += tmp.x * 0.0f            + tmp.y * (origin[n] * 1);
-		}
-	}
-	
-	/* 周波数特性 */
-	for (int i = 0; i < size; ++i)
-	{
-		//振幅スペクトル
-		float a = sqrtf(real[i] * real[i] + imag[i] * imag[i]);
-		//位相スペクトル
-		float d = tanf(imag[i] / real[i]) / 2;
-
-		printf("%f %f\n", a, d);
-	}
-
-	getchar();
-}
-
 // 逆離散フーリエ変換
 void IDFT(const std::vector<float>& real, const std::vector<float>&imag)
 {
@@ -369,8 +301,161 @@ void IDFT(const std::vector<float>& real, const std::vector<float>&imag)
 	{
 		printf("%f %f\n", reReal[i], reImag[i]);
 	}
+}
+
+#include <complex>
+
+// 離散フーリエ変換
+void DFT(void)
+{
+	//円周率
+	const float p = 3.14159265f;
+	//データサイズ
+	int size = 64;
+
+	//元データ
+	std::vector<float>origin(size);
+	for (int i = 0; i < size; ++i)
+	{
+		origin[i] = 0.5f * sinf(2.0f * p * 500.0f * i / 8000);
+	}
+
+	auto hanning = [&](const int& index, const int& size)->float {
+		float tmp = 0.0f;
+
+		tmp = (size % 2 == 0) ?
+			//偶数
+			0.5f - 0.5f * cosf(2.0f * p * (float)index / (float)size) :
+			//奇数
+			0.5f - 0.5f * cosf(2.0f * p * ((float)index + 0.5f) / (float)size);
+
+		if (tmp == 0.0f)
+		{
+			tmp = 1.0f;
+		}
+
+		return tmp;
+	};
+
+	//実部
+	std::vector<float>real(size, 0.0f);
+	//虚部
+	std::vector<float>imag(size, 0.0f);
+
+	memcpy(real.data(), origin.data(), sizeof(float) * size);
+
+	//ダミー
+	DirectX::XMFLOAT2 tmp;
+
+	for (int i = 0; i < size; ++i)
+	{
+		for (int n = 0; n < size; ++n)
+		{
+			tmp.x =  cosf(2.0f * p * i * n / size);
+			tmp.y = -sinf(2.0f * p * i * n / size);
+
+			real[i] += tmp.x * (origin[n] * 1) - tmp.y * 0.0f;
+			imag[i] += tmp.x * 0.0f            + tmp.y * (origin[n] * 1);
+		}
+	}
+	
+	/* 周波数特性 */
+	for (int i = 0; i < size; ++i)
+	{
+		//振幅スペクトル
+		float a = sqrtf(real[i] * real[i] + imag[i] * imag[i]);
+		//位相スペクトル
+		float d = atanf((imag[i] / real[i]));
+	
+		printf("%f %f\n", a, d);
+	}
 
 	getchar();
+}
+
+// フェード
+void Fade(void)
+{
+	//円周率
+	const float p = 3.14159265f;
+	//データサイズ
+	int size = 200;
+
+	//元データ
+	std::vector<float>origin(size);
+	for (int i = 0; i < size; ++i)
+	{
+		origin[i] = 0.25f * sinf(2.0f * p * 250.0f * i / 8000);
+	}
+
+	//適応データ
+	auto s = origin;
+
+	//0.01秒の単調増加・減少
+	for (int i = 0; i < size * 0.01f; ++i)
+	{
+		//先頭から
+		s[i] *= i / (size * 0.01f);
+		//末尾から
+		s[size - i - 1] *= i / (size * 0.01f);
+	}
+
+	origin = s;
+}
+
+// FIR_LPF
+std::vector<float> FIR_LPF(const std::vector<float>&input)
+{
+	std::vector<float>out(input.size());
+
+	//円周率
+	const float p = 3.14159265f;
+	// エッジ周波数
+	float edge = 1000.0f / 44100.0f;
+	//遷移帯域幅
+	float delta = 1000.0f / 44100.0f;
+
+	//遅延器の数
+	int delayer = (3.1f / delta + 0.5f) - 1.0f;
+	if (delayer % 2 != 0)
+	{
+		++delayer;
+	}
+
+	// フィルタ係数
+	int filterCof = delayer + 1;
+
+	auto hanning = [&](const int& index, const int& size)->float {
+		float tmp = 0.0f;
+
+		tmp = (size % 2 == 0) ?
+			//偶数
+			0.5f - 0.5f * cosf(2.0f * p * (float)index / (float)size) :
+			//奇数
+			0.5f - 0.5f * cosf(2.0f * p * ((float)index + 0.5f) / (float)size);
+
+		if (tmp == 0.0f)
+		{
+			tmp = 1.0f;
+		}
+
+		return tmp;
+	};
+
+	std::vector<float>b(filterCof);
+
+	for (int i = 0; i < input.size(); ++i)
+	{
+		for (int n = 0; n < filterCof; ++n)
+		{
+			if (i - n < 0)
+			{
+				continue;
+			}
+
+			out[i] += filterCof * input[i - n];
+		}
+	}
 }
 
 // 実行

@@ -24,7 +24,7 @@ void Application::Create(void)
 	input    = std::make_shared<Input>(win);
 	un       = std::make_shared<Union>(win);
 	effector = std::make_shared<Effector>(un->GetDev(), L"Shader/Effect.hlsl");
-	sound = std::make_shared<Sound>();
+	sound = std::make_shared<Sound>(effector);
 	sound->Load("animal.wav");
 	sound->Play(false);
 }
