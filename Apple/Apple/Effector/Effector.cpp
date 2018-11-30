@@ -463,7 +463,7 @@ std::vector<float> FIR_LPF(const std::vector<float>&input)
 // é¿çs
 void Effector::Execution(const std::vector<float> & wave, std::vector<float> & adaptation, const unsigned int & index, const unsigned int & sample)
 {
-	DFT();
+	//DFT();
 
 	param.attenuation = 0.5f;
 	param.time = 0.375f;

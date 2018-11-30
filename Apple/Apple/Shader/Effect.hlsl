@@ -137,7 +137,7 @@ void Fade(uint index)
     origin.GetDimensions(size.x, size.y);
 
     //“K‰ŠÔ
-    float duration = 0.01f;
+    float duration = 0.5f;
     if(index < size.x * duration)
     {
         real[index] *= index / (size.x * duration);
