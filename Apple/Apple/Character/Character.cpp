@@ -1,19 +1,20 @@
-#include "Scene.h"
+#include "Character.h"
+#include "../Input/Input.h"
 #include "../Union/Union.h"
 
 // コンストラクタ
-Scene::Scene()
+Character::Character()
 {
 	img.clear();
 }
 
 // デストラクタ
-Scene::~Scene()
+Character::~Character()
 {
 }
 
 // 画像の読み込み
-void Scene::Load(const std::string & fileName, const std::string & name)
+void Character::Load(const std::string & fileName, const std::string & name)
 {
 	if (img.find(name) != img.end())
 	{
@@ -24,7 +25,7 @@ void Scene::Load(const std::string & fileName, const std::string & name)
 }
 
 // 画像の描画
-void Scene::DrawImg(const std::string & name, const float & x, const float & y, const float & sizeX, const float & sizeY, 
+void Character::DrawImg(const std::string & name, const float & x, const float & y, const float & sizeX, const float & sizeY, 
 	const float & rectX, const float & rectY, const float & rectSizeX, const float & rectSizeY, 
 	const float & alpha, const bool & turnX, const bool & turnY)
 {

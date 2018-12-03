@@ -73,16 +73,18 @@ public:
 	// 読み込み
 	void Load(const std::string& fileName, int& i);
 
+	// 配列データから画像を生成
+	void CreateImg(const std::vector<unsigned char>&data, const unsigned int& width, const unsigned int& height, int& i);
+
 	// 描画
-	void Draw(std::weak_ptr<List>list, int& i, const DirectX::XMFLOAT2& pos, const DirectX::XMFLOAT2& size, 
-		const DirectX::XMFLOAT2& uvPos, const DirectX::XMFLOAT2& uvSize, const float& alpha = 1.0f, 
+	void Draw(std::weak_ptr<List>list, int& i, const DirectX::XMFLOAT2& pos, const DirectX::XMFLOAT2& size,
+		const DirectX::XMFLOAT2& uvPos, const DirectX::XMFLOAT2& uvSize, const float& alpha = 1.0f,
 		const bool& turnX = false, const bool& turnY = false);
 
 	// 削除
 	void Delete(int& i);
 
 private:
-	float a;
 	// 頂点のセット
 	void SetVertex(void);
 
@@ -92,11 +94,17 @@ private:
 	// 定数バッファビューの生成
 	void CreateConView(int* i);
 
+	// シェーダーリソースの生成
+	long CreateShaderRsc(int* i, const unsigned int& width, const unsigned int& height);
+
 	// シェーダーリソースビューの生成
 	void CreateShaderView(int* i);
 
 	// サブリソースに書き込み
 	long WriteSub(int* i);
+
+	// 作成テクスチャのサブリソースに書き込み
+	long WriteSub(int* i, const std::vector<unsigned char>&data);
 
 	// 定数バッファのマップ
 	long MapCon(int* i);

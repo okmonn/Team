@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Application\Application.cpp" />
+    <ClCompile Include="Character\Character.cpp" />
     <ClCompile Include="Depth\Depth.cpp" />
     <ClCompile Include="DescriptorMane\DescriptorMane.cpp" />
     <ClCompile Include="Device\Device.cpp" />
@@ -40,7 +41,9 @@
     <ClCompile Include="Render\Render.cpp" />
     <ClCompile Include="Root\Root.cpp" />
     <ClCompile Include="Root\RootMane.cpp" />
+    <ClCompile Include="Scene\Over.cpp" />
     <ClCompile Include="Scene\Play.cpp" />
+    <ClCompile Include="Scene\Result.cpp" />
     <ClCompile Include="Scene\Scene.cpp" />
     <ClCompile Include="Scene\Title.cpp" />
     <ClCompile Include="Sound\Sound.cpp" />
@@ -56,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Application\Application.h" />
+    <ClInclude Include="Character\Character.h" />
     <ClInclude Include="Depth\Depth.h" />
     <ClInclude Include="DescriptorMane\DescriptorMane.h" />
     <ClInclude Include="Device\Device.h" />
@@ -78,7 +82,9 @@
     <ClInclude Include="Render\Render.h" />
     <ClInclude Include="Root\Root.h" />
     <ClInclude Include="Root\RootMane.h" />
+    <ClInclude Include="Scene\Over.h" />
     <ClInclude Include="Scene\Play.h" />
+    <ClInclude Include="Scene\Result.h" />
     <ClInclude Include="Scene\Scene.h" />
     <ClInclude Include="Scene\Title.h" />
     <ClInclude Include="Sound\Destroy.h" />

@@ -27,10 +27,6 @@ void Application::Create(void)
 	effector = std::make_shared<Effector>(un->GetDev(), L"Shader/Effect.hlsl");
 	
 	game     = std::make_shared<Game>(input, un);
-
-	sound = std::make_shared<Sound>(effector);
-	sound->Load("animal.wav");
-	sound->Play(false);
 }
 
 // メッセージの確認

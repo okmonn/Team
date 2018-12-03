@@ -100,6 +100,15 @@
     <Filter Include="Scene\Play">
       <UniqueIdentifier>{5df67471-a6cf-44af-bd38-c52d88a53f10}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Scene\Result">
+      <UniqueIdentifier>{3e975ffd-70f9-49da-b769-158f8680e85d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scene\Over">
+      <UniqueIdentifier>{a7a84a77-75b2-4321-8b9e-1400db69aa50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character">
+      <UniqueIdentifier>{bee15c90-f776-4b40-bb3a-573cb5d07c09}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -203,6 +212,15 @@
     </ClCompile>
     <ClCompile Include="Scene\Play.cpp">
       <Filter>Scene\Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Result.cpp">
+      <Filter>Scene\Result</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Over.cpp">
+      <Filter>Scene\Over</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Character.cpp">
+      <Filter>Character</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -325,6 +343,15 @@
     </ClInclude>
     <ClInclude Include="Scene\Play.h">
       <Filter>Scene\Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Result.h">
+      <Filter>Scene\Result</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Over.h">
+      <Filter>Scene\Over</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Character.h">
+      <Filter>Character</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
