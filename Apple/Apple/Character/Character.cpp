@@ -46,24 +46,31 @@ int Character::LoadInfo(const std::string & fileName)
 		return -1;
 	}
 
+	//ステータス数
+	unsigned int stNum = 0;
+	fread(&stNum, sizeof(stNum), 1, file);
+
 	Info info{};
-	fread(&info.stNameNum, sizeof(info.stNameNum), 1, file);
-	info.st.resize(info.stNameNum);
-	fread(&info.st[0], info.stNameNum, 1, file);
-
-	fread(&info.animTime, sizeof(info.animTime), 1, file);
-	animTime[info.st] = info.animTime;
-
-	fread(&info.animNum, sizeof(info.animNum), 1, file);
-
-	rect[info.st].resize(info.animNum);
-	Dummy dummy{};
-	for (auto& i : rect[info.st])
+	for (unsigned int cnt = 0; cnt < stNum; ++cnt)
 	{
-		fread(&dummy, sizeof(dummy), 1, file);
+		fread(&info.stNameNum, sizeof(info.stNameNum), 1, file);
+		info.st.resize(info.stNameNum);
+		fread(&info.st[0], info.stNameNum, 1, file);
 
-		i.pos  = { (float)dummy.pos.x,  (float)dummy.pos.y };
-		i.size = { (float)dummy.size.x, (float)dummy.size.y };
+		fread(&info.animTime, sizeof(info.animTime), 1, file);
+		animTime[info.st] = info.animTime;
+
+		fread(&info.animNum, sizeof(info.animNum), 1, file);
+
+		rect[info.st].resize(info.animNum);
+		Dummy dummy{};
+		for (auto& i : rect[info.st])
+		{
+			fread(&dummy, sizeof(dummy), 1, file);
+
+			i.pos = { (float)dummy.pos.x,  (float)dummy.pos.y };
+			i.size = { (float)dummy.size.x, (float)dummy.size.y };
+		}
 	}
 
 	fclose(file);

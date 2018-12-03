@@ -106,7 +106,7 @@ protected:
 	float speed;
 
 	// アニメーションフレーム
-	unsigned int flam;
+	float flam;
 
 	// アニメーションインデックス
 	unsigned int index;

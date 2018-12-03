@@ -17,5 +17,6 @@ public:
 	void Draw(void);
 
 private:
-
+	// 矩形情報のファイルの作成
+	int CreateInfo(const std::string& fileName);
 };

@@ -1,6 +1,8 @@
 #pragma once
 #include "Scene.h"
 
+class Player;
+
 class Play :
 	public Scene
 {
@@ -17,5 +19,10 @@ public:
 	void Draw(void);
 
 private:
+	// クラスのインスタンス
+	void Create(void);
 
+
+	// プレイヤー
+	std::shared_ptr<Player>pl;
 };
