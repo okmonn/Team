@@ -17,5 +17,19 @@ public:
 	void Draw(void);
 
 private:
+	// キーの入力
+	bool CheckKey(const int& i);
 
+	// トリガーの入力
+	bool Triger(const int& i);
+
+	// 待機時の処理
+	void Wait(void);
+
+	// 歩き時の処理
+	void Walk(void);
+
+
+	// 関数ポインタ
+	void(Player::*updata)(void);
 };

@@ -57,7 +57,7 @@ Out VS(Input input)
 
     input.pos    = mul(mtx, input.pos);
     input.pos.xy = float2(-1.0f, 1.0f) + (input.pos.xy / float2((window.x / 2.0f), -(window.y / 2.0f)));
-    input.uv = (input.uv * reverse * uvSize + uvPos) / size;
+    input.uv     = (input.uv * reverse * uvSize + uvPos) / size;
 
     Out o;
     o.svpos = input.pos;
@@ -70,6 +70,8 @@ Out VS(Input input)
 // ピクセルシェーダ
 float4 PS(Out o) : SV_TARGET
 {
+    //return float4(o.uv, 0, 1);
+
     float a = tex.Sample(smp, o.uv).a * alpha;
     if (a <= 0.0f)
     {

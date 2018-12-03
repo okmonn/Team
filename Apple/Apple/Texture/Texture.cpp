@@ -28,7 +28,6 @@ Texture::~Texture()
 	for (auto itr = tex.begin(); itr != tex.end(); ++itr)
 	{
 		descMane.GetRsc(itr->second.cRsc)->Unmap(0, nullptr);
-		Release(itr->second.rsc);
 	}
 }
 
@@ -299,10 +298,10 @@ void Texture::Draw(std::weak_ptr<List>list, int & i, const DirectX::XMFLOAT2 & p
 		* DirectX::XMMatrixTranslationFromVector(
 			DirectX::XMLoadFloat2(&DirectX::XMFLOAT2(pos.x, pos.y)))
 	);
-	tex[&i].info->uvPos = uvPos;
-	tex[&i].info->uvSize = uvSize;
+	tex[&i].info->uvPos   = uvPos;
+	tex[&i].info->uvSize  = uvSize;
 	tex[&i].info->reverse = { (turnX) ? -1.0f : 1.0f, (turnY) ? -1.0f : 1.0f };
-	tex[&i].info->alpha = alpha;
+	tex[&i].info->alpha   = alpha;
 
 	auto heap = descMane.GetHeap(i);
 	list.lock()->GetList()->SetDescriptorHeaps(1, &heap);

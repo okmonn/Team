@@ -51,18 +51,25 @@ int Title::CreateInfo(const std::string & fileName)
 		return -1;
 	}
 
+	const std::string state[] = {
+		"wait", "walk", "avoid", "attack1", "attack2", "sliding", "damage"
+	};
+	const unsigned char animCnt[] = {
+		16, 32, 12, 12, 12, 32, 12
+	};
+
 	//ステータス数
-	unsigned int stNum = 1;
+	unsigned int stNum = _countof(state);
 	fwrite(&stNum, sizeof(stNum), 1, file);
 
 	for (unsigned int cnt = 0; cnt < stNum; ++cnt)
 	{
 		//ステータスの文字数
-		unsigned char stNameNum = 4;
+		unsigned char stNameNum = state[cnt].size();
 		fwrite(&stNameNum, sizeof(stNameNum), 1, file);
 
 		//ステータス
-		std::string st = "wait";
+		std::string st = state[cnt];
 		fwrite(&st[0], sizeof(char) * st.size(), 1, file);
 
 		//アニメーション時間
@@ -70,7 +77,7 @@ int Title::CreateInfo(const std::string & fileName)
 		fwrite(&animTime, sizeof(animTime), 1, file);
 
 		//アニメーション数
-		unsigned char animNum = 16;
+		unsigned char animNum = animCnt[cnt];
 		fwrite(&animNum, sizeof(animNum), 1, file);
 
 		//矩形座標・矩形サイズ

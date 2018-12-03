@@ -12,7 +12,7 @@ struct Dummy {
 
 // コンストラクタ
 Character::Character() : 
-	flam(0), index(0), st("wait")
+	flam(0), index(0), st("wait"), reverse(false)
 {
 	rect.clear();
 	animTime.clear();
@@ -113,8 +113,8 @@ bool Character::CheckAnimEnd(void)
 
 // 画像の描画
 void Character::DrawImg(const std::string & name, const float & x, const float & y, const float & sizeX, const float & sizeY, 
-	const float & alpha, const bool & turnX, const bool & turnY)
+	const float & alpha, const bool & turnY)
 {
 	un.lock()->DrawImg(img[name], x, y, sizeX, sizeY, rect[st][index].pos.x, rect[st][index].pos.y, 
-		rect[st][index].size.x, rect[st][index].size.y, alpha, turnX, turnY);
+		rect[st][index].size.x, rect[st][index].size.y, alpha, reverse, turnY);
 }

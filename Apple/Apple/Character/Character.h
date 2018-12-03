@@ -84,7 +84,7 @@ protected:
 
 	// 画像の描画
 	void DrawImg(const std::string& name, const float& x, const float& y, const float& sizeX, const float& sizeY,
-		const float& alpha = 1.0f, const bool& turnX = false, const bool& turnY = false);
+		const float& alpha = 1.0f, const bool& turnY = false);
 
 
 	// インプット
@@ -113,6 +113,9 @@ protected:
 
 	// ステータス
 	std::string st;
+
+	// 反転フラグ
+	bool reverse;
 
 	// 矩形情報
 	std::unordered_map<std::string, std::vector<Rect>>rect;
