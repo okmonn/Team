@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Application\Application.cpp" />
     <ClCompile Include="Character\Character.cpp" />
+    <ClCompile Include="Character\Player.cpp" />
     <ClCompile Include="Depth\Depth.cpp" />
     <ClCompile Include="DescriptorMane\DescriptorMane.cpp" />
     <ClCompile Include="Device\Device.cpp" />
@@ -60,6 +61,7 @@
   <ItemGroup>
     <ClInclude Include="Application\Application.h" />
     <ClInclude Include="Character\Character.h" />
+    <ClInclude Include="Character\Player.h" />
     <ClInclude Include="Depth\Depth.h" />
     <ClInclude Include="DescriptorMane\DescriptorMane.h" />
     <ClInclude Include="Device\Device.h" />
@@ -68,6 +70,7 @@
     <ClInclude Include="etc\KeyData.h" />
     <ClInclude Include="etc\Release.h" />
     <ClInclude Include="etc\tString.h" />
+    <ClInclude Include="etc\Vector2.h" />
     <ClInclude Include="Fence\Fence.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Input\Input.h" />
@@ -98,7 +101,6 @@
     <ClInclude Include="Texture\TextureLoader.h" />
     <ClInclude Include="Texture\WICTextureLoader12.h" />
     <ClInclude Include="Union\Union.h" />
-    <ClInclude Include="Vector2.h" />
     <ClInclude Include="Window\Icon.h" />
     <ClInclude Include="Window\Window.h" />
   </ItemGroup>

@@ -109,6 +109,9 @@
     <Filter Include="Character">
       <UniqueIdentifier>{bee15c90-f776-4b40-bb3a-573cb5d07c09}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Character\Player">
+      <UniqueIdentifier>{4e3c1c39-d771-4d60-8bdb-273c98994075}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -222,6 +225,9 @@
     <ClCompile Include="Character\Character.cpp">
       <Filter>Character</Filter>
     </ClCompile>
+    <ClCompile Include="Character\Player.cpp">
+      <Filter>Character\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window\Window.h">
@@ -274,9 +280,6 @@
     </ClInclude>
     <ClInclude Include="DescriptorMane\DescriptorMane.h">
       <Filter>DescriptorMane</Filter>
-    </ClInclude>
-    <ClInclude Include="Vector2.h">
-      <Filter>etc</Filter>
     </ClInclude>
     <ClInclude Include="Texture\TextureLoader.h">
       <Filter>Texture</Filter>
@@ -352,6 +355,12 @@
     </ClInclude>
     <ClInclude Include="Character\Character.h">
       <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="etc\Vector2.h">
+      <Filter>etc</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Player.h">
+      <Filter>Character\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
