@@ -59,13 +59,13 @@ int Title::CreateInfo(const std::string & fileName)
 	};
 
 	//ステータス数
-	unsigned int stNum = _countof(state);
+	unsigned char stNum = _countof(state);
 	fwrite(&stNum, sizeof(stNum), 1, file);
 
 	for (unsigned int cnt = 0; cnt < stNum; ++cnt)
 	{
 		//ステータスの文字数
-		unsigned char stNameNum = state[cnt].size();
+		unsigned char stNameNum = (unsigned char)state[cnt].size();
 		fwrite(&stNameNum, sizeof(stNameNum), 1, file);
 
 		//ステータス
@@ -73,7 +73,7 @@ int Title::CreateInfo(const std::string & fileName)
 		fwrite(&st[0], sizeof(char) * st.size(), 1, file);
 
 		//アニメーション時間
-		float animTime = 10.0f;
+		float animTime = 5.0f;
 		fwrite(&animTime, sizeof(animTime), 1, file);
 
 		//アニメーション数

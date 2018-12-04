@@ -300,7 +300,7 @@ void Texture::Draw(std::weak_ptr<List>list, int & i, const DirectX::XMFLOAT2 & p
 	);
 	tex[&i].info->uvPos   = uvPos;
 	tex[&i].info->uvSize  = uvSize;
-	tex[&i].info->reverse = { (turnX) ? -1.0f : 1.0f, (turnY) ? -1.0f : 1.0f };
+	tex[&i].info->reverse = { (turnX) ? 1.0f : 0.0f, (turnY) ? 1.0f : 0.0f };
 	tex[&i].info->alpha   = alpha;
 
 	auto heap = descMane.GetHeap(i);

@@ -112,6 +112,24 @@
     <Filter Include="Character\Player">
       <UniqueIdentifier>{4e3c1c39-d771-4d60-8bdb-273c98994075}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Window\Icon">
+      <UniqueIdentifier>{3a1d7b6c-554e-4b21-99d4-38f05df0662e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture\TextureLoader">
+      <UniqueIdentifier>{6af99c89-5a0d-4168-9f67-9ca4e8102063}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Texture\WIC">
+      <UniqueIdentifier>{115b2635-e257-4eaf-bb00-9abc3b088089}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="etc\Func">
+      <UniqueIdentifier>{2cba1bcc-997a-40c7-84d1-e559e6986d83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pipe\PipeMane">
+      <UniqueIdentifier>{ab097589-e8a6-4c04-9f83-7b8bf578d1c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Root\RootMane">
+      <UniqueIdentifier>{e0bfbc2e-17d4-43d3-8c30-208e1e6e1b42}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -147,32 +165,17 @@
     <ClCompile Include="Depth\Depth.cpp">
       <Filter>Depth</Filter>
     </ClCompile>
-    <ClCompile Include="etc\Func.cpp">
-      <Filter>etc</Filter>
-    </ClCompile>
     <ClCompile Include="Input\Input.cpp">
       <Filter>Input</Filter>
     </ClCompile>
     <ClCompile Include="DescriptorMane\DescriptorMane.cpp">
       <Filter>DescriptorMane</Filter>
     </ClCompile>
-    <ClCompile Include="Texture\WICTextureLoader12.cpp">
-      <Filter>Texture</Filter>
-    </ClCompile>
     <ClCompile Include="Texture\Texture.cpp">
       <Filter>Texture</Filter>
     </ClCompile>
-    <ClCompile Include="Texture\TextureLoader.cpp">
-      <Filter>Texture</Filter>
-    </ClCompile>
-    <ClCompile Include="Root\RootMane.cpp">
-      <Filter>Root</Filter>
-    </ClCompile>
     <ClCompile Include="Root\Root.cpp">
       <Filter>Root</Filter>
-    </ClCompile>
-    <ClCompile Include="Pipe\PipeMane.cpp">
-      <Filter>Pipe</Filter>
     </ClCompile>
     <ClCompile Include="Pipe\Pipe.cpp">
       <Filter>Pipe</Filter>
@@ -228,6 +231,21 @@
     <ClCompile Include="Character\Player.cpp">
       <Filter>Character\Player</Filter>
     </ClCompile>
+    <ClCompile Include="Texture\TextureLoader.cpp">
+      <Filter>Texture\TextureLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture\WICTextureLoader12.cpp">
+      <Filter>Texture\WIC</Filter>
+    </ClCompile>
+    <ClCompile Include="etc\Func.cpp">
+      <Filter>etc\Func</Filter>
+    </ClCompile>
+    <ClCompile Include="Pipe\PipeMane.cpp">
+      <Filter>Pipe\PipeMane</Filter>
+    </ClCompile>
+    <ClCompile Include="Root\RootMane.cpp">
+      <Filter>Root\RootMane</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window\Window.h">
@@ -235,9 +253,6 @@
     </ClInclude>
     <ClInclude Include="etc\tString.h">
       <Filter>etc</Filter>
-    </ClInclude>
-    <ClInclude Include="Window\Icon.h">
-      <Filter>Window</Filter>
     </ClInclude>
     <ClInclude Include="Application\Application.h">
       <Filter>Application</Filter>
@@ -269,9 +284,6 @@
     <ClInclude Include="Depth\Depth.h">
       <Filter>Depth</Filter>
     </ClInclude>
-    <ClInclude Include="etc\Func.h">
-      <Filter>etc</Filter>
-    </ClInclude>
     <ClInclude Include="Input\Input.h">
       <Filter>Input</Filter>
     </ClInclude>
@@ -281,23 +293,11 @@
     <ClInclude Include="DescriptorMane\DescriptorMane.h">
       <Filter>DescriptorMane</Filter>
     </ClInclude>
-    <ClInclude Include="Texture\TextureLoader.h">
-      <Filter>Texture</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture\WICTextureLoader12.h">
-      <Filter>Texture</Filter>
-    </ClInclude>
     <ClInclude Include="Texture\Texture.h">
       <Filter>Texture</Filter>
     </ClInclude>
-    <ClInclude Include="Root\RootMane.h">
-      <Filter>Root</Filter>
-    </ClInclude>
     <ClInclude Include="Root\Root.h">
       <Filter>Root</Filter>
-    </ClInclude>
-    <ClInclude Include="Pipe\PipeMane.h">
-      <Filter>Pipe</Filter>
     </ClInclude>
     <ClInclude Include="Pipe\Pipe.h">
       <Filter>Pipe</Filter>
@@ -362,11 +362,24 @@
     <ClInclude Include="Character\Player.h">
       <Filter>Character\Player</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="Window\Icon.rc">
-      <Filter>Window</Filter>
-    </ResourceCompile>
+    <ClInclude Include="Window\Icon.h">
+      <Filter>Window\Icon</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture\TextureLoader.h">
+      <Filter>Texture\TextureLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture\WICTextureLoader12.h">
+      <Filter>Texture\WIC</Filter>
+    </ClInclude>
+    <ClInclude Include="etc\Func.h">
+      <Filter>etc\Func</Filter>
+    </ClInclude>
+    <ClInclude Include="Pipe\PipeMane.h">
+      <Filter>Pipe\PipeMane</Filter>
+    </ClInclude>
+    <ClInclude Include="Root\RootMane.h">
+      <Filter>Root\RootMane</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\Texture.hlsl">
@@ -378,5 +391,10 @@
     <FxCompile Include="Shader\Primitive.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Window\Icon.rc">
+      <Filter>Window\Icon</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>

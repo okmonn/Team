@@ -12,7 +12,7 @@ struct Dummy {
 
 // コンストラクタ
 Character::Character() : 
-	flam(0), index(0), st("wait"), reverse(false)
+	speed(2.0f), flam(0), index(0), st("wait"), reverse(false)
 {
 	rect.clear();
 	animTime.clear();
@@ -47,7 +47,7 @@ int Character::LoadInfo(const std::string & fileName)
 	}
 
 	//ステータス数
-	unsigned int stNum = 0;
+	unsigned char stNum = 0;
 	fread(&stNum, sizeof(stNum), 1, file);
 
 	Info info{};

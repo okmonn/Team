@@ -2,6 +2,7 @@
 #include "../etc/Vector2.h"
 #include <string>
 #include <memory>
+#include <functional>
 #include <unordered_map>
 
 class Input;

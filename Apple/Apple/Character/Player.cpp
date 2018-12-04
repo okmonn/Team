@@ -14,12 +14,26 @@ Player::Player(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
 	Load("rsc/img/player.png", "pl");
 	LoadInfo("rsc/info/player.info");
 
-	updata = &Player::Wait;
+	SetFunc();
 }
 
 // デストラクタ
 Player::~Player()
 {
+}
+
+// ステータス毎の処理のセット
+void Player::SetFunc(void)
+{
+	func.clear();
+
+	func["wait"]    = &Player::Wait;
+	func["walk"]    = &Player::Walk;
+	func["avoid"]   = &Player::Avoid;
+	func["attack1"] = &Player::Attack1;
+	func["attack2"] = &Player::Attack2;
+	func["sliding"] = &Player::Sliding;
+	func["damage"]  = &Player::Damage;
 }
 
 // キーの入力
@@ -42,17 +56,21 @@ void Player::Wait(void)
 		return;
 	}
 
+	//ステータスを移動に更新
 	if (CheckKey(INPUT_RIGHT))
 	{
 		reverse = false;
 		SetState("walk");
-		updata = &Player::Walk;
 	}
 	else if(CheckKey(INPUT_LEFT))
 	{
 		reverse = true;
 		SetState("walk");
-		updata = &Player::Walk;
+	}
+	//ステータスを攻撃1に更新
+	else if (CheckKey(INPUT_Z))
+	{
+		SetState("attack1");
 	}
 }
 
@@ -67,15 +85,81 @@ void Player::Walk(void)
 	if (CheckKey(INPUT_RIGHT))
 	{
 		reverse = false;
+		pos.x += speed;
 	}
 	else if (CheckKey(INPUT_LEFT))
 	{
 		reverse = true;
+		pos.x -= speed;
 	}
+	//ステータスを待機に更新
 	else
 	{
 		SetState("wait");
-		updata = &Player::Wait;
+	}
+}
+
+// 回避時の処理
+void Player::Avoid(void)
+{
+	if (st != "avoid")
+	{
+		return;
+	}
+}
+
+// 攻撃1時の処理
+void Player::Attack1(void)
+{
+	if (st != "attack1")
+	{
+		return;
+	}
+
+	if (CheckAnimEnd())
+	{
+		//ステータスを攻撃2に更新
+		if (CheckKey(INPUT_Z))
+		{
+			SetState("attack2");
+			return;
+		}
+
+		//ステータスを待機に更新
+		SetState("wait");
+	}
+}
+
+// 攻撃2時の処理
+void Player::Attack2(void)
+{
+	if (st != "attack2")
+	{
+		return;
+	}
+
+	//ステータスを待機に更新
+	if (CheckAnimEnd())
+	{
+		SetState("wait");
+	}
+}
+
+// スライディング時の処理
+void Player::Sliding(void)
+{
+	if (st != "sliding")
+	{
+		return;
+	}
+}
+
+// ダメージ時の処理
+void Player::Damage(void)
+{
+	if (st != "damage")
+	{
+		return;
 	}
 }
 
@@ -84,7 +168,7 @@ void Player::UpData(void)
 {
 	Animator();
 
-	(this->*updata)();
+	func[st](this);
 }
 
 // 描画

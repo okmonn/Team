@@ -17,6 +17,9 @@ public:
 	void Draw(void);
 
 private:
+	// ステータス毎の処理のセット
+	void SetFunc(void);
+
 	// キーの入力
 	bool CheckKey(const int& i);
 
@@ -29,7 +32,22 @@ private:
 	// 歩き時の処理
 	void Walk(void);
 
+	// 回避時の処理
+	void Avoid(void);
+
+	// 攻撃1時の処理
+	void Attack1(void);
+
+	// 攻撃2時の処理
+	void Attack2(void);
+
+	// スライディング時の処理
+	void Sliding(void);
+
+	// ダメージ時の処理
+	void Damage(void);
+
 
 	// 関数ポインタ
-	void(Player::*updata)(void);
+	std::unordered_map<std::string, std::function<void(Player*)>>func;
 };
