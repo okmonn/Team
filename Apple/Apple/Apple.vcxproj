@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Application\Application.cpp" />
     <ClCompile Include="Character\Character.cpp" />
+    <ClCompile Include="Character\Enemy.cpp" />
     <ClCompile Include="Character\Player.cpp" />
     <ClCompile Include="Depth\Depth.cpp" />
     <ClCompile Include="DescriptorMane\DescriptorMane.cpp" />
@@ -61,6 +62,7 @@
   <ItemGroup>
     <ClInclude Include="Application\Application.h" />
     <ClInclude Include="Character\Character.h" />
+    <ClInclude Include="Character\Enemy.h" />
     <ClInclude Include="Character\Player.h" />
     <ClInclude Include="Depth\Depth.h" />
     <ClInclude Include="DescriptorMane\DescriptorMane.h" />

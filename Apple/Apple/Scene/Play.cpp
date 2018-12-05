@@ -17,6 +17,7 @@ Play::Play(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
 // デストラクタ
 Play::~Play()
 {
+	Delete();
 }
 
 // クラスのインスタンス

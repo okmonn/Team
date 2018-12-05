@@ -89,11 +89,11 @@ void Union::CreatePipe(void)
 // ƒNƒ‰ƒX‚Ì¶¬
 void Union::Create(void)
 {
-	dev = std::make_shared<Device>();
+	dev   = std::make_shared<Device>();
 	queue = std::make_shared<Queue>(dev);
-	list = std::make_shared<List>(dev);
-	swap = std::make_shared<Swap>(win, queue);
-	ren = std::make_unique<Render>(dev, swap);
+	list  = std::make_shared<List>(dev);
+	swap  = std::make_shared<Swap>(win, queue);
+	ren   = std::make_unique<Render>(dev, swap);
 	depth = std::make_unique<Depth>(dev, win.lock()->GetX(), win.lock()->GetY());
 	fence = std::make_unique<Fence>(dev, queue);
 
@@ -192,4 +192,10 @@ void Union::Execution(void)
 	point.clear();
 	line.clear();
 	triangle.clear();
+}
+
+// ‰æ‘œ‚Ìíœ
+void Union::DeleteImg(int & i)
+{
+	tex->Delete(i);
 }

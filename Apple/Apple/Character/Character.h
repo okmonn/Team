@@ -52,11 +52,15 @@ public:
 	}
 	// ローカル座標の取得
 	Vec2f GetLocal(void) const {
-		return local;
+		return lpos;
 	}
 	// ローカル座標のセット
-	void SetLocal(const Vec2f& local) {
-		this->local = local;
+	void SetLocal(const Vec2f& lpos) {
+		this->lpos = lpos;
+	}
+	// 中心ざひょうの取得
+	Vec2f GetCenter(void) const {
+		return pos + size;
 	}
 	// サイズの取得
 	Vec2f GetSize(void) const {
@@ -87,6 +91,9 @@ protected:
 	void DrawImg(const std::string& name, const float& x, const float& y, const float& sizeX, const float& sizeY,
 		const float& alpha = 1.0f, const bool& turnY = false);
 
+	// 画像の削除
+	void Delete(void);
+
 
 	// インプット
 	std::weak_ptr<Input>in;
@@ -98,7 +105,7 @@ protected:
 	Vec2f pos;
 
 	// ローカル座標
-	Vec2f local;
+	Vec2f lpos;
 
 	// サイズ
 	Vec2f size;

@@ -60,6 +60,9 @@ public:
 	// 実行
 	void Execution(void);
 
+	// 画像の削除
+	void DeleteImg(int& i);
+
 	// デバイスの取得
 	std::shared_ptr<Device>GetDev(void) const {
 		return dev;

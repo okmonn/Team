@@ -20,6 +20,7 @@ Player::Player(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
 // デストラクタ
 Player::~Player()
 {
+	Delete();
 }
 
 // ステータス毎の処理のセット

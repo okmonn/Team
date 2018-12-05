@@ -65,5 +65,7 @@ void Application::Draw(void)
 	//‚±‚±‚É•`‰æEˆ—
 	game->Run();
 
+	auto n = un.use_count();
+
 	un->Execution();
 }

@@ -25,6 +25,7 @@ Title::Title(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
 // デストラクタ
 Title::~Title()
 {
+	Delete();
 }
 
 // 処理

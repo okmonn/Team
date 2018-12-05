@@ -36,8 +36,6 @@ public:
 	void DeleteRsc(int& i);
 	// ヒープの削除
 	void DeleteHeap(int& i);
-	// 削除
-	void Delete(int& i);
 
 	// ヒープの取得
 	ID3D12DescriptorHeap* GetHeap(int& i) {
