@@ -130,6 +130,9 @@
     <Filter Include="Root\RootMane">
       <UniqueIdentifier>{e0bfbc2e-17d4-43d3-8c30-208e1e6e1b42}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Character\Enemy">
+      <UniqueIdentifier>{3a356e37-ae77-4dd1-8d83-86e96f650188}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -245,6 +248,9 @@
     </ClCompile>
     <ClCompile Include="Root\RootMane.cpp">
       <Filter>Root\RootMane</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Enemy.cpp">
+      <Filter>Character\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -379,6 +385,9 @@
     </ClInclude>
     <ClInclude Include="Root\RootMane.h">
       <Filter>Root\RootMane</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Enemy.h">
+      <Filter>Character\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
