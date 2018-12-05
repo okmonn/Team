@@ -29,6 +29,9 @@ protected:
 		const float& rectX, const float& rectY, const float& rectSizeX, const float& rectSizeY,
 		const float& alpha = 1.0f, const bool& turnX = false, const bool& turnY = false);
 
+	// 画像の削除
+	void Delete(void);
+
 
 	// インプット
 	std::weak_ptr<Input>in;

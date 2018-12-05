@@ -30,3 +30,12 @@ void Scene::DrawImg(const std::string & name, const float & x, const float & y, 
 {
 	un.lock()->DrawImg(img[name], x, y, sizeX, sizeY, rectX, rectY, rectSizeX, rectSizeY, alpha, turnX, turnY);
 }
+
+// ‰æ‘œ‚Ìíœ
+void Scene::Delete(void)
+{
+	for (auto itr = img.begin(); itr != img.end(); ++itr)
+	{
+		un.lock()->DeleteImg(itr->second);
+	}
+}

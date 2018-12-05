@@ -12,6 +12,7 @@ Game::Game(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
 // デストラクタ
 Game::~Game()
 {
+	scene.reset();
 }
 
 // シーン移行

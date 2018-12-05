@@ -12,6 +12,7 @@ Over::Over(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
 // デストラクタ
 Over::~Over()
 {
+	Delete();
 }
 
 // 処理

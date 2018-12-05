@@ -118,3 +118,12 @@ void Character::DrawImg(const std::string & name, const float & x, const float &
 	un.lock()->DrawImg(img[name], x, y, sizeX, sizeY, rect[st][index].pos.x, rect[st][index].pos.y, 
 		rect[st][index].size.x, rect[st][index].size.y, alpha, reverse, turnY);
 }
+
+// ‰æ‘œ‚Ìíœ
+void Character::Delete(void)
+{
+	for (auto itr = img.begin(); itr != img.end(); ++itr)
+	{
+		un.lock()->DeleteImg(itr->second);
+	}
+}

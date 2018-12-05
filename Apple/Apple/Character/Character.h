@@ -91,6 +91,9 @@ protected:
 	void DrawImg(const std::string& name, const float& x, const float& y, const float& sizeX, const float& sizeY,
 		const float& alpha = 1.0f, const bool& turnY = false);
 
+	// 画像の削除
+	void Delete(void);
+
 
 	// インプット
 	std::weak_ptr<Input>in;

@@ -12,6 +12,7 @@ Result::Result(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
 // デストラクタ
 Result::~Result()
 {
+	Delete();
 }
 
 // 処理
