@@ -133,6 +133,9 @@
     <Filter Include="Character\Enemy">
       <UniqueIdentifier>{3a356e37-ae77-4dd1-8d83-86e96f650188}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{a8f9c940-da1f-4bdb-9f8e-4952bcbb3e89}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -251,6 +254,9 @@
     </ClCompile>
     <ClCompile Include="Character\Enemy.cpp">
       <Filter>Character\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera\Camera.cpp">
+      <Filter>Camera</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -388,6 +394,9 @@
     </ClInclude>
     <ClInclude Include="Character\Enemy.h">
       <Filter>Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera\Camera.h">
+      <Filter>Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

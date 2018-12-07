@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "../Input/Input.h"
 #include "../Union/Union.h"
+#include "../Camera/Camera.h"
 
 // コンストラクタ
 Player::Player(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
@@ -175,5 +176,5 @@ void Player::UpData(void)
 // 描画
 void Player::Draw(void)
 {
-	DrawImg("pl", pos.x, pos.y, size.x, size.y);
+	DrawImg("pl", pos.x + Camera::Get().GetPos().x, pos.y + Camera::Get().GetPos().y, size.x, size.y);
 }

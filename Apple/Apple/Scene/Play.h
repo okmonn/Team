@@ -17,6 +17,7 @@ public:
 
 	// 描画
 	void Draw(void);
+	int a;
 
 private:
 	// クラスのインスタンス

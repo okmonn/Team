@@ -4,13 +4,14 @@
 #include "../Game/Game.h"
 #include "Title.h"
 #include "../Character/Player.h"
+#include "../Camera/Camera.h"
 
 // コンストラクタ
 Play::Play(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
 {
 	this->in = in;
 	this->un = un;
-
+	Camera::Get().Init();
 	Create();
 }
 
@@ -24,26 +25,22 @@ Play::~Play()
 void Play::Create(void)
 {
 	pl = std::make_shared<Player>(in, un);
+	Load("rsc/img/BG.png", "bg");
+	Load("rsc/img/GR.png", "gr");
 }
 
 // 処理
 void Play::UpData(void)
 {
-	{
-		static int i = 0;
-		pl->UpData();
-		if (in.lock()->CheckKey(INPUT_UP))
-		{
-			i--;
-		}
-		if (in.lock()->CheckKey(INPUT_DOWN))
-		{
-			i++;
-		}
-		un.lock()->DrawBox(0, 0, i*2, 48,
-			0.088, 0.5, 0.2, 1);
-	}
-	printf("%.0f\n", pl->GetPos().x);
+	Camera::Get().UpData(pl->GetPos());
+	pl->UpData();
+	DrawImg("gr", 0.0f, 0.0f,
+	640.0f, 480.0f, -Camera::Get().GetPos().x, 0.0f, 640.0f, 480.0f);
+
+	DrawImg("bg", 0.0f, 0.0f,
+		640.0f, 338.0f, -Camera::Get().GetPos().x, 640.0f, 480.0f, 640.0f, 338.0f);
+
+	printf("%.0f:::%.1f\n", pl->GetPos().x,Camera::Get().GetPos().x);
 }
 
 // 描画

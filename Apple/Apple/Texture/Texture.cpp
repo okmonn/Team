@@ -301,7 +301,7 @@ void Texture::CreateImg(const std::vector<unsigned char>& data, const unsigned i
 void Texture::Draw(std::weak_ptr<List>list, int & i, const DirectX::XMFLOAT2 & pos, const DirectX::XMFLOAT2 & size,
 	const DirectX::XMFLOAT2 & uvPos, const DirectX::XMFLOAT2 & uvSize, const float & alpha, const bool & turnX, const bool & turnY)
 {
-	XMStoreFloat4x4(&tex[&i].info->matrix,
+	DirectX::XMStoreFloat4x4(&tex[&i].info->matrix,
 		DirectX::XMMatrixScalingFromVector(DirectX::XMLoadFloat2(
 			&DirectX::XMFLOAT2(size.x / static_cast<float>(win.lock()->GetX()), size.y / static_cast<float>(win.lock()->GetY()))))
 		* DirectX::XMMatrixTranslationFromVector(
