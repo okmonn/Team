@@ -5,12 +5,14 @@
 #include "Title.h"
 #include "../Character/Player.h"
 #include "../Camera/Camera.h"
+#include "../Map/Map.h"
 
 // コンストラクタ
 Play::Play(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
 {
 	this->in = in;
 	this->un = un;
+	map = std::make_shared<Map>();
 	Camera::Get().Init();
 	Create();
 }
@@ -40,7 +42,7 @@ void Play::UpData(void)
 	DrawImg("bg", 0.0f, 0.0f,
 		640.0f, 338.0f, -Camera::Get().GetPos().x, 640.0f, 480.0f, 640.0f, 338.0f);
 
-	printf("%.0f:::%.1f\n", pl->GetPos().x,Camera::Get().GetPos().x);
+	printf("%.0f:::%.1f\n", pl->GetPos().x, pl->GetPos().y);
 }
 
 // 描画

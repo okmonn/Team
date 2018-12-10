@@ -2,7 +2,7 @@
 #include "../Input/Input.h"
 #include "../Union/Union.h"
 #include "../Camera/Camera.h"
-
+#define GROUND_Y (74.0f)
 // コンストラクタ
 Player::Player(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
 {
@@ -58,13 +58,22 @@ void Player::Wait(void)
 		return;
 	}
 
+	if (CheckKey(INPUT_UP))
+	{
+		SetState("walk");
+	}
+	else if (CheckKey(INPUT_DOWN))
+	{
+		SetState("walk");
+	}
+
 	//ステータスを移動に更新
 	if (CheckKey(INPUT_RIGHT))
 	{
 		reverse = false;
 		SetState("walk");
 	}
-	else if(CheckKey(INPUT_LEFT))
+	else if (CheckKey(INPUT_LEFT))
 	{
 		reverse = true;
 		SetState("walk");
@@ -82,6 +91,28 @@ void Player::Walk(void)
 	if (st != "walk")
 	{
 		return;
+	}
+
+	// 移動範囲外判定
+	// if ((pos.y - speed)<移動可能範囲)
+	// {
+	//	pos.y -=0.0f;
+	// }
+
+	if (CheckKey(INPUT_UP))
+	{
+		if ((pos.y - speed)< 0)
+		{
+			pos.y -= 0.0f;
+		}
+		else
+		{
+			pos.y -= speed;
+		}
+	}
+	else if (CheckKey(INPUT_DOWN))
+	{
+		pos.y += speed;
 	}
 
 	if (CheckKey(INPUT_RIGHT))
@@ -104,7 +135,7 @@ void Player::Walk(void)
 // 回避時の処理
 void Player::Avoid(void)
 {
-	if (st != "avoid")
+	if ( st != "avoid" )
 	{
 		return;
 	}
@@ -176,5 +207,5 @@ void Player::UpData(void)
 // 描画
 void Player::Draw(void)
 {
-	DrawImg("pl", pos.x + Camera::Get().GetPos().x, pos.y + Camera::Get().GetPos().y, size.x, size.y);
+	DrawImg("pl", pos.x + Camera::Get().GetPos().x, pos.y + Camera::Get().GetPos().y + GROUND_Y, size.x, size.y);
 }
