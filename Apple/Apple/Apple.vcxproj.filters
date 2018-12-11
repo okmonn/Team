@@ -5,6 +5,126 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{79714e58-28b4-4f4e-a242-a725b1f728bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System">
+      <UniqueIdentifier>{8a136cac-7f4a-44ea-9620-c637d954492d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Application">
+      <UniqueIdentifier>{8b143278-c28b-4fa5-af7a-aa501083f9c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Depth">
+      <UniqueIdentifier>{db7ab169-6a3a-4c92-9f79-5b5736ec967c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\DescriptorMane">
+      <UniqueIdentifier>{8a9e1da1-f5d2-42fe-9f33-3e699996ba1f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Device">
+      <UniqueIdentifier>{e42f872b-2d19-4485-88f7-7721eb49765f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Effector">
+      <UniqueIdentifier>{b2f3db8a-18d4-4b83-a4dd-43f4e734a602}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Fence">
+      <UniqueIdentifier>{dd51554e-c702-4f1e-b9f5-41a7b4497918}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Input">
+      <UniqueIdentifier>{82771ea7-1575-4ca9-92a6-9f766820c023}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\List">
+      <UniqueIdentifier>{9915d22c-5018-4a99-bdf6-bf3abef08078}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Pipe">
+      <UniqueIdentifier>{3a17e734-c982-4b5c-8bf6-bc6c43960bc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Pipe\PipeMane">
+      <UniqueIdentifier>{ab097589-e8a6-4c04-9f83-7b8bf578d1c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Primitive">
+      <UniqueIdentifier>{9bf7056e-d5d5-493a-b88f-881d04486af2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Primitive\Point">
+      <UniqueIdentifier>{6dec1960-ddd7-4774-a1fd-87779650186a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Primitive\Line">
+      <UniqueIdentifier>{6c1df845-10b7-472d-b667-5ede344ec1b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Primitive\Triangle">
+      <UniqueIdentifier>{8837522a-c4cf-4089-bf71-a2164e1fb658}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Queue">
+      <UniqueIdentifier>{6bfc4dbf-e772-4ad6-963e-8ab9da790e80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Render">
+      <UniqueIdentifier>{4215f542-c92f-40c0-8f82-a81d7782ce73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Root">
+      <UniqueIdentifier>{6c8245c5-428d-4c56-8520-34bc790db9d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Root\RootMane">
+      <UniqueIdentifier>{e0bfbc2e-17d4-43d3-8c30-208e1e6e1b42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Sound">
+      <UniqueIdentifier>{3cb0e648-28ec-4725-b657-c2144cb78169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Sound\SoundLoader">
+      <UniqueIdentifier>{d107f19a-ec8f-4fd6-acca-a1fb6a8b5ba1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Sound\XAudio2">
+      <UniqueIdentifier>{6e6761cf-2e6c-49cc-b453-6c37a67148f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Sound\SoundFunc">
+      <UniqueIdentifier>{914fb0e9-6065-4159-9fc8-7e271227d5ce}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Swap">
+      <UniqueIdentifier>{d9d1875b-4c55-4f91-90b2-875b7bb433ba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Texture">
+      <UniqueIdentifier>{d6429587-db40-41ba-89c2-faf6626213d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Texture\TextureLoader">
+      <UniqueIdentifier>{6af99c89-5a0d-4168-9f67-9ca4e8102063}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Texture\WIC">
+      <UniqueIdentifier>{115b2635-e257-4eaf-bb00-9abc3b088089}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Union">
+      <UniqueIdentifier>{6b7b5781-b00c-48df-8bfc-fc92c3823f95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Window">
+      <UniqueIdentifier>{88fec489-e51c-42d1-863b-de4184b40566}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Window\Icon">
+      <UniqueIdentifier>{3a1d7b6c-554e-4b21-99d4-38f05df0662e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scene">
+      <UniqueIdentifier>{fdbbab66-82ce-406b-b688-7ae99d2c77d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scene\Title">
+      <UniqueIdentifier>{6f9ad4d4-af94-407d-a545-47af6200d191}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scene\Play">
+      <UniqueIdentifier>{5df67471-a6cf-44af-bd38-c52d88a53f10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scene\Result">
+      <UniqueIdentifier>{3e975ffd-70f9-49da-b769-158f8680e85d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Scene\Over">
+      <UniqueIdentifier>{a7a84a77-75b2-4321-8b9e-1400db69aa50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Camera">
+      <UniqueIdentifier>{a8f9c940-da1f-4bdb-9f8e-4952bcbb3e89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Character">
+      <UniqueIdentifier>{bee15c90-f776-4b40-bb3a-573cb5d07c09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Character\Player">
+      <UniqueIdentifier>{4e3c1c39-d771-4d60-8bdb-273c98994075}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Character\Enemy">
+      <UniqueIdentifier>{3a356e37-ae77-4dd1-8d83-86e96f650188}</UniqueIdentifier>
+    </Filter>
     <Filter Include="ヘッダー ファイル">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
@@ -13,390 +133,291 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Window">
-      <UniqueIdentifier>{88fec489-e51c-42d1-863b-de4184b40566}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="etc">
+    <Filter Include="System\etc">
       <UniqueIdentifier>{cbf87d64-f8ee-4a8f-b491-c703b0b10da0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Application">
-      <UniqueIdentifier>{8b143278-c28b-4fa5-af7a-aa501083f9c9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Union">
-      <UniqueIdentifier>{6b7b5781-b00c-48df-8bfc-fc92c3823f95}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Device">
-      <UniqueIdentifier>{e42f872b-2d19-4485-88f7-7721eb49765f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Queue">
-      <UniqueIdentifier>{6bfc4dbf-e772-4ad6-963e-8ab9da790e80}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="List">
-      <UniqueIdentifier>{9915d22c-5018-4a99-bdf6-bf3abef08078}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Swap">
-      <UniqueIdentifier>{d9d1875b-4c55-4f91-90b2-875b7bb433ba}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Render">
-      <UniqueIdentifier>{4215f542-c92f-40c0-8f82-a81d7782ce73}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fence">
-      <UniqueIdentifier>{dd51554e-c702-4f1e-b9f5-41a7b4497918}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Depth">
-      <UniqueIdentifier>{db7ab169-6a3a-4c92-9f79-5b5736ec967c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Input">
-      <UniqueIdentifier>{82771ea7-1575-4ca9-92a6-9f766820c023}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="DescriptorMane">
-      <UniqueIdentifier>{8a9e1da1-f5d2-42fe-9f33-3e699996ba1f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Texture">
-      <UniqueIdentifier>{d6429587-db40-41ba-89c2-faf6626213d0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Root">
-      <UniqueIdentifier>{6c8245c5-428d-4c56-8520-34bc790db9d4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Pipe">
-      <UniqueIdentifier>{3a17e734-c982-4b5c-8bf6-bc6c43960bc9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sound">
-      <UniqueIdentifier>{3cb0e648-28ec-4725-b657-c2144cb78169}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sound\SoundLoader">
-      <UniqueIdentifier>{d107f19a-ec8f-4fd6-acca-a1fb6a8b5ba1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sound\XAudio2">
-      <UniqueIdentifier>{6e6761cf-2e6c-49cc-b453-6c37a67148f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Sound\SoundFunc">
-      <UniqueIdentifier>{914fb0e9-6065-4159-9fc8-7e271227d5ce}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Effector">
-      <UniqueIdentifier>{b2f3db8a-18d4-4b83-a4dd-43f4e734a602}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Primitive">
-      <UniqueIdentifier>{9bf7056e-d5d5-493a-b88f-881d04486af2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Primitive\Point">
-      <UniqueIdentifier>{6dec1960-ddd7-4774-a1fd-87779650186a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Primitive\Line">
-      <UniqueIdentifier>{6c1df845-10b7-472d-b667-5ede344ec1b7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Primitive\Triangle">
-      <UniqueIdentifier>{8837522a-c4cf-4089-bf71-a2164e1fb658}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Game">
-      <UniqueIdentifier>{79714e58-28b4-4f4e-a242-a725b1f728bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene">
-      <UniqueIdentifier>{fdbbab66-82ce-406b-b688-7ae99d2c77d3}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\Title">
-      <UniqueIdentifier>{6f9ad4d4-af94-407d-a545-47af6200d191}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\Play">
-      <UniqueIdentifier>{5df67471-a6cf-44af-bd38-c52d88a53f10}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\Result">
-      <UniqueIdentifier>{3e975ffd-70f9-49da-b769-158f8680e85d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Scene\Over">
-      <UniqueIdentifier>{a7a84a77-75b2-4321-8b9e-1400db69aa50}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Character">
-      <UniqueIdentifier>{bee15c90-f776-4b40-bb3a-573cb5d07c09}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Character\Player">
-      <UniqueIdentifier>{4e3c1c39-d771-4d60-8bdb-273c98994075}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Window\Icon">
-      <UniqueIdentifier>{3a1d7b6c-554e-4b21-99d4-38f05df0662e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Texture\TextureLoader">
-      <UniqueIdentifier>{6af99c89-5a0d-4168-9f67-9ca4e8102063}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Texture\WIC">
-      <UniqueIdentifier>{115b2635-e257-4eaf-bb00-9abc3b088089}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="etc\Func">
+    <Filter Include="System\etc\Func">
       <UniqueIdentifier>{2cba1bcc-997a-40c7-84d1-e559e6986d83}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Pipe\PipeMane">
-      <UniqueIdentifier>{ab097589-e8a6-4c04-9f83-7b8bf578d1c1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Root\RootMane">
-      <UniqueIdentifier>{e0bfbc2e-17d4-43d3-8c30-208e1e6e1b42}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Character\Enemy">
-      <UniqueIdentifier>{3a356e37-ae77-4dd1-8d83-86e96f650188}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Camera">
-      <UniqueIdentifier>{a8f9c940-da1f-4bdb-9f8e-4952bcbb3e89}</UniqueIdentifier>
+    <Filter Include="Game\Map">
+      <UniqueIdentifier>{a493505c-317f-4202-b327-7199983f6254}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
-      <Filter>Window</Filter>
+      <Filter>System\Window</Filter>
     </ClCompile>
     <ClCompile Include="Application\Application.cpp">
-      <Filter>Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>ソース ファイル</Filter>
+      <Filter>System\Application</Filter>
     </ClCompile>
     <ClCompile Include="Union\Union.cpp">
-      <Filter>Union</Filter>
+      <Filter>System\Union</Filter>
     </ClCompile>
     <ClCompile Include="Device\Device.cpp">
-      <Filter>Device</Filter>
+      <Filter>System\Device</Filter>
     </ClCompile>
     <ClCompile Include="Queue\Queue.cpp">
-      <Filter>Queue</Filter>
+      <Filter>System\Queue</Filter>
     </ClCompile>
     <ClCompile Include="List\List.cpp">
-      <Filter>List</Filter>
+      <Filter>System\List</Filter>
     </ClCompile>
     <ClCompile Include="Swap\Swap.cpp">
-      <Filter>Swap</Filter>
+      <Filter>System\Swap</Filter>
     </ClCompile>
     <ClCompile Include="Render\Render.cpp">
-      <Filter>Render</Filter>
+      <Filter>System\Render</Filter>
     </ClCompile>
     <ClCompile Include="Fence\Fence.cpp">
-      <Filter>Fence</Filter>
+      <Filter>System\Fence</Filter>
     </ClCompile>
     <ClCompile Include="Depth\Depth.cpp">
-      <Filter>Depth</Filter>
+      <Filter>System\Depth</Filter>
     </ClCompile>
     <ClCompile Include="Input\Input.cpp">
-      <Filter>Input</Filter>
+      <Filter>System\Input</Filter>
     </ClCompile>
     <ClCompile Include="DescriptorMane\DescriptorMane.cpp">
-      <Filter>DescriptorMane</Filter>
+      <Filter>System\DescriptorMane</Filter>
     </ClCompile>
     <ClCompile Include="Texture\Texture.cpp">
-      <Filter>Texture</Filter>
+      <Filter>System\Texture</Filter>
     </ClCompile>
     <ClCompile Include="Root\Root.cpp">
-      <Filter>Root</Filter>
+      <Filter>System\Root</Filter>
     </ClCompile>
     <ClCompile Include="Pipe\Pipe.cpp">
-      <Filter>Pipe</Filter>
+      <Filter>System\Pipe</Filter>
     </ClCompile>
     <ClCompile Include="Sound\Sound.cpp">
-      <Filter>Sound</Filter>
+      <Filter>System\Sound</Filter>
     </ClCompile>
     <ClCompile Include="Sound\SoundLoader\SoundLoader.cpp">
-      <Filter>Sound\SoundLoader</Filter>
+      <Filter>System\Sound\SoundLoader</Filter>
     </ClCompile>
     <ClCompile Include="Sound\XAudio2\XAudio2.cpp">
-      <Filter>Sound\XAudio2</Filter>
+      <Filter>System\Sound\XAudio2</Filter>
     </ClCompile>
     <ClCompile Include="Sound\SoundFunc\SoundFunc.cpp">
-      <Filter>Sound\SoundFunc</Filter>
+      <Filter>System\Sound\SoundFunc</Filter>
     </ClCompile>
     <ClCompile Include="Effector\Effector.cpp">
-      <Filter>Effector</Filter>
+      <Filter>System\Effector</Filter>
     </ClCompile>
     <ClCompile Include="Primitive\Primitive.cpp">
-      <Filter>Primitive</Filter>
+      <Filter>System\Primitive</Filter>
     </ClCompile>
     <ClCompile Include="Primitive\Point.cpp">
-      <Filter>Primitive\Point</Filter>
+      <Filter>System\Primitive\Point</Filter>
     </ClCompile>
     <ClCompile Include="Primitive\Line.cpp">
-      <Filter>Primitive\Line</Filter>
+      <Filter>System\Primitive\Line</Filter>
     </ClCompile>
     <ClCompile Include="Primitive\Triangle.cpp">
-      <Filter>Primitive\Triangle</Filter>
+      <Filter>System\Primitive\Triangle</Filter>
     </ClCompile>
     <ClCompile Include="Game\Game.cpp">
       <Filter>Game</Filter>
     </ClCompile>
     <ClCompile Include="Scene\Scene.cpp">
-      <Filter>Scene</Filter>
+      <Filter>Game\Scene</Filter>
     </ClCompile>
     <ClCompile Include="Scene\Title.cpp">
-      <Filter>Scene\Title</Filter>
+      <Filter>Game\Scene\Title</Filter>
     </ClCompile>
     <ClCompile Include="Scene\Play.cpp">
-      <Filter>Scene\Play</Filter>
+      <Filter>Game\Scene\Play</Filter>
     </ClCompile>
     <ClCompile Include="Scene\Result.cpp">
-      <Filter>Scene\Result</Filter>
+      <Filter>Game\Scene\Result</Filter>
     </ClCompile>
     <ClCompile Include="Scene\Over.cpp">
-      <Filter>Scene\Over</Filter>
+      <Filter>Game\Scene\Over</Filter>
     </ClCompile>
     <ClCompile Include="Character\Character.cpp">
-      <Filter>Character</Filter>
+      <Filter>Game\Character</Filter>
     </ClCompile>
     <ClCompile Include="Character\Player.cpp">
-      <Filter>Character\Player</Filter>
+      <Filter>Game\Character\Player</Filter>
     </ClCompile>
     <ClCompile Include="Texture\TextureLoader.cpp">
-      <Filter>Texture\TextureLoader</Filter>
+      <Filter>System\Texture\TextureLoader</Filter>
     </ClCompile>
     <ClCompile Include="Texture\WICTextureLoader12.cpp">
-      <Filter>Texture\WIC</Filter>
+      <Filter>System\Texture\WIC</Filter>
     </ClCompile>
     <ClCompile Include="etc\Func.cpp">
-      <Filter>etc\Func</Filter>
+      <Filter>System\etc\Func</Filter>
     </ClCompile>
     <ClCompile Include="Pipe\PipeMane.cpp">
-      <Filter>Pipe\PipeMane</Filter>
+      <Filter>System\Pipe\PipeMane</Filter>
     </ClCompile>
     <ClCompile Include="Root\RootMane.cpp">
-      <Filter>Root\RootMane</Filter>
+      <Filter>System\Root\RootMane</Filter>
     </ClCompile>
     <ClCompile Include="Character\Enemy.cpp">
-      <Filter>Character\Enemy</Filter>
+      <Filter>Game\Character\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="Camera\Camera.cpp">
-      <Filter>Camera</Filter>
+      <Filter>Game\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Map\Map.cpp">
+      <Filter>Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Map\Ground.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Window\Window.h">
-      <Filter>Window</Filter>
+      <Filter>System\Window</Filter>
     </ClInclude>
     <ClInclude Include="etc\tString.h">
-      <Filter>etc</Filter>
+      <Filter>System\etc</Filter>
     </ClInclude>
     <ClInclude Include="Application\Application.h">
-      <Filter>Application</Filter>
+      <Filter>System\Application</Filter>
     </ClInclude>
     <ClInclude Include="Union\Union.h">
-      <Filter>Union</Filter>
+      <Filter>System\Union</Filter>
     </ClInclude>
     <ClInclude Include="Device\Device.h">
-      <Filter>Device</Filter>
+      <Filter>System\Device</Filter>
     </ClInclude>
     <ClInclude Include="etc\Release.h">
-      <Filter>etc</Filter>
+      <Filter>System\etc</Filter>
     </ClInclude>
     <ClInclude Include="Queue\Queue.h">
-      <Filter>Queue</Filter>
+      <Filter>System\Queue</Filter>
     </ClInclude>
     <ClInclude Include="List\List.h">
-      <Filter>List</Filter>
+      <Filter>System\List</Filter>
     </ClInclude>
     <ClInclude Include="Swap\Swap.h">
-      <Filter>Swap</Filter>
+      <Filter>System\Swap</Filter>
     </ClInclude>
     <ClInclude Include="Render\Render.h">
-      <Filter>Render</Filter>
+      <Filter>System\Render</Filter>
     </ClInclude>
     <ClInclude Include="Fence\Fence.h">
-      <Filter>Fence</Filter>
+      <Filter>System\Fence</Filter>
     </ClInclude>
     <ClInclude Include="Depth\Depth.h">
-      <Filter>Depth</Filter>
+      <Filter>System\Depth</Filter>
     </ClInclude>
     <ClInclude Include="Input\Input.h">
-      <Filter>Input</Filter>
+      <Filter>System\Input</Filter>
     </ClInclude>
     <ClInclude Include="etc\KeyData.h">
-      <Filter>etc</Filter>
+      <Filter>System\etc</Filter>
     </ClInclude>
     <ClInclude Include="DescriptorMane\DescriptorMane.h">
-      <Filter>DescriptorMane</Filter>
+      <Filter>System\DescriptorMane</Filter>
     </ClInclude>
     <ClInclude Include="Texture\Texture.h">
-      <Filter>Texture</Filter>
+      <Filter>System\Texture</Filter>
     </ClInclude>
     <ClInclude Include="Root\Root.h">
-      <Filter>Root</Filter>
+      <Filter>System\Root</Filter>
     </ClInclude>
     <ClInclude Include="Pipe\Pipe.h">
-      <Filter>Pipe</Filter>
+      <Filter>System\Pipe</Filter>
     </ClInclude>
     <ClInclude Include="Sound\Sound.h">
-      <Filter>Sound</Filter>
+      <Filter>System\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Sound\Destroy.h">
-      <Filter>Sound</Filter>
+      <Filter>System\Sound</Filter>
     </ClInclude>
     <ClInclude Include="Sound\SoundLoader\SoundLoader.h">
-      <Filter>Sound\SoundLoader</Filter>
+      <Filter>System\Sound\SoundLoader</Filter>
     </ClInclude>
     <ClInclude Include="Sound\XAudio2\XAudio2.h">
-      <Filter>Sound\XAudio2</Filter>
+      <Filter>System\Sound\XAudio2</Filter>
     </ClInclude>
     <ClInclude Include="Sound\XAudio2\VoiceCallback.h">
-      <Filter>Sound\XAudio2</Filter>
+      <Filter>System\Sound\XAudio2</Filter>
     </ClInclude>
     <ClInclude Include="Sound\SoundFunc\SoundFunc.h">
-      <Filter>Sound\SoundFunc</Filter>
+      <Filter>System\Sound\SoundFunc</Filter>
     </ClInclude>
     <ClInclude Include="Effector\Effector.h">
-      <Filter>Effector</Filter>
+      <Filter>System\Effector</Filter>
     </ClInclude>
     <ClInclude Include="Primitive\Primitive.h">
-      <Filter>Primitive</Filter>
+      <Filter>System\Primitive</Filter>
     </ClInclude>
     <ClInclude Include="Primitive\Point.h">
-      <Filter>Primitive\Point</Filter>
+      <Filter>System\Primitive\Point</Filter>
     </ClInclude>
     <ClInclude Include="Primitive\Line.h">
-      <Filter>Primitive\Line</Filter>
+      <Filter>System\Primitive\Line</Filter>
     </ClInclude>
     <ClInclude Include="Primitive\Triangle.h">
-      <Filter>Primitive\Triangle</Filter>
+      <Filter>System\Primitive\Triangle</Filter>
     </ClInclude>
     <ClInclude Include="Game\Game.h">
       <Filter>Game</Filter>
     </ClInclude>
     <ClInclude Include="Scene\Scene.h">
-      <Filter>Scene</Filter>
+      <Filter>Game\Scene</Filter>
     </ClInclude>
     <ClInclude Include="Scene\Title.h">
-      <Filter>Scene\Title</Filter>
+      <Filter>Game\Scene\Title</Filter>
     </ClInclude>
     <ClInclude Include="Scene\Play.h">
-      <Filter>Scene\Play</Filter>
+      <Filter>Game\Scene\Play</Filter>
     </ClInclude>
     <ClInclude Include="Scene\Result.h">
-      <Filter>Scene\Result</Filter>
+      <Filter>Game\Scene\Result</Filter>
     </ClInclude>
     <ClInclude Include="Scene\Over.h">
-      <Filter>Scene\Over</Filter>
+      <Filter>Game\Scene\Over</Filter>
     </ClInclude>
     <ClInclude Include="Character\Character.h">
-      <Filter>Character</Filter>
+      <Filter>Game\Character</Filter>
     </ClInclude>
     <ClInclude Include="etc\Vector2.h">
-      <Filter>etc</Filter>
+      <Filter>System\etc</Filter>
     </ClInclude>
     <ClInclude Include="Character\Player.h">
-      <Filter>Character\Player</Filter>
+      <Filter>Game\Character\Player</Filter>
     </ClInclude>
     <ClInclude Include="Window\Icon.h">
-      <Filter>Window\Icon</Filter>
+      <Filter>System\Window\Icon</Filter>
     </ClInclude>
     <ClInclude Include="Texture\TextureLoader.h">
-      <Filter>Texture\TextureLoader</Filter>
+      <Filter>System\Texture\TextureLoader</Filter>
     </ClInclude>
     <ClInclude Include="Texture\WICTextureLoader12.h">
-      <Filter>Texture\WIC</Filter>
+      <Filter>System\Texture\WIC</Filter>
     </ClInclude>
     <ClInclude Include="etc\Func.h">
-      <Filter>etc\Func</Filter>
+      <Filter>System\etc\Func</Filter>
     </ClInclude>
     <ClInclude Include="Pipe\PipeMane.h">
-      <Filter>Pipe\PipeMane</Filter>
+      <Filter>System\Pipe\PipeMane</Filter>
     </ClInclude>
     <ClInclude Include="Root\RootMane.h">
-      <Filter>Root\RootMane</Filter>
+      <Filter>System\Root\RootMane</Filter>
     </ClInclude>
     <ClInclude Include="Character\Enemy.h">
-      <Filter>Character\Enemy</Filter>
+      <Filter>Game\Character\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="Camera\Camera.h">
-      <Filter>Camera</Filter>
+      <Filter>Game\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="Map\Map.h">
+      <Filter>Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="Map\Ground.h">
+      <Filter>Game\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="etc\Typedef.h">
+      <Filter>System\etc</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -412,7 +433,7 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Window\Icon.rc">
-      <Filter>Window\Icon</Filter>
+      <Filter>System\Window\Icon</Filter>
     </ResourceCompile>
   </ItemGroup>
 </Project>

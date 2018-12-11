@@ -5,7 +5,7 @@ class Ground
 {
 public:
 	Ground() { size = { 0,0 }; }
-	Ground(Vec2f groundSize) { size = groundSize; pos.y = WINDOW_SIZE_Y - size.y; }
+	Ground(Vec2f groundSize) { size = groundSize; pos = {0, WINDOW_SIZE_Y - size.y }; }
 	~Ground(){}
 	Vec2f Getsize() { return size; }
 	void Setsize(Vec2f size) { this->size = size; }

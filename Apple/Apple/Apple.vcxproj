@@ -34,6 +34,8 @@
     <ClCompile Include="Input\Input.cpp" />
     <ClCompile Include="List\List.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Map\Ground.cpp" />
+    <ClCompile Include="Map\Map.cpp" />
     <ClCompile Include="Pipe\Pipe.cpp" />
     <ClCompile Include="Pipe\PipeMane.cpp" />
     <ClCompile Include="Primitive\Line.cpp" />
@@ -74,11 +76,14 @@
     <ClInclude Include="etc\KeyData.h" />
     <ClInclude Include="etc\Release.h" />
     <ClInclude Include="etc\tString.h" />
+    <ClInclude Include="etc\Typedef.h" />
     <ClInclude Include="etc\Vector2.h" />
     <ClInclude Include="Fence\Fence.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Input\Input.h" />
     <ClInclude Include="List\List.h" />
+    <ClInclude Include="Map\Ground.h" />
+    <ClInclude Include="Map\Map.h" />
     <ClInclude Include="Pipe\Pipe.h" />
     <ClInclude Include="Pipe\PipeMane.h" />
     <ClInclude Include="Primitive\Line.h" />

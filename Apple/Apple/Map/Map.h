@@ -8,7 +8,6 @@ class Map {
 public:
 	Map();
 	~Map();
-	std::unique_ptr<Ground> ground;
 	Vec2f GetGroundSize()
 	{
 		return ground->Getsize();
@@ -19,4 +18,6 @@ public:
 	};
 public:
 	Vec2f size;
+	std::unique_ptr<Ground> ground;
+
 };
