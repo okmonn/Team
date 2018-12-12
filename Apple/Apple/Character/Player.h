@@ -1,12 +1,13 @@
 #pragma once
 #include "Character.h"
+class Map;
 
 class Player :
 	public Character
 {
 public:
 	// コンストラクタ
-	Player(std::weak_ptr<Input>in, std::weak_ptr<Union>un);
+	Player(std::weak_ptr<Input>in, std::weak_ptr<Union>un,std::weak_ptr<Map>map);
 	// デストラクタ
 	~Player();
 
@@ -50,4 +51,6 @@ private:
 
 	// 関数ポインタ
 	std::unordered_map<std::string, std::function<void(Player*)>>func;
+	// マップ情報
+	std::weak_ptr<Map>map;
 };

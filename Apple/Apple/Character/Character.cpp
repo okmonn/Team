@@ -1,7 +1,7 @@
 #include "Character.h"
 #include "../Input/Input.h"
 #include "../Union/Union.h"
-
+#include "../etc/Typedef.h"
 // 矩形読み込み用構造体
 struct Dummy {
 	//矩形座標
@@ -12,7 +12,7 @@ struct Dummy {
 
 // コンストラクタ
 Character::Character() : 
-	speed(2.0f), flam(0), index(0), st("wait"), reverse(false)
+	speed(4.0f), flam(0), index(0), st("wait"), reverse(false)
 {
 	rect.clear();
 	animTime.clear();

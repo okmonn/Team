@@ -2,16 +2,17 @@
 #include "../Input/Input.h"
 #include "../Union/Union.h"
 #include "../Camera/Camera.h"
+#include "../Game/Game.h"
+#include "../Map/Map.h"
 #define GROUND_Y (74.0f)
 // コンストラクタ
-Player::Player(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
+Player::Player(std::weak_ptr<Input> in, std::weak_ptr<Union> un, std::weak_ptr<Map>map)
 {
 	this->in = in;
 	this->un = un;
-
-	pos  = { 0.0f, 0.0f };
+	this->map = map;
+	pos  = { 0.0f, this->map.lock()->GetGroundPos().y };
 	size = { 240.0f, 270.0f };
-
 	Load("rsc/img/player.png", "pl");
 	LoadInfo("rsc/info/player.info");
 
@@ -94,14 +95,11 @@ void Player::Walk(void)
 	}
 
 	// 移動範囲外判定
-	// if ((pos.y - speed)<移動可能範囲)
-	// {
-	//	pos.y -=0.0f;
-	// }
 
 	if (CheckKey(INPUT_UP))
 	{
-		if ((pos.y - speed)< 0)
+		//Game::Run();
+		if ((pos.y - speed) < map.lock()->GetGroundPos().y)
 		{
 			pos.y -= 0.0f;
 		}
@@ -200,12 +198,17 @@ void Player::Damage(void)
 void Player::UpData(void)
 {
 	Animator();
-
 	func[st](this);
+
+	lpos = { pos + Camera::Get().GetPos() };
+
 }
 
 // 描画
 void Player::Draw(void)
 {
-	DrawImg("pl", pos.x + Camera::Get().GetPos().x, pos.y + Camera::Get().GetPos().y + GROUND_Y, size.x, size.y);
+
+	DrawImg("pl", lpos.x, lpos.y - size.y, size.x, size.y);
+
+	//DrawImg("pl", pos.x + Camera::Get().GetPos().x, pos.y + Camera::Get().GetPos().y + GROUND_Y, size.x, size.y);
 }

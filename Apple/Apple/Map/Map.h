@@ -1,14 +1,17 @@
 #pragma once
 #include "../etc/Vector2.h"
-#include "Ground.h"
-
 #include <memory>
+#include "Ground.h"
 
 class Map {
 public:
 	Map();
 	~Map();
 	Vec2f GetGroundSize()
+	{
+		return ground->Getsize();
+	};
+	Vec2f GetGroundPos()
 	{
 		return ground->Getsize();
 	};

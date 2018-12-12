@@ -6,6 +6,7 @@
 #include "../Character/Player.h"
 #include "../Camera/Camera.h"
 #include "../Map/Map.h"
+#include "../etc/Typedef.h"
 
 // コンストラクタ
 Play::Play(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
@@ -26,7 +27,7 @@ Play::~Play()
 // クラスのインスタンス
 void Play::Create(void)
 {
-	pl = std::make_shared<Player>(in, un);
+	pl = std::make_shared<Player>(in, un, map);
 	Load("rsc/img/BG.png", "bg");
 	Load("rsc/img/GR.png", "gr");
 }
@@ -37,10 +38,10 @@ void Play::UpData(void)
 	Camera::Get().UpData(pl->GetPos());
 	pl->UpData();
 	DrawImg("gr", 0.0f, 0.0f,
-	640.0f, 480.0f, -Camera::Get().GetPos().x, 0.0f, 640.0f, 480.0f);
+	WINDOW_SIZE_X, WINDOW_SIZE_Y, -Camera::Get().GetPos().x, 0.0f, 640.0f, 480.0f);
 
 	DrawImg("bg", 0.0f, 0.0f,
-		640.0f, 338.0f, -Camera::Get().GetPos().x, 640.0f, 480.0f, 640.0f, 338.0f);
+		WINDOW_SIZE_X, WINDOW_SIZE_Y-200, -Camera::Get().GetPos().x, 640.0f, 480.0f, 640.0f, 338.0f);
 
 	printf("%.0f:::%.1f\n", pl->GetPos().x, pl->GetPos().y);
 }

@@ -1,6 +1,6 @@
 #pragma once
 
 // ウィンドウサイズ 横
-#define WINDOW_SIZE_X (640)
+#define WINDOW_SIZE_X (1280)
 // ウィンドウサイズ 縦
-#define WINDOW_SIZE_Y (480)
+#define WINDOW_SIZE_Y (720)

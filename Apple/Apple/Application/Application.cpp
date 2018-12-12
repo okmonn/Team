@@ -5,6 +5,7 @@
 #include "../Effector/Effector.h"
 #include "../Game/Game.h"
 #include "../Sound/Sound.h"
+#include "../etc/Typedef.h"
 #include <Windows.h>
 
 // コンストラクタ
@@ -21,7 +22,7 @@ Application::~Application()
 // クラスの生成
 void Application::Create(void)
 {
-	win      = std::make_shared<Window>();
+	win      = std::make_shared<Window>(WINDOW_SIZE_X,WINDOW_SIZE_Y);
 	input    = std::make_shared<Input>(win);
 	un       = std::make_shared<Union>(win);
 	effector = std::make_shared<Effector>(un->GetDev(), L"Shader/Effect.hlsl");

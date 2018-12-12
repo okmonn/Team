@@ -9,6 +9,8 @@ public:
 	~Ground(){}
 	Vec2f Getsize() { return size; }
 	void Setsize(Vec2f size) { this->size = size; }
+	Vec2f Getpos() { return pos; }
+	void Setpos(Vec2f pos) { this->pos = pos; }
 private:
 	//	プレイヤーが移動できる範囲（サイズ）
 	Vec2f size;
