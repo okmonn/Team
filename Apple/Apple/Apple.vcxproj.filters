@@ -142,6 +142,9 @@
     <Filter Include="Game\Map">
       <UniqueIdentifier>{a493505c-317f-4202-b327-7199983f6254}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Item">
+      <UniqueIdentifier>{c4811a6b-b4b3-435c-a76c-932a2d59bcd3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -269,6 +272,9 @@
     </ClCompile>
     <ClCompile Include="Map\Ground.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Item\Item.cpp">
+      <Filter>Game\Item</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -418,6 +424,9 @@
     </ClInclude>
     <ClInclude Include="etc\Typedef.h">
       <Filter>System\etc</Filter>
+    </ClInclude>
+    <ClInclude Include="Item\Item.h">
+      <Filter>Game\Item</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -6,7 +6,7 @@ class Enemy :
 {
 public:
 	// コンストラクタ
-	Enemy();
+	Enemy(Map map);
 	// デストラクタ
 	virtual ~Enemy();
 

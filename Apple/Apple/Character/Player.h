@@ -51,6 +51,4 @@ private:
 
 	// 関数ポインタ
 	std::unordered_map<std::string, std::function<void(Player*)>>func;
-	// マップ情報
-	std::weak_ptr<Map>map;
 };

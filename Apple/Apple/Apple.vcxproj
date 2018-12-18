@@ -32,6 +32,7 @@
     <ClCompile Include="Fence\Fence.cpp" />
     <ClCompile Include="Game\Game.cpp" />
     <ClCompile Include="Input\Input.cpp" />
+    <ClCompile Include="Item\Item.cpp" />
     <ClCompile Include="List\List.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Map\Ground.cpp" />
@@ -81,6 +82,7 @@
     <ClInclude Include="Fence\Fence.h" />
     <ClInclude Include="Game\Game.h" />
     <ClInclude Include="Input\Input.h" />
+    <ClInclude Include="Item\Item.h" />
     <ClInclude Include="List\List.h" />
     <ClInclude Include="Map\Ground.h" />
     <ClInclude Include="Map\Map.h" />

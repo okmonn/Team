@@ -2,6 +2,7 @@
 #include "Scene.h"
 
 class Player;
+class Enemy;
 class Map;
 
 class Play :
@@ -26,6 +27,7 @@ private:
 
 	// プレイヤー
 	std::shared_ptr<Player>pl;
+	std::shared_ptr<Enemy>en;
 
 	// マップ
 	std::shared_ptr<Map>map;

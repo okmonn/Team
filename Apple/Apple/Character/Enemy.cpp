@@ -1,8 +1,10 @@
 #include "Enemy.h"
+#include "../Map/Map.h"
 
 // コンストラクタ
-Enemy::Enemy()
+Enemy::Enemy(Map map)
 {
+	
 }
 
 // デストラクタ

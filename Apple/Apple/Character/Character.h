@@ -7,6 +7,7 @@
 
 class Input;
 class Union;
+class Map;
 
 class Character
 {
@@ -133,4 +134,8 @@ protected:
 
 	// ‰æ‘œID
 	std::unordered_map<std::string, int>img;
+
+	// ƒ}ƒbƒvî•ñ
+	std::weak_ptr<Map>map;
+
 };

@@ -1,6 +1,7 @@
 #include "Character.h"
 #include "../Input/Input.h"
 #include "../Union/Union.h"
+#include "../Map/Map.h"
 #include "../etc/Typedef.h"
 // ‹éŒ`“Ç‚İ‚İ—p\‘¢‘Ì
 struct Dummy {
