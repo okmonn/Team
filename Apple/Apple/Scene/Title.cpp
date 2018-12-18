@@ -3,6 +3,7 @@
 #include "../Input/Input.h"
 #include "../Union/Union.h"
 #include "../Game/Game.h"
+#include "../etc/Typedef.h"
 #include "Play.h"
 
 // ‹éŒ`“Ç‚İ‚İ—p\‘¢‘Ì
@@ -18,7 +19,7 @@ Title::Title(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
 {
 	this->in = in;
 	this->un = un;
-
+	animCnt["startfade"] = -1;
 	CreateInfo("rsc/info/player.info");
 }
 
@@ -31,15 +32,26 @@ Title::~Title()
 // ˆ—
 void Title::UpData(void)
 {
-	if (in.lock()->Triger(INPUT_RETURN))
+	if (animCnt["startfade"] > 0)
+	{
+		animCnt["startfade"]--;
+	}
+	else if(animCnt["startfade"])
 	{
 		Game::ChangeScene(new Play(in, un));
+	}
+	if (in.lock()->Triger(INPUT_RETURN))
+	{
+		animCnt["startfade"] = 24;
+		//Game::ChangeScene(new Play(in, un));
 	}
 }
 
 // •`‰æ
 void Title::Draw(void)
 {
+	un.lock()->DrawBox(0, 0, WINDOW_SIZE_X, WINDOW_SIZE_Y, 1, 0, 1/ animCnt["startfade"]);
+
 	un.lock()->DrawBox(0, 0, 640, 240, 1, 0, 0);
 }
 
