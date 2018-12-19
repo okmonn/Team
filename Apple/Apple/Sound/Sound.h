@@ -3,7 +3,6 @@
 #include <vector>
 #include <memory>
 #include <thread>
-#include <unordered_map>
 
 struct IXAudio2SourceVoice;
 
@@ -11,6 +10,7 @@ class XAudio2;
 class VoiceCallback;
 class SoundLoader;
 class Effector;
+class Filter;
 
 class Sound
 {
@@ -33,6 +33,9 @@ public:
 	// コールバックハンドルの取得
 	void* GetHandle(void) const;
 
+	// ローパスフィルタ
+	void LowPass(float& cutoff, const float& q = sqrtf(2.0f), const float& sample = 44100.0f);
+
 	// 再生終了フラグの取得
 	bool GetEnd(void) const {
 		return end;
@@ -41,23 +44,14 @@ public:
 	unsigned int GetRead(void) const {
 		return read;
 	}
-	// 配列番号の取得
-	unsigned int GetIndex(void) const {
-		return index;
-	}
-	// 波形データの取得
-	std::vector<float> GetWave(void) {
-		return wave[index];
-	}
+	// 波形情報の取得
 	std::vector<float> GetWave(const unsigned int& i) {
 		return wave[i];
 	}
 
 private:
-	Sound(const Sound&);
-	void operator=(const Sound&) {
-	}
-
+	Sound(const Sound&) = delete;
+	void operator=(const Sound&) = delete;
 
 	// ソースボイスの生成
 	long CreateVoice(const std::string& filName);
@@ -66,17 +60,20 @@ private:
 	void Stream(void);
 
 
+	// エフェクター
+	std::weak_ptr<Effector>effe;
+
 	// オーディオ
 	XAudio2& audio;
 
 	// ローダー
 	SoundLoader& loader;
-
-	// エフェクター
-	std::weak_ptr<Effector>effe;
 	
 	// コールバック
 	std::unique_ptr<VoiceCallback>call;
+
+	// フィルター
+	std::unique_ptr<Filter>filter;
 
 	// ソースボイス
 	IXAudio2SourceVoice* voice;
@@ -92,9 +89,6 @@ private:
 
 	// 読み取り配列番号
 	unsigned int read;
-
-	// 配列番号
-	unsigned int index;
 
 	// 読み込みファイル名
 	std::string name;

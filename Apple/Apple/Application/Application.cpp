@@ -2,7 +2,7 @@
 #include "../Window/Window.h"
 #include "../Input/Input.h"
 #include "../Union/Union.h"
-#include "../Effector/Effector.h"
+#include "../Compute/Effector.h"
 #include "../Game/Game.h"
 #include "../Sound/Sound.h"
 #include "../etc/Typedef.h"
@@ -25,7 +25,7 @@ void Application::Create(void)
 	win      = std::make_shared<Window>(WINDOW_SIZE_X,WINDOW_SIZE_Y);
 	input    = std::make_shared<Input>(win);
 	un       = std::make_shared<Union>(win);
-	effector = std::make_shared<Effector>(un->GetDev(), L"Shader/Effect.hlsl");
+	effector = std::make_shared<Effector>(un->GetDev(), L"Shader/SoundEffect.hlsl");
 	
 	game     = std::make_shared<Game>(input, un);
 }
