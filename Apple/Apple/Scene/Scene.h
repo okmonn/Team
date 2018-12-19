@@ -32,6 +32,15 @@ protected:
 	// 画像の削除
 	void Delete(void);
 
+	// 画面フェードイン
+	//引数　s:画面フェードのスピード ,color:カラーコード
+	// 返り値 -1:非描画 0:描画中 1:処理終了
+	int Screen_FadeIn(const float& s, const int& color);
+
+	// 画面フェード
+	//引数　s:画面フェードのスピード ,color:カラーコード
+	// 返り値 -1:非描画 0:描画中 1:処理終了
+	int Screen_FadeOut(const float& s, const int& color);
 
 	// インプット
 	std::weak_ptr<Input>in;

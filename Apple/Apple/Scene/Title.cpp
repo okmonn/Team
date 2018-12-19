@@ -19,7 +19,7 @@ Title::Title(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
 {
 	this->in = in;
 	this->un = un;
-	animCnt["startfade"] = -1;
+	sceneChangeFlg = false;
 	CreateInfo("rsc/info/player.info");
 }
 
@@ -32,29 +32,25 @@ Title::~Title()
 // 処理
 void Title::UpData(void)
 {
-	if (animCnt["startfade"] > 0)
+	if (sceneChangeFlg == true)
 	{
-		animCnt["startfade"]--;
-	}
-	else if(animCnt["startfade"])
-	{
-		Game::ChangeScene(new Play(in, un));
+		if (Screen_FadeOut(0.08, 0x000000) > 0)
+		{
+			Game::ChangeScene(new Play(in, un));
+			return;
+		}
 	}
 	if (in.lock()->Triger(INPUT_RETURN))
 	{
-		animCnt["startfade"] = 24;
-		//Game::ChangeScene(new Play(in, un));
+		sceneChangeFlg = true;
 	}
 }
 
 // 描画
 void Title::Draw(void)
 {
-	un.lock()->DrawBox(0, 0, WINDOW_SIZE_X, WINDOW_SIZE_Y, 1, 0, 1/ animCnt["startfade"]);
-
-	un.lock()->DrawBox(0, 0, 640, 240, 1, 0, 0);
+	//un.lock()->DrawBox(0, 0, 640, 240, 1, 0, 0);
 }
-
 // 矩形情報のファイルの作成
 int Title::CreateInfo(const std::string & fileName)
 {

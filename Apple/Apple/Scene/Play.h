@@ -1,5 +1,6 @@
 #pragma once
 #include "Scene.h"
+#include <map>
 
 class Player;
 class Enemy;
@@ -24,12 +25,15 @@ private:
 	// クラスのインスタンス
 	void Create(void);
 
-
+	// 
+	std::map<std::string, bool>fadeflg;
 	// プレイヤー
 	std::shared_ptr<Player>pl;
 	std::shared_ptr<Enemy>en;
 
 	// マップ
 	std::shared_ptr<Map>map;
+
+
 
 };

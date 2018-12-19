@@ -12,6 +12,9 @@
 // コンストラクタ
 Play::Play(std::weak_ptr<Input> in, std::weak_ptr<Union> un)
 {
+	
+	fadeflg.clear();
+	fadeflg["start"] = true;
 	this->in = in;
 	this->un = un;
 	map = std::make_shared<Map>();
@@ -36,6 +39,7 @@ void Play::Create(void)
 // 処理
 void Play::UpData(void)
 {
+
 	Camera::Get().UpData(pl->GetPos());
 	pl->UpData();
 	DrawImg("gr", 0.0f, 0.0f,
@@ -45,10 +49,31 @@ void Play::UpData(void)
 		WINDOW_SIZE_X, WINDOW_SIZE_Y-200, -Camera::Get().GetPos().x, 640.0f, 480.0f, 640.0f, 338.0f);
 
 	printf("%.0f:::%.1f\n", pl->GetPos().x, pl->GetPos().y);
+
+	if (in.lock()->Triger(INPUT_RETURN))
+	{
+		fadeflg["end"] = true;
+	}
+
+
 }
 
 // 描画
 void Play::Draw(void)
 {
 	pl->Draw();
+	if (fadeflg["start"] == true)
+	{
+		if (Screen_FadeIn(0.12, 0x000000))
+		{
+			fadeflg["start"] = false;
+		};
+	}
+	if (fadeflg["end"] == true)
+	{
+		if (Screen_FadeOut(0.12, 0xffffff))
+		{
+			fadeflg["end"] = false;
+		};
+	}
 }
