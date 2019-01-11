@@ -116,6 +116,8 @@ bool Character::CheckAnimEnd(void)
 void Character::DrawImg(const std::string & name, const float & x, const float & y, const float & sizeX, const float & sizeY, 
 	const float & alpha, const bool & turnY)
 {
+	un.lock()->DrawBox(x, y, sizeX, sizeY,1.0f,0.0f,1.0f,1.0f);
+
 	un.lock()->DrawImg(img[name], x, y, sizeX, sizeY, rect[st][index].pos.x, rect[st][index].pos.y, 
 		rect[st][index].size.x, rect[st][index].size.y, alpha, reverse, turnY);
 }

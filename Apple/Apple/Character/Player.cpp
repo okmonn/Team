@@ -207,6 +207,7 @@ void Player::UpData(void)
 // •`‰æ
 void Player::Draw(void)
 {
+	
 
 	DrawImg("pl", lpos.x, lpos.y - size.y, size.x, size.y);
 

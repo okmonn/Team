@@ -145,6 +145,9 @@
     <Filter Include="Game\Item">
       <UniqueIdentifier>{c4811a6b-b4b3-435c-a76c-932a2d59bcd3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Character\Enemy\Enemy1">
+      <UniqueIdentifier>{3733955f-cc84-43ab-9b9b-312ec600e85c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -275,6 +278,12 @@
     </ClCompile>
     <ClCompile Include="Item\Item.cpp">
       <Filter>Game\Item</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\EnemyMng.cpp">
+      <Filter>Game\Character\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Character\Enemy1.cpp">
+      <Filter>Game\Character\Enemy\Enemy1</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -428,6 +437,12 @@
     <ClInclude Include="Item\Item.h">
       <Filter>Game\Item</Filter>
     </ClInclude>
+    <ClInclude Include="Character\EnemyMng.h">
+      <Filter>Game\Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Character\Enemy1.h">
+      <Filter>Game\Character\Enemy\Enemy1</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\Texture.hlsl">
@@ -444,5 +459,10 @@
     <ResourceCompile Include="Window\Icon.rc">
       <Filter>System\Window\Icon</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="nsok_memo.txt">
+      <Filter>Game</Filter>
+    </Text>
   </ItemGroup>
 </Project>

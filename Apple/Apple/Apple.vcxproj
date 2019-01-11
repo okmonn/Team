@@ -23,6 +23,8 @@
     <ClCompile Include="Camera\Camera.cpp" />
     <ClCompile Include="Character\Character.cpp" />
     <ClCompile Include="Character\Enemy.cpp" />
+    <ClCompile Include="Character\Enemy1.cpp" />
+    <ClCompile Include="Character\EnemyMng.cpp" />
     <ClCompile Include="Character\Player.cpp" />
     <ClCompile Include="Depth\Depth.cpp" />
     <ClCompile Include="DescriptorMane\DescriptorMane.cpp" />
@@ -68,6 +70,8 @@
     <ClInclude Include="Camera\Camera.h" />
     <ClInclude Include="Character\Character.h" />
     <ClInclude Include="Character\Enemy.h" />
+    <ClInclude Include="Character\Enemy1.h" />
+    <ClInclude Include="Character\EnemyMng.h" />
     <ClInclude Include="Character\Player.h" />
     <ClInclude Include="Depth\Depth.h" />
     <ClInclude Include="DescriptorMane\DescriptorMane.h" />
@@ -185,6 +189,9 @@
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Effect</ShaderType>
       <ShaderModel Condition="'$(Configuration)|$(Platform)'=='Release|x64'">5.1</ShaderModel>
     </FxCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="nsok_memo.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

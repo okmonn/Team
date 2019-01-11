@@ -5,6 +5,7 @@
 #include "../Game/Game.h"
 #include "../Character/Player.h"
 #include "../Character/Enemy.h"
+#include "../Character/Enemy1.h"
 #include "../Camera/Camera.h"
 #include "../Map/Map.h"
 #include "../etc/Typedef.h"
@@ -32,6 +33,8 @@ Play::~Play()
 void Play::Create(void)
 {
 	pl = std::make_shared<Player>(in, un, map);
+	// en.push_back(std::make_shared<Enemy>(map));
+	en = std::make_shared<Enemy1>(map);
 	Load("rsc/img/BG.png", "bg");
 	Load("rsc/img/GR.png", "gr");
 }
@@ -62,6 +65,12 @@ void Play::UpData(void)
 void Play::Draw(void)
 {
 	pl->Draw();
+	/*
+	for (auto itr : en)
+	{
+		itr->Draw();
+	}
+	*/
 	if (fadeflg["start"] == true)
 	{
 		if (Screen_FadeIn(0.12, 0x000000))

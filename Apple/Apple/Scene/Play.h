@@ -29,11 +29,8 @@ private:
 	std::map<std::string, bool>fadeflg;
 	// プレイヤー
 	std::shared_ptr<Player>pl;
+	// std::vector<std::shared_ptr<Enemy>>en;
 	std::shared_ptr<Enemy>en;
-
 	// マップ
 	std::shared_ptr<Map>map;
-
-
-
 };

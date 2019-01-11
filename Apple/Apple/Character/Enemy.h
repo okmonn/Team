@@ -6,7 +6,7 @@ class Enemy :
 {
 public:
 	// コンストラクタ
-	Enemy(Map map);
+	Enemy(std::weak_ptr<Map> map);
 	// デストラクタ
 	virtual ~Enemy();
 
