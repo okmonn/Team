@@ -8,6 +8,7 @@
 #include "../etc/Typedef.h"
 #include <Windows.h>
 
+
 // コンストラクタ
 Application::Application()
 {
@@ -26,7 +27,6 @@ void Application::Create(void)
 	input    = std::make_shared<Input>(win);
 	un       = std::make_shared<Union>(win);
 	effector = std::make_shared<Effector>(un->GetDev(), L"Shader/Effect.hlsl");
-	
 	game     = std::make_shared<Game>(input, un);
 }
 

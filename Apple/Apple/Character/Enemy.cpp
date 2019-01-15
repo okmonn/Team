@@ -1,14 +1,8 @@
 #include "Enemy.h"
-#include "../Map/Map.h"
 
 // コンストラクタ
-Enemy::Enemy(std::weak_ptr<Map> map)
+Enemy::Enemy()
 {
-	Load("rsc/img/player.png", "pl");
-
-	pos = { 0.0f, this->map.lock()->GetGroundPos().y };
-	size = { 240.0f, 270.0f };
-
 }
 
 // デストラクタ

@@ -34,7 +34,7 @@ void Play::Create(void)
 {
 	pl = std::make_shared<Player>(in, un, map);
 	// en.push_back(std::make_shared<Enemy>(map));
-	en = std::make_shared<Enemy1>(map);
+	en = std::make_shared<Enemy1>(un,map);
 	Load("rsc/img/BG.png", "bg");
 	Load("rsc/img/GR.png", "gr");
 }
@@ -65,6 +65,7 @@ void Play::UpData(void)
 void Play::Draw(void)
 {
 	pl->Draw();
+	en->Draw();
 	/*
 	for (auto itr : en)
 	{

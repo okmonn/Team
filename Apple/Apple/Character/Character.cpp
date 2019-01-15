@@ -84,6 +84,7 @@ void Character::Load(const std::string & fileName, const std::string & name)
 {
 	if (img.find(name) != img.end())
 	{
+		_RPTN(_CRT_WARN, "Lading name is find", 0);
 		return;
 	}
 
@@ -118,8 +119,11 @@ void Character::DrawImg(const std::string & name, const float & x, const float &
 {
 	un.lock()->DrawBox(x, y, sizeX, sizeY,1.0f,0.0f,1.0f,1.0f);
 
+	_RPTN(_CRT_WARN, "Drawing:%d\n", img[name]);
 	un.lock()->DrawImg(img[name], x, y, sizeX, sizeY, rect[st][index].pos.x, rect[st][index].pos.y, 
 		rect[st][index].size.x, rect[st][index].size.y, alpha, reverse, turnY);
+	_RPTN(_CRT_WARN, "Success::%d\n", img[name]);
+
 }
 
 // ‰æ‘œ‚Ìíœ
