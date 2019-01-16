@@ -23,9 +23,6 @@
     <Filter Include="System\Device">
       <UniqueIdentifier>{e42f872b-2d19-4485-88f7-7721eb49765f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="System\Effector">
-      <UniqueIdentifier>{b2f3db8a-18d4-4b83-a4dd-43f4e734a602}</UniqueIdentifier>
-    </Filter>
     <Filter Include="System\Fence">
       <UniqueIdentifier>{dd51554e-c702-4f1e-b9f5-41a7b4497918}</UniqueIdentifier>
     </Filter>
@@ -64,18 +61,6 @@
     </Filter>
     <Filter Include="System\Root\RootMane">
       <UniqueIdentifier>{e0bfbc2e-17d4-43d3-8c30-208e1e6e1b42}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="System\Sound">
-      <UniqueIdentifier>{3cb0e648-28ec-4725-b657-c2144cb78169}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="System\Sound\SoundLoader">
-      <UniqueIdentifier>{d107f19a-ec8f-4fd6-acca-a1fb6a8b5ba1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="System\Sound\XAudio2">
-      <UniqueIdentifier>{6e6761cf-2e6c-49cc-b453-6c37a67148f7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="System\Sound\SoundFunc">
-      <UniqueIdentifier>{914fb0e9-6065-4159-9fc8-7e271227d5ce}</UniqueIdentifier>
     </Filter>
     <Filter Include="System\Swap">
       <UniqueIdentifier>{d9d1875b-4c55-4f91-90b2-875b7bb433ba}</UniqueIdentifier>
@@ -147,6 +132,30 @@
     </Filter>
     <Filter Include="Game\Character\Enemy\Enemy1">
       <UniqueIdentifier>{3733955f-cc84-43ab-9b9b-312ec600e85c}</UniqueIdentifier>
+    <Filter Include="System\Compute">
+      <UniqueIdentifier>{b2f3db8a-18d4-4b83-a4dd-43f4e734a602}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Compute\Effector">
+      <UniqueIdentifier>{402c4059-990f-47fb-82c6-7b627b692302}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Sound">
+      <UniqueIdentifier>{0fd2221e-2158-4bd2-93ca-e32e6a59ba0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Sound\SoundFunc">
+      <UniqueIdentifier>{3a9b524e-149a-4250-85af-ce1398cffe42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Sound\SoundLoader">
+      <UniqueIdentifier>{c9b85cb9-0cfa-4032-8c88-bba154b83dc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Sound\XAudio2">
+      <UniqueIdentifier>{d1a745c9-5159-4c52-9378-f67928937b0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\Sound\Filter">
+      <UniqueIdentifier>{940c16fa-d3c7-40ec-8865-610c273e3ca8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\SoundMane">
+      <UniqueIdentifier>{361a04cf-aa12-44d2-b816-6f06d1bbff66}</UniqueIdentifier>
+>>>>>>> master
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -194,21 +203,6 @@
     </ClCompile>
     <ClCompile Include="Pipe\Pipe.cpp">
       <Filter>System\Pipe</Filter>
-    </ClCompile>
-    <ClCompile Include="Sound\Sound.cpp">
-      <Filter>System\Sound</Filter>
-    </ClCompile>
-    <ClCompile Include="Sound\SoundLoader\SoundLoader.cpp">
-      <Filter>System\Sound\SoundLoader</Filter>
-    </ClCompile>
-    <ClCompile Include="Sound\XAudio2\XAudio2.cpp">
-      <Filter>System\Sound\XAudio2</Filter>
-    </ClCompile>
-    <ClCompile Include="Sound\SoundFunc\SoundFunc.cpp">
-      <Filter>System\Sound\SoundFunc</Filter>
-    </ClCompile>
-    <ClCompile Include="Effector\Effector.cpp">
-      <Filter>System\Effector</Filter>
     </ClCompile>
     <ClCompile Include="Primitive\Primitive.cpp">
       <Filter>System\Primitive</Filter>
@@ -284,6 +278,29 @@
     </ClCompile>
     <ClCompile Include="Character\Enemy1.cpp">
       <Filter>Game\Character\Enemy\Enemy1</Filter>
+    <ClCompile Include="Compute\Compute.cpp">
+      <Filter>System\Compute</Filter>
+    </ClCompile>
+    <ClCompile Include="Compute\Effector.cpp">
+      <Filter>System\Compute\Effector</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound\Sound.cpp">
+      <Filter>System\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound\SoundFunc\SoundFunc.cpp">
+      <Filter>System\Sound\SoundFunc</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound\SoundLoader\SoundLoader.cpp">
+      <Filter>System\Sound\SoundLoader</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound\XAudio2\XAudio2.cpp">
+      <Filter>System\Sound\XAudio2</Filter>
+    </ClCompile>
+    <ClCompile Include="Sound\Filter\Filter.cpp">
+      <Filter>System\Sound\Filter</Filter>
+    </ClCompile>
+    <ClCompile Include="SoundMane\SoundMane.cpp">
+      <Filter>Game\SoundMane</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -340,27 +357,6 @@
     </ClInclude>
     <ClInclude Include="Pipe\Pipe.h">
       <Filter>System\Pipe</Filter>
-    </ClInclude>
-    <ClInclude Include="Sound\Sound.h">
-      <Filter>System\Sound</Filter>
-    </ClInclude>
-    <ClInclude Include="Sound\Destroy.h">
-      <Filter>System\Sound</Filter>
-    </ClInclude>
-    <ClInclude Include="Sound\SoundLoader\SoundLoader.h">
-      <Filter>System\Sound\SoundLoader</Filter>
-    </ClInclude>
-    <ClInclude Include="Sound\XAudio2\XAudio2.h">
-      <Filter>System\Sound\XAudio2</Filter>
-    </ClInclude>
-    <ClInclude Include="Sound\XAudio2\VoiceCallback.h">
-      <Filter>System\Sound\XAudio2</Filter>
-    </ClInclude>
-    <ClInclude Include="Sound\SoundFunc\SoundFunc.h">
-      <Filter>System\Sound\SoundFunc</Filter>
-    </ClInclude>
-    <ClInclude Include="Effector\Effector.h">
-      <Filter>System\Effector</Filter>
     </ClInclude>
     <ClInclude Include="Primitive\Primitive.h">
       <Filter>System\Primitive</Filter>
@@ -437,21 +433,45 @@
     <ClInclude Include="Item\Item.h">
       <Filter>Game\Item</Filter>
     </ClInclude>
-    <ClInclude Include="Character\EnemyMng.h">
-      <Filter>Game\Character\Enemy</Filter>
+    <ClInclude Include="Compute\Compute.h">
+      <Filter>System\Compute</Filter>
     </ClInclude>
-    <ClInclude Include="Character\Enemy1.h">
-      <Filter>Game\Character\Enemy\Enemy1</Filter>
+    <ClInclude Include="Compute\Effector.h">
+      <Filter>System\Compute\Effector</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\Destroy.h">
+      <Filter>System\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\Sound.h">
+      <Filter>System\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\SoundFunc\SoundFunc.h">
+      <Filter>System\Sound\SoundFunc</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\SoundLoader\SoundLoader.h">
+      <Filter>System\Sound\SoundLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\XAudio2\XAudio2.h">
+      <Filter>System\Sound\XAudio2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\XAudio2\VoiceCallback.h">
+      <Filter>System\Sound\XAudio2</Filter>
+    </ClInclude>
+    <ClInclude Include="Sound\Filter\Filter.h">
+      <Filter>System\Sound\Filter</Filter>
+    </ClInclude>
+    <ClInclude Include="SoundMane\SoundMane.h">
+      <Filter>Game\SoundMane</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shader\Texture.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Shader\Effect.hlsl">
+    <FxCompile Include="Shader\Primitive.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
-    <FxCompile Include="Shader\Primitive.hlsl">
+    <FxCompile Include="Shader\SoundEffect.hlsl">
       <Filter>リソース ファイル</Filter>
     </FxCompile>
   </ItemGroup>
