@@ -139,6 +139,9 @@
     <Filter Include="Game\Chara\Enemy\Mane">
       <UniqueIdentifier>{7f8e52f6-da84-454f-8ab6-6a759c85334f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\InfoLoader">
+      <UniqueIdentifier>{d09ce4fe-387e-4510-8ade-cbdceb135bcc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -257,6 +260,9 @@
     </ClCompile>
     <ClCompile Include="Chara\EnemyMane.cpp">
       <Filter>Game\Chara\Enemy\Mane</Filter>
+    </ClCompile>
+    <ClCompile Include="InfoLoader\InfoLoader.cpp">
+      <Filter>Game\InfoLoader</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -400,6 +406,12 @@
     </ClInclude>
     <ClInclude Include="Chara\EnemyMane.h">
       <Filter>Game\Chara\Enemy\Mane</Filter>
+    </ClInclude>
+    <ClInclude Include="InfoLoader\InfoLoader.h">
+      <Filter>Game\InfoLoader</Filter>
+    </ClInclude>
+    <ClInclude Include="Typedef.h">
+      <Filter>Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

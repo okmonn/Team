@@ -1,7 +1,8 @@
 #pragma once
 #include "Scene.h"
 
-class Chara;
+class Player;
+class EnemyMane;
 
 class Play :
 	public Scene
@@ -24,5 +25,8 @@ private:
 
 
 	// ƒvƒŒƒCƒ„[
-	std::shared_ptr<Chara>pl;
+	std::shared_ptr<Player>pl;
+
+	// “G
+	std::shared_ptr<EnemyMane>enemy;
 };

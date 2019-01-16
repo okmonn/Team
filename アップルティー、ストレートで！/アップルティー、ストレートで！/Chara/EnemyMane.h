@@ -3,45 +3,47 @@
 #include <list>
 #include <string>
 #include <memory>
+#include <functional>
 #include <unordered_map>
 
 class Application;
+class Player;
 class Enemy;
 
 class EnemyMane
 {
 public:
+	// コンストラクタ
+	EnemyMane(std::weak_ptr<Application>app, std::weak_ptr<Player>pl);
 	// デストラクタ
 	~EnemyMane();
-
-	// インスタンス変数の取得
-	static EnemyMane& Get(void) {
-		static EnemyMane instance;
-		return instance;
-	}
 
 	// 敵の生成
 	void Create(const std::string& type, const Vec2f& pos, const Vec2f& size);
 
-	// リストのクリア
-	void ClearEnemy(void);
+	// 描画
+	void Draw(void);
 
-	// オリジンのクリア
-	void ClearOrigin(void);
+	// 処理
+	void UpData(void);
+
+	// リストのクリア
+	void Clear(void);
 
 private:
-	// コンストラクタ
-	EnemyMane();
-	EnemyMane(const EnemyMane&) = delete;
-	void operator=(const EnemyMane&) = delete;
-
 	// 初期化
 	void Init(void);
 
 
-	// 敵のオリジン
-	std::unordered_map<std::string, std::shared_ptr<Enemy>>origin;
+	// アプリケーション
+	std::weak_ptr<Application>app;
+
+	// プレイヤー
+	std::weak_ptr<Player>pl;
 
 	// 敵
 	std::list<std::shared_ptr<Enemy>>enemy;
+
+	// 関数ポインタ
+	std::unordered_map<std::string, std::function<void(std::list<std::shared_ptr<Enemy>>&, std::weak_ptr<Application>app, std::weak_ptr<Player>pl, const Vec2f&, const Vec2f&)>>func;
 };

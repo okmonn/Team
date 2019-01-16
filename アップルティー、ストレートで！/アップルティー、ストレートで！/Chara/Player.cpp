@@ -71,10 +71,12 @@ void Player::Walk(void)
 
 	if (Input::Get().InputKey(INPUT_RIGHT))
 	{
+		reverse = false;
 		pos.x += speed;
 	}
 	else if (Input::Get().InputKey(INPUT_LEFT))
 	{
+		reverse = true;
 		pos.x -= speed;
 	}
 	else if (Input::Get().InputKey(INPUT_UP))
@@ -139,7 +141,7 @@ void Player::Damage(void)
 // ï`âÊ
 void Player::Draw(void)
 {
-	DrawImg("pl", pos, size, rect[state][index].pos, rect[state][index].size);
+	DrawImg("pl", pos, size);
 }
 
 // èàóù

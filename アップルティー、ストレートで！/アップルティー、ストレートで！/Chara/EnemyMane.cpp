@@ -1,8 +1,10 @@
 #include "EnemyMane.h"
+#include "Player.h"
 #include "Enemy1.h"
+#include "../Application/Application.h"
 
 // コンストラクタ
-EnemyMane::EnemyMane()
+EnemyMane::EnemyMane(std::weak_ptr<Application>app, std::weak_ptr<Player> pl) : app(app), pl(pl)
 {
 	enemy.clear();
 
@@ -17,32 +19,39 @@ EnemyMane::~EnemyMane()
 // 初期化
 void EnemyMane::Init(void)
 {
-	origin.clear();
+	func.clear();
 
-	origin["1"] = std::make_shared<Enemy1>();
+	func["1"] = [&](std::list<std::shared_ptr<Enemy>>& list, std::weak_ptr<Application>app, std::weak_ptr<Player>pl, const Vec2f& pos, const Vec2f& size)->void {
+		list.push_back(std::make_shared<Enemy1>(app, pl, pos, size));
+	};
 }
 
 // 敵の生成
 void EnemyMane::Create(const std::string & type, const Vec2f & pos, const Vec2f & size)
 {
-	if (origin.find(type) == origin.end())
-	{
-		return;
-	}
+	func[type](enemy, app, pl, pos, size);
+}
 
-	enemy.push_back(origin[type]);
-	enemy.back()->SetPos(pos);
-	enemy.back()->SetSize(size);
+// 描画
+void EnemyMane::Draw(void)
+{
+	for (auto itr = enemy.begin(); itr != enemy.end(); ++itr)
+	{
+		(*itr)->Draw();
+	}
+}
+
+// 処理
+void EnemyMane::UpData(void)
+{
+	for (auto itr = enemy.begin(); itr != enemy.end(); ++itr)
+	{
+		(*itr)->UpData();
+	}
 }
 
 // クリア
-void EnemyMane::ClearEnemy(void)
+void EnemyMane::Clear(void)
 {
 	enemy.clear();
-}
-
-// オリジンのクリア
-void EnemyMane::ClearOrigin(void)
-{
-	origin.clear();
 }

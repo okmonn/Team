@@ -1,7 +1,5 @@
 #pragma once
-#include "../etc/Vector2.h"
-#include <string>
-#include <vector>
+#include "../Typedef.h"
 #include <memory>
 #include <functional>
 #include <unordered_map>
@@ -10,36 +8,6 @@ class Application;
 
 class Chara
 {
-	// ダミー用構造体
-	struct Dummy {
-		//座標
-		Vec2 pos;
-		//サイズ
-		Vec2 size;
-	};
-
-	// アニメーション・矩形情報
-	struct Info {
-		//ステータス名の文字数
-		unsigned char stNameNum;
-		//ステータス名
-		std::string state;
-		//アニメーション時間
-		float animTime;
-		//アニメーション数
-		unsigned char animNum;
-		//矩形情報
-		std::vector<Dummy>rect;
-	};
-
-	// アニメーション・矩形情報
-	struct Rect {
-		//座標
-		Vec2f pos;
-		//サイズ
-		Vec2f size;
-	};
-
 public:
 	// コンストラクタ
 	Chara();
@@ -92,11 +60,8 @@ public:
 	}
 
 protected:
-	// アニメーション・矩形情報の書き込み
-	int WriteInfo(const std::string& fileName, const std::vector<Info>& info);
-
 	// アニメーション・矩形情報の読み込み
-	int LoadInfo(const std::string& fileName);
+	void LoadInfo(const std::string& fileName);
 
 	// 画像の読み込み
 	void LoadImg(const std::string& name, const std::string& fileName);
@@ -108,8 +73,7 @@ protected:
 	bool CheckAnimEnd(void);
 
 	// 画像の描画
-	void DrawImg(const std::string& name, const Vec2f& pos, const Vec2f& size, const Vec2f& uvPos, const Vec2f& uvSize,
-		const float& alpha = 1.0f, const bool& turnY = false);
+	void DrawImg(const std::string& name, const Vec2f& pos, const Vec2f& size, const float& alpha = 1.0f, const bool& turnY = false);
 
 	// 画像の削除
 	void Delete(const std::string& name);
@@ -131,6 +95,9 @@ protected:
 	// ステータス
 	std::string state;
 
+	// infoファイル名
+	std::string info;
+
 	// 配列用インデックス
 	unsigned int index;
 
@@ -145,10 +112,4 @@ protected:
 
 	// 画像ID
 	std::unordered_map<std::string, int>image;
-
-	// アニメーション時間
-	std::unordered_map<std::string, float>animTime;
-
-	// アニメーション・矩形情報
-	std::unordered_map<std::string, std::vector<Rect>>rect;
 };

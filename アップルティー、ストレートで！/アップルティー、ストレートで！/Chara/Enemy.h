@@ -11,5 +11,6 @@ public:
 	virtual ~Enemy();
 
 protected:
-
+	// ƒvƒŒƒCƒ„[
+	std::weak_ptr<Chara>pl;
 };

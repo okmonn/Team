@@ -133,6 +133,7 @@
     <ClCompile Include="Fence\Fence.cpp" />
     <ClCompile Include="GameMane\GameMane.cpp" />
     <ClCompile Include="Helper\Helper.cpp" />
+    <ClCompile Include="InfoLoader\InfoLoader.cpp" />
     <ClCompile Include="Input\Input.cpp" />
     <ClCompile Include="List\List.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -179,6 +180,7 @@
     <ClInclude Include="Fence\Fence.h" />
     <ClInclude Include="GameMane\GameMane.h" />
     <ClInclude Include="Helper\Helper.h" />
+    <ClInclude Include="InfoLoader\InfoLoader.h" />
     <ClInclude Include="Input\Input.h" />
     <ClInclude Include="List\List.h" />
     <ClInclude Include="Pipe\Pipe.h" />
@@ -205,6 +207,7 @@
     <ClInclude Include="Texture\Texture.h" />
     <ClInclude Include="Texture\TextureInfo.h" />
     <ClInclude Include="Texture\WICTextureLoader12.h" />
+    <ClInclude Include="Typedef.h" />
     <ClInclude Include="Window\Icon.h" />
     <ClInclude Include="Window\Window.h" />
   </ItemGroup>
