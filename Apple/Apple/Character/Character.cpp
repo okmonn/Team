@@ -120,6 +120,10 @@ void Character::DrawImg(const std::string & name, const float & x, const float &
 	un.lock()->DrawBox(x, y, sizeX, sizeY,1.0f,0.0f,1.0f,1.0f);
 
 	_RPTN(_CRT_WARN, "Drawing:%d\n", img[name]);
+	if (img[name] == nullptr)
+	{
+		return;
+	}
 	un.lock()->DrawImg(img[name], x, y, sizeX, sizeY, rect[st][index].pos.x, rect[st][index].pos.y, 
 		rect[st][index].size.x, rect[st][index].size.y, alpha, reverse, turnY);
 	_RPTN(_CRT_WARN, "Success::%d\n", img[name]);
