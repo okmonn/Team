@@ -24,9 +24,11 @@ void Play::Create(void)
 // •`‰æ
 void Play::Draw(void)
 {
+	pl->Draw();
 }
 
 // ˆ—
 void Play::UpData(void)
 {
+	pl->UpData();
 }

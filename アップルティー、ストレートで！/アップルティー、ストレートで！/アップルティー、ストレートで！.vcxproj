@@ -121,6 +121,9 @@
   <ItemGroup>
     <ClCompile Include="Application\Application.cpp" />
     <ClCompile Include="Chara\Chara.cpp" />
+    <ClCompile Include="Chara\Enemy.cpp" />
+    <ClCompile Include="Chara\Enemy1.cpp" />
+    <ClCompile Include="Chara\EnemyMane.cpp" />
     <ClCompile Include="Chara\Player.cpp" />
     <ClCompile Include="Compute\Compute.cpp" />
     <ClCompile Include="Compute\Effector.cpp" />
@@ -159,6 +162,9 @@
   <ItemGroup>
     <ClInclude Include="Application\Application.h" />
     <ClInclude Include="Chara\Chara.h" />
+    <ClInclude Include="Chara\Enemy.h" />
+    <ClInclude Include="Chara\Enemy1.h" />
+    <ClInclude Include="Chara\EnemyMane.h" />
     <ClInclude Include="Chara\Player.h" />
     <ClInclude Include="Compute\Compute.h" />
     <ClInclude Include="Compute\Effector.h" />

@@ -130,6 +130,15 @@
     <Filter Include="Game\Scene\Play">
       <UniqueIdentifier>{74b0f144-6516-4dc9-9b00-8ecc4eb5ab3c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Chara\Enemy">
+      <UniqueIdentifier>{51c7fd8b-bde8-4ff1-aab0-2e5dbed7b09c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Chara\Enemy\Enemy1">
+      <UniqueIdentifier>{d12fb617-1586-4e9d-8c0c-320a397e4eaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Chara\Enemy\Mane">
+      <UniqueIdentifier>{7f8e52f6-da84-454f-8ab6-6a759c85334f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -239,6 +248,15 @@
     </ClCompile>
     <ClCompile Include="Scene\Play.cpp">
       <Filter>Game\Scene\Play</Filter>
+    </ClCompile>
+    <ClCompile Include="Chara\Enemy.cpp">
+      <Filter>Game\Chara\Enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="Chara\Enemy1.cpp">
+      <Filter>Game\Chara\Enemy\Enemy1</Filter>
+    </ClCompile>
+    <ClCompile Include="Chara\EnemyMane.cpp">
+      <Filter>Game\Chara\Enemy\Mane</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -373,6 +391,15 @@
     </ClInclude>
     <ClInclude Include="Scene\Play.h">
       <Filter>Game\Scene\Play</Filter>
+    </ClInclude>
+    <ClInclude Include="Chara\Enemy.h">
+      <Filter>Game\Chara\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="Chara\Enemy1.h">
+      <Filter>Game\Chara\Enemy\Enemy1</Filter>
+    </ClInclude>
+    <ClInclude Include="Chara\EnemyMane.h">
+      <Filter>Game\Chara\Enemy\Mane</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
