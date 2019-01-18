@@ -23,6 +23,17 @@ private:
 	// 待機時の処理
 	void Wait(void);
 
+	// 歩行時の処理
+	void Walk(void);
+
+	// 攻撃時の処理
+	void Attack(void);
+
+	// ダメージ時の処理
+	void Damage(void);
+
+	// 死亡時の処理
+	void Dead(void);
 
 	// 関数ポインタ
 	std::unordered_map<std::string, std::function<void(Enemy1*)>>func;

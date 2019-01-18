@@ -10,7 +10,7 @@ Enemy1::Enemy1(std::weak_ptr<Application> app, std::weak_ptr<Camera> cam, std::w
 	this->size	= size;
 	this->cam	= cam;
 
-	LoadImg("1", "_rsc/img/player.png");
+	LoadImg("1", "_rsc/img/Enemy1.png");
 	LoadInfo("_rsc/info/player.info");
 	SetFunc();
 }
@@ -27,12 +27,52 @@ void Enemy1::SetFunc(void)
 	func.clear();
 
 	func["wait"] = &Enemy1::Wait;
+	func["walk"] = &Enemy1::Walk;
+	func["attack"] = &Enemy1::Attack;
+	func["damage"] = &Enemy1::Damage;
+	func["dead"] = &Enemy1::Dead;
 }
 
 // ‘Ò‹@‚Ìˆ—
 void Enemy1::Wait(void)
 {
 	if (state != "wait")
+	{
+		return;
+	}
+
+	//”»’èæ‚Á‚Ä•à‚­‚©UŒ‚‚·‚é‚©‚·‚é
+}
+
+void Enemy1::Walk(void)
+{
+	if (state != "walk")
+	{
+		return;
+	}
+
+
+}
+
+void Enemy1::Attack(void)
+{
+	if (state != "attack")
+	{
+		return;
+	}
+}
+
+void Enemy1::Damage(void)
+{
+	if (state != "damage")
+	{
+		return;
+	}
+}
+
+void Enemy1::Dead(void)
+{
+	if (state != "dead")
 	{
 		return;
 	}
