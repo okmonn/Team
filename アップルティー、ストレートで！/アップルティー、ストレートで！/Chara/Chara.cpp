@@ -50,9 +50,9 @@ void Chara::LoadImg(const std::string & name, const std::string & fileName)
 void Chara::Animator(const float & speed)
 {
 	flam += speed;
-	if (flam >= InfoLoader::Get().GetAnimTime(info)->at(state))
+	if (flam >= InfoLoader::Get().GetInfo(info)->at(state).animTime)
 	{
-		index = (index + 1 >= InfoLoader::Get().GetRect(info)->at(state).size()) ? 0 : ++index;
+		index = (index + 1 >= InfoLoader::Get().GetInfo(info)->at(state).rect.size()) ? 0 : ++index;
 		flam = 0.0f;
 	}
 }
@@ -60,7 +60,8 @@ void Chara::Animator(const float & speed)
 // アニメーション終了フラグ
 bool Chara::CheckAnimEnd(void)
 {
-	if (flam >= InfoLoader::Get().GetAnimTime(info)->at(state) - 1.0f && index >= InfoLoader::Get().GetRect(info)->at(state).size() - 1)
+	if (flam >= InfoLoader::Get().GetInfo(info)->at(state).animTime - 1.0f
+		&& index >= InfoLoader::Get().GetInfo(info)->at(state).rect.size() - 1)
 	{
 		return true;
 	}
@@ -75,8 +76,15 @@ void Chara::DrawImg(const std::string & name, const Vec2f & pos, const Vec2f & s
 	{
 		return;
 	}
+	app.lock()->DrawTex(image[name], pos + cam.lock()->GetPos(), size,
+		InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.pos, InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size,
+		alpha, reverse, turnY);
 
-	app.lock()->DrawTex(image[name], pos + cam.lock()->GetPos(), size, InfoLoader::Get().GetRect(info)->at(state)[index].pos, InfoLoader::Get().GetRect(info)->at(state)[index].size, alpha, reverse, turnY);
+	for (auto& i : InfoLoader::Get().GetInfo(info)->at(state).rect[index].hit)
+	{
+		app.lock()->DrawBox(pos - i.rect.pos, i.rect.size * (size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size),
+			{ 1.0f, 0.0f, 0.0f, 0.5f });
+	}
 }
 
 // 画像の削除

@@ -3,8 +3,7 @@
 // コンストラクタ
 InfoLoader::InfoLoader()
 {
-	animTime.clear();
-	rect.clear();
+	info.clear();
 }
 
 // デストラクタ
@@ -15,7 +14,7 @@ InfoLoader::~InfoLoader()
 // 読み込み
 int InfoLoader::Load(const std::string & fileName)
 {
-	if (animTime.find(fileName) != animTime.end())
+	if (info.find(fileName) != info.end())
 	{
 		return 0;
 	}
@@ -26,37 +25,57 @@ int InfoLoader::Load(const std::string & fileName)
 		return -1;
 	}
 
-	animTime[fileName] = std::make_shared<std::unordered_map<std::string, float>>();
-	rect[fileName]     = std::make_shared<std::unordered_map<std::string, std::vector<Rect>>>();
+	info[fileName] = std::make_shared<std::unordered_map<std::string, Info>>();
 
-	//ステータス数
+	//ステータス数の読み込み
 	unsigned char num = 0;
 	fread(&num, sizeof(num), 1, file);
+
 	for (unsigned char i = 0; i < num; ++i)
 	{
-		unsigned char stNum = 0;
-		fread(&stNum, sizeof(stNum), 1, file);
+		//ステータス名の文字数の読み込み
+		unsigned char stNameNum = 0;
+		fread(&stNameNum, sizeof(stNameNum), 1, file);
 
+		//ステータス名の読み込み
 		std::string st;
-		st.resize(stNum);
+		st.resize(stNameNum);
 		fread(&st[0], st.size(), 1, file);
+		info[fileName]->insert_or_assign(st, Info());
+		info[fileName]->at(st).st = st;
 
-		
+		//アニメーション移行フレームの読み込み
 		float time = 0.0f;
 		fread(&time, sizeof(time), 1, file);
-		animTime[fileName]->insert(std::make_pair(st, time));
+		info[fileName]->at(st).animTime = time;
 
+		//アニメーション数の読み込み
 		unsigned char animNum = 0;
 		fread(&animNum, sizeof(animNum), 1, file);
 
-		Dummy dummy{};
-		rect[fileName]->insert(std::make_pair(st, std::vector<Rect>(animNum)));
-		rect[fileName]->at(st).resize(animNum);
-		for (auto& i : rect[fileName]->at(st))
+		//アニメーション矩形の読み込み
+		Rect<Vec2>anim{};
+		info[fileName]->at(st).rect.resize(animNum);
+		for (auto& n : info[fileName]->at(st).rect)
 		{
-			fread(&dummy, sizeof(dummy), 1, file);
-			i.pos = { static_cast<float>(dummy.pos.x), static_cast<float>(dummy.pos.y) };
-			i.size = { static_cast<float>(dummy.size.x), static_cast<float>(dummy.size.y) };
+			fread(&anim, sizeof(anim), 1, file);
+			n.anim.pos  = { static_cast<float>(anim.pos.x), static_cast<float>(anim.pos.y) };
+			n.anim.size = { static_cast<float>(anim.size.x), static_cast<float>(anim.size.y) };
+
+			//あたり矩形数の読み込み
+			unsigned char hitNum = 0;
+			fread(&hitNum, sizeof(hitNum), 1, file);
+			n.hit.resize(hitNum);
+
+			//あたり矩形の読み込み
+			HitRect<Vec2>hit{};
+			for (auto& m : n.hit)
+			{
+				fread(&hit, sizeof(hit), 1, file);
+				m.type = hit.type;
+				m.rect.pos  = { static_cast<float>(hit.rect.pos.x), static_cast<float>(hit.rect.pos.y) };
+				m.rect.size = { static_cast<float>(hit.rect.size.x), static_cast<float>(hit.rect.size.y) };
+			}
 		}
 	}
 
@@ -65,8 +84,8 @@ int InfoLoader::Load(const std::string & fileName)
 	return 0;
 }
 
-// アニメーション・矩形情報の書き込み
-int InfoLoader::WriteInfo(const std::string & fileName, const std::vector<Info>& info)
+// 書き込み
+int InfoLoader::Write(const std::string & fileName, const std::vector<Info>& info)
 {
 	FILE* file = nullptr;
 	if (fopen_s(&file, fileName.c_str(), "wb") != 0)
@@ -74,19 +93,49 @@ int InfoLoader::WriteInfo(const std::string & fileName, const std::vector<Info>&
 		return -1;
 	}
 
-	unsigned char stNum = static_cast<unsigned char>(info.size());
-	fwrite(&stNum, sizeof(stNum), 1, file);
+	//ステータス数の書き込み
+	unsigned char num = static_cast<unsigned char>(info.size());
+	fwrite(&num, sizeof(num), 1, file);
 
-	for (auto& i : info)
+	for (unsigned char i = 0; i < num; ++i)
 	{
-		fwrite(&i.stNameNum, sizeof(i.stNameNum), 1, file);
-		fwrite(&i.state[0], i.state.size(), 1, file);
-		fwrite(&i.animTime, sizeof(i.animTime), 1, file);
-		fwrite(&i.animNum, sizeof(i.animNum), 1, file);
-		for (auto& n : i.rect)
+		//ステータス名の文字数の書き込み
+		unsigned char stNameNum = static_cast<unsigned char>(info[i].st.size());
+		fwrite(&stNameNum, sizeof(stNameNum), 1, file);
+
+		//ステータス名の書き込み
+		std::string st = info[i].st;
+		fwrite(&st[0], st.size(), 1, file);
+
+		//アニメーション移行フレームの書き込み
+		float time = info[i].animTime;
+		fwrite(&time, sizeof(time), 1, file);
+
+		//アニメーション数の書き込み
+		unsigned char animNum = static_cast<unsigned char>(info[i].rect.size());
+		fwrite(&animNum, sizeof(animNum), 1, file);
+
+		//アニメーション矩形の読み込み
+		Rect<Vec2>anim{};
+		for (auto& n : info[i].rect)
 		{
-			fwrite(&n.pos, sizeof(n.pos), 1, file);
-			fwrite(&n.size, sizeof(n.size), 1, file);
+			anim.pos  = { static_cast<int>(n.anim.pos.x), static_cast<int>(n.anim.pos.y) };
+			anim.size = { static_cast<int>(n.anim.size.x), static_cast<int>(n.anim.size.y) };
+			fwrite(&anim, sizeof(anim), 1, file);
+
+			//あたり矩形数の書き込み
+			unsigned char hitNum = static_cast<unsigned char>(n.hit.size());
+			fwrite(&hitNum, sizeof(hitNum), 1, file);
+
+			//あたり矩形の読み込み
+			HitRect<Vec2>hit{};
+			for (auto& m : n.hit)
+			{
+				hit.type = m.type;
+				hit.rect.pos  = { static_cast<int>(m.rect.pos.x), static_cast<int>(m.rect.pos.y) };
+				hit.rect.size = { static_cast<int>(m.rect.size.x), static_cast<int>(m.rect.size.y) };
+				fwrite(&hit, sizeof(hit), 1, file);
+			}
 		}
 	}
 

@@ -13,8 +13,6 @@ class Chara
 public:
 	// デフォルトコンストラクタ
 	Chara();
-	// コンストラクタ
-	Chara(std::weak_ptr<Camera> cam);
 	// デストラクタ
 	virtual ~Chara();
 
