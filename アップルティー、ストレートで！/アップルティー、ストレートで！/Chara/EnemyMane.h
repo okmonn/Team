@@ -7,6 +7,7 @@
 #include <unordered_map>
 
 class Application;
+class Camera;
 class Player;
 class Enemy;
 
@@ -14,7 +15,7 @@ class EnemyMane
 {
 public:
 	// コンストラクタ
-	EnemyMane(std::weak_ptr<Application>app, std::weak_ptr<Player>pl);
+	EnemyMane(std::weak_ptr<Application>app, std::weak_ptr<Camera>cam, std::weak_ptr<Player>pl);
 	// デストラクタ
 	~EnemyMane();
 
@@ -45,5 +46,8 @@ private:
 	std::list<std::shared_ptr<Enemy>>enemy;
 
 	// 関数ポインタ
-	std::unordered_map<std::string, std::function<void(std::list<std::shared_ptr<Enemy>>&, std::weak_ptr<Application>app, std::weak_ptr<Player>pl, const Vec2f&, const Vec2f&)>>func;
+	std::unordered_map<std::string, std::function<void(std::list<std::shared_ptr<Enemy>>&, std::weak_ptr<Application>app,std::weak_ptr<Camera>cam, std::weak_ptr<Player>pl, const Vec2f&, const Vec2f&)>>func;
+
+	// カメラ
+	std::weak_ptr<Camera> cam;
 };

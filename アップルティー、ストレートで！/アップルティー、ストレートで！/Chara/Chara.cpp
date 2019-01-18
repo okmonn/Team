@@ -2,13 +2,14 @@
 #include "../InfoLoader/InfoLoader.h"
 #include "../Application/Application.h"
 
+#include "../Camera/Camera.h"
+
 // コンストラクタ
-Chara::Chara() : 
+Chara::Chara() :
 	state("wait"), index(0), speed(1.0f), flam(0.0f), reverse(false)
 {
 	image.clear();
 }
-
 // デストラクタ
 Chara::~Chara()
 {
@@ -75,7 +76,7 @@ void Chara::DrawImg(const std::string & name, const Vec2f & pos, const Vec2f & s
 		return;
 	}
 
-	app.lock()->DrawTex(image[name], pos, size, InfoLoader::Get().GetRect(info)->at(state)[index].pos, InfoLoader::Get().GetRect(info)->at(state)[index].size, alpha, reverse, turnY);
+	app.lock()->DrawTex(image[name], pos + cam.lock()->GetPos(), size, InfoLoader::Get().GetRect(info)->at(state)[index].pos, InfoLoader::Get().GetRect(info)->at(state)[index].size, alpha, reverse, turnY);
 }
 
 // 画像の削除

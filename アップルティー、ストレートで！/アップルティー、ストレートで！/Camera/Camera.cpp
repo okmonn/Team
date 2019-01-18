@@ -1,8 +1,14 @@
 #include "Camera.h"
+#include "../Application/Application.h"
 #include "../Typedef.h"
 
 Camera::Camera()
 {
+}
+Camera::Camera(std::weak_ptr<Application> app)
+{
+	this->app = app;
+
 	Create();
 }
 
@@ -21,12 +27,12 @@ void Camera::Create(void)
 void Camera::UpData(const Vec2f & pos)
 {
 	static float i = 0;
-	float SCROLL_L = WindowSize.x / 8;
+	float SCROLL_L = app.lock()->GetWinSize().x / 8;
 	if (pos.x + i< SCROLL_L)
 	{
 		i -= (pos.x + i - SCROLL_L) / 16;
 	}
-	float SCROLL_R = WindowSize.x - (WindowSize.x / 4);
+	float SCROLL_R = app.lock()->GetWinSize().x - (app.lock()->GetWinSize().x / 4);
 
 	if (pos.x + i> SCROLL_R)
 	{

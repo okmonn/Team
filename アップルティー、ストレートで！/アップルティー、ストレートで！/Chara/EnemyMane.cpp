@@ -4,7 +4,7 @@
 #include "../Application/Application.h"
 
 // コンストラクタ
-EnemyMane::EnemyMane(std::weak_ptr<Application>app, std::weak_ptr<Player> pl) : app(app), pl(pl)
+EnemyMane::EnemyMane(std::weak_ptr<Application>app, std::weak_ptr<Camera>cam, std::weak_ptr<Player>pl) : app(app), cam(cam), pl(pl)
 {
 	enemy.clear();
 
@@ -21,15 +21,15 @@ void EnemyMane::Init(void)
 {
 	func.clear();
 
-	func["1"] = [&](std::list<std::shared_ptr<Enemy>>& list, std::weak_ptr<Application>app, std::weak_ptr<Player>pl, const Vec2f& pos, const Vec2f& size)->void {
-		list.push_back(std::make_shared<Enemy1>(app, pl, pos, size));
+	func["1"] = [&](std::list<std::shared_ptr<Enemy>>& list, std::weak_ptr<Application>app,std::weak_ptr<Camera>cam, std::weak_ptr<Player>pl, const Vec2f& pos, const Vec2f& size)->void {
+		list.push_back(std::make_shared<Enemy1>(app,cam, pl, pos, size));
 	};
 }
 
 // 敵の生成
 void EnemyMane::Create(const std::string & type, const Vec2f & pos, const Vec2f & size)
 {
-	func[type](enemy, app, pl, pos, size);
+	func[type](enemy, app, cam, pl, pos, size);
 }
 
 // 描画

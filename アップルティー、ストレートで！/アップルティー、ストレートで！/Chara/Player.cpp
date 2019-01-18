@@ -1,14 +1,14 @@
 #include "Player.h"
 #include "../Input/Input.h"
 #include "../Application/Application.h"
-
+#include "../Camera/Camera.h"
 // コンストラクタ
-Player::Player(std::weak_ptr<Application>app, const Vec2f & pos, const Vec2f & size)
+Player::Player(std::weak_ptr<Application>app, const Vec2f & pos, const Vec2f & size,std::shared_ptr<Camera> cam)
 {
 	this->app  = app;
 	this->pos  = pos;
 	this->size = size;
-
+	this->cam = cam;
 	LoadImg("pl", "_rsc/img/player.png");
 	LoadInfo("_rsc/info/player.info");
 	SetFunc();
@@ -141,6 +141,7 @@ void Player::Damage(void)
 // 描画
 void Player::Draw(void)
 {
+	cam.lock()->UpData(GetPos());
 	DrawImg("pl", pos, size);
 }
 

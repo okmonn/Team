@@ -4,7 +4,7 @@
 #include "../Scene/Title.h"
 #include "../Typedef.h"
 
-const Vec2 winSize = { WindowSize.x,WindowSize.y };
+const Vec2 winSize = { 1280,720 };
 
 // コンストラクタ
 GameMane::GameMane()

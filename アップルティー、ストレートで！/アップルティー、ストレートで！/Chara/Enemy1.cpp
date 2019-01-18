@@ -2,12 +2,13 @@
 #include "../Application/Application.h"
 
 // コンストラクタ
-Enemy1::Enemy1(std::weak_ptr<Application> app, std::weak_ptr<Chara> pl, const Vec2f & pos, const Vec2f & size)
+Enemy1::Enemy1(std::weak_ptr<Application> app, std::weak_ptr<Camera> cam, std::weak_ptr<Chara> pl, const Vec2f & pos, const Vec2f & size)
 {
-	this->app  = app;
-	this->pl   = pl;
-	this->pos  = pos;
-	this->size = size;
+	this->app	= app;
+	this->pl	= pl;
+	this->pos	= pos;
+	this->size	= size;
+	this->cam	= cam;
 
 	LoadImg("1", "_rsc/img/player.png");
 	LoadInfo("_rsc/info/player.info");

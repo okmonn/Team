@@ -4,13 +4,17 @@
 #include <functional>
 #include <unordered_map>
 
+class Camera;
+
 class Application;
 
 class Chara
 {
 public:
-	// コンストラクタ
+	// デフォルトコンストラクタ
 	Chara();
+	// コンストラクタ
+	Chara(std::weak_ptr<Camera> cam);
 	// デストラクタ
 	virtual ~Chara();
 
@@ -112,4 +116,8 @@ protected:
 
 	// 画像ID
 	std::unordered_map<std::string, int>image;
+
+	// カメラ(描画位置オフセット)
+	std::weak_ptr<Camera> cam;
+
 };

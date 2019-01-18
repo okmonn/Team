@@ -1,6 +1,7 @@
 #pragma once
 #include "Scene.h"
 
+class Camera;
 class Player;
 class EnemyMane;
 
@@ -29,4 +30,7 @@ private:
 
 	// 敵
 	std::shared_ptr<EnemyMane>enemy;
+
+	// カメラ（描画位置オフセット）
+	std::shared_ptr<Camera>cam;
 };

@@ -33,5 +33,3 @@ struct Rect {
 	Vec2f size;
 };
 
-// ウィンドウサイズ
-Vec2f WindowSize = {1280.0f,720.0f};
