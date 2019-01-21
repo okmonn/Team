@@ -39,6 +39,9 @@ private:
 	// アプリケーション
 	std::weak_ptr<Application>app;
 
+	// カメラ
+	std::weak_ptr<Camera>cam;
+
 	// プレイヤー
 	std::weak_ptr<Player>pl;
 
@@ -47,7 +50,4 @@ private:
 
 	// 関数ポインタ
 	std::unordered_map<std::string, std::function<void(std::list<std::shared_ptr<Enemy>>&, std::weak_ptr<Application>app,std::weak_ptr<Camera>cam, std::weak_ptr<Player>pl, const Vec2f&, const Vec2f&)>>func;
-
-	// カメラ
-	std::weak_ptr<Camera> cam;
 };
