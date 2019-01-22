@@ -6,7 +6,7 @@ class Enemy1 :
 {
 public:
 	// コンストラクタ
-	Enemy1(std::weak_ptr<Application>app, std::weak_ptr<Camera> cam, std::weak_ptr<Chara>pl, const Vec2f& pos = 0.0f, const Vec2f& size = 100.0f);
+	Enemy1(std::weak_ptr<Application>app, std::weak_ptr<Camera> cam, std::weak_ptr<Player>pl, const Vec2f& pos = 0.0f, const Vec2f& size = 100.0f);
 	// デストラクタ
 	~Enemy1();
 
@@ -34,6 +34,7 @@ private:
 
 	// 死亡時の処理
 	void Dead(void);
+
 
 	// 関数ポインタ
 	std::unordered_map<std::string, std::function<void(Enemy1*)>>func;

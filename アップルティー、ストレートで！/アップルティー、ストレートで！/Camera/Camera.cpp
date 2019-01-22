@@ -1,47 +1,35 @@
 #include "Camera.h"
+#include "../Chara/Chara.h"
 #include "../Application/Application.h"
-#include "../Typedef.h"
 
-Camera::Camera()
+// コンストラクタ
+Camera::Camera(std::weak_ptr<Application> app) : app(app),
+	pos(0.0f)
 {
 }
-Camera::Camera(std::weak_ptr<Application> app)
-{
-	this->app = app;
 
-	Create();
-}
-
+// デストラクタ
 Camera::~Camera()
 {
 }
-void Camera::Init()
-{
-	pos = {};
-}
-void Camera::Create(void)
-{
-	Init();
-}
 
-void Camera::UpData(const Vec2f & pos)
+// 処理
+void Camera::UpData(void)
 {
-	static float i = 0;
-	float SCROLL_L = app.lock()->GetWinSize().x / 8;
-	if (pos.x + i< SCROLL_L)
+	static float moveCnt = 0.0f;
+	float left  = app.lock()->GetWinSize().x / 8.0f;
+	float right = app.lock()->GetWinSize().x - app.lock()->GetWinSize().x / 4.0f;
+
+	if (target.lock()->GetPos().x + moveCnt < left)
 	{
-		i -= (pos.x + i - SCROLL_L) / 16;
+		moveCnt -= (target.lock()->GetPos().x + moveCnt - left) / 16.0f;
 	}
-	float SCROLL_R = app.lock()->GetWinSize().x - (app.lock()->GetWinSize().x / 4);
-
-	if (pos.x + i> SCROLL_R)
+	else if(target.lock()->GetPos().x + moveCnt > right)
 	{
-		i -= (pos.x + i - SCROLL_R) / 16;
+		moveCnt -= (target.lock()->GetPos().x + moveCnt - right) / 16.0f;
 	}
+	else{}
 
-	this->pos = { i,0 };
-
-
-
+	pos.x = moveCnt;
 
 }
