@@ -3,15 +3,16 @@
 #include "../Application/Application.h"
 #include "../Camera/Camera.h"
 // コンストラクタ
-Player::Player(std::weak_ptr<Application>app, const Vec2f & pos, const Vec2f & size,std::shared_ptr<Camera> cam)
+Player::Player(std::weak_ptr<Application>app, const Vec2f & pos, const Vec2f & size, std::shared_ptr<Camera> cam)
 {
-	this->app  = app;
-	this->pos  = pos;
+	this->app = app;
+	this->pos = pos;
 	this->size = size;
 	this->cam = cam;
 	LoadImg("pl", "_rsc/img/player.png");
 	LoadInfo("_rsc/info/player.info");
 	SetFunc();
+	speed = 4.0f;
 }
 
 // デストラクタ
@@ -25,13 +26,13 @@ void Player::SetFunc(void)
 {
 	func.clear();
 
-	func["wait"]    = &Player::Wait;
-	func["walk"]    = &Player::Walk;
-	func["avoid"]   = &Player::Avoid;
+	func["wait"] = &Player::Wait;
+	func["walk"] = &Player::Walk;
+	func["avoid"] = &Player::Avoid;
 	func["attack1"] = &Player::Attack1;
 	func["attack2"] = &Player::Attack2;
 	func["sliding"] = &Player::Sliding;
-	func["damage"]  = &Player::Damage;
+	func["damage"] = &Player::Damage;
 }
 
 // 待機時の処理
@@ -59,6 +60,14 @@ void Player::Wait(void)
 	else
 	{
 	}
+
+
+	if (Input::Get().InputKey(INPUT_Z))
+	{
+		SetState("attack1");
+	}
+
+
 }
 
 // 歩行時の処理
@@ -68,27 +77,41 @@ void Player::Walk(void)
 	{
 		return;
 	}
+	bool moving = false;
 
 	if (Input::Get().InputKey(INPUT_RIGHT))
 	{
 		reverse = false;
 		pos.x += speed;
+		moving = true;
+		if (Input::Get().Triger(INPUT_X))
+		{
+			SetState("sliding");
+		}
 	}
-	else if (Input::Get().InputKey(INPUT_LEFT))
+	if (Input::Get().InputKey(INPUT_LEFT))
 	{
 		reverse = true;
 		pos.x -= speed;
+		moving = true;
+		if (Input::Get().Triger(INPUT_X))
+		{
+			SetState("sliding");
+		}
+
 	}
-	else if (Input::Get().InputKey(INPUT_UP))
+	if (Input::Get().InputKey(INPUT_UP))
 	{
 		pos.y -= speed;
+		moving = true;
 	}
-	else if (Input::Get().InputKey(INPUT_DOWN))
+	if (Input::Get().InputKey(INPUT_DOWN))
 	{
 		pos.y += speed;
+		moving = true;
 	}
-	else
-	{
+
+	if (!moving) {
 		SetState("wait");
 	}
 }
@@ -105,9 +128,20 @@ void Player::Avoid(void)
 // 攻撃1時の処理
 void Player::Attack1(void)
 {
+	// 追撃を行うか
+	static bool atk_flg = false;
 	if (state != "attack1")
 	{
 		return;
+	}
+	if (Input::Get().Triger(INPUT_Z))
+	{
+		atk_flg = true;
+	}
+	if (CheckAnimEnd())
+	{
+		SetState((atk_flg == true ? "attack2" : "wait"));
+		atk_flg = false;
 	}
 }
 
@@ -118,6 +152,11 @@ void Player::Attack2(void)
 	{
 		return;
 	}
+	if (CheckAnimEnd())
+	{
+		SetState("wait");
+	}
+
 }
 
 // スライディング時の処理
@@ -127,6 +166,21 @@ void Player::Sliding(void)
 	{
 		return;
 	}
+
+	if (!reverse)
+	{
+		pos.x += speed * 2.4;
+	}
+	else
+	{
+		pos.x -= speed * 2.4;
+	}
+
+	if (CheckAnimEnd())
+	{
+		SetState("wait");
+	}
+
 }
 
 // ダメージ時の処理
@@ -136,6 +190,11 @@ void Player::Damage(void)
 	{
 		return;
 	}
+}
+
+void Player::DamageHit(int type)
+{
+
 }
 
 // 描画
