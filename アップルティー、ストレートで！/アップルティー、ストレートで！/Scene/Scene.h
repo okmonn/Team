@@ -27,7 +27,7 @@ protected:
 	void LoadImg(const std::string& name, const std::string& fileName);
 
 	// ‰æ‘œ‚Ì•`‰æ
-	void Draw(const std::string& name, const Vec2f& pos, const Vec2f& size, const Vec2f& uvPos, const Vec2f& uvSize,
+	void DrawImg(const std::string& name, const Vec2f& pos, const Vec2f& size, const Vec2f& uvPos, const Vec2f& uvSize,
 		const float& alpha = 1.0f, const bool& turnX = false, const bool& turnY = false);
 
 	// ‰æ‘œ‚Ìíœ

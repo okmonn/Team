@@ -14,7 +14,7 @@ Scene::~Scene()
 // ‰æ‘œ‚Ì“Ç‚İ‚İ
 void Scene::LoadImg(const std::string & name, const std::string & fileName)
 {
-	if (image.find(name) == image.end())
+	if (image.find(name) != image.end())
 	{
 		return;
 	}
@@ -23,7 +23,7 @@ void Scene::LoadImg(const std::string & name, const std::string & fileName)
 }
 
 // ‰æ‘œ‚Ì•`‰æ
-void Scene::Draw(const std::string & name, const Vec2f & pos, const Vec2f & size, const Vec2f & uvPos, const Vec2f & uvSize, const float & alpha, const bool & turnX, const bool & turnY)
+void Scene::DrawImg(const std::string & name, const Vec2f & pos, const Vec2f & size, const Vec2f & uvPos, const Vec2f & uvSize, const float & alpha, const bool & turnX, const bool & turnY)
 {
 	if (image.find(name) == image.end())
 	{

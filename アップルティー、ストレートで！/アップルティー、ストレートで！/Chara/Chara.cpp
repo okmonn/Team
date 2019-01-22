@@ -39,7 +39,7 @@ std::vector<HitRect<Vec2f>> Chara::GetRect(void)
 	std::for_each(tmp.begin(), tmp.end(), [&](HitRect<Vec2f>& rect)->void {
 		if (reverse == false)
 		{
-			rect.rect.pos  = pos - rect.rect.pos;
+			rect.rect.pos = pos - rect.rect.pos;
 			rect.rect.size = rect.rect.size * size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
 		}
 		else
@@ -108,10 +108,9 @@ void Chara::DrawImg(const std::string & name, const float & alpha, const bool & 
 // ‚ ‚½‚è‹éŒ`‚Ì•`‰æ
 void Chara::DrawRect(void)
 {
-	for (auto& i : InfoLoader::Get().GetInfo(info)->at(state).rect[index].hit)
+	for (auto& i : GetRect())
 	{
-		app.lock()->DrawBox(lpos - i.rect.pos, i.rect.size * (size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size),
-			{ 1.0f, 0.0f, 0.0f, 0.5f });
+		app.lock()->DrawBox(i.rect.pos, i.rect.size, { 1.0f, 0.0f, 0.0f, 0.5f });
 	}
 }
 
