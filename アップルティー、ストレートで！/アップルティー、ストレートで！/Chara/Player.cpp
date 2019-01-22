@@ -47,17 +47,28 @@ void Player::Wait(void)
 		return;
 	}
 
-	if (Input::Get().InputKey(INPUT_RIGHT))
+	if (Input::Get().InputKey(INPUT_Z))
 	{
-		reverse = false;
-		SetState("walk");
+		SetState("attack1");
 	}
-	else if (Input::Get().InputKey(INPUT_LEFT))
+	if (Input::Get().Triger(INPUT_X))
+	{
+		SetState("sliding");
+	}
+
+	if (Input::Get().InputKey(INPUT_LEFT))
 	{
 		reverse = true;
 		SetState("walk");
 	}
-	else if (Input::Get().InputKey(INPUT_UP) | Input::Get().InputKey(INPUT_DOWN))
+
+	else if (Input::Get().InputKey(INPUT_RIGHT))
+	{
+		reverse = false;
+		SetState("walk");
+	}
+
+	if (Input::Get().InputKey(INPUT_UP) | Input::Get().InputKey(INPUT_DOWN))
 	{
 		SetState("walk");
 	}
@@ -74,25 +85,31 @@ void Player::Walk(void)
 		return;
 	}
 
+	static bool walking = false;
+
 	if (Input::Get().InputKey(INPUT_RIGHT))
 	{
 		reverse = false;
 		pos.x += speed;
+		walking = true;
 	}
-	else if (Input::Get().InputKey(INPUT_LEFT))
+	 if (Input::Get().InputKey(INPUT_LEFT))
 	{
 		reverse = true;
 		pos.x -= speed;
+		walking = true;
 	}
-	else if (Input::Get().InputKey(INPUT_UP))
+	 if (Input::Get().InputKey(INPUT_UP))
 	{
 		pos.y -= speed;
+		walking = true;
 	}
-	else if (Input::Get().InputKey(INPUT_DOWN))
+	 if (Input::Get().InputKey(INPUT_DOWN))
 	{
 		pos.y += speed;
+		walking = true;
 	}
-	else
+	if(!walking)
 	{
 		SetState("wait");
 	}
@@ -107,12 +124,23 @@ void Player::Avoid(void)
 	}
 }
 
-// 攻撃1時の処理
+// 攻撃2時の処理
 void Player::Attack1(void)
 {
+	// 追撃を行うか
+	static bool atk_flg = false;
 	if (state != "attack1")
 	{
 		return;
+	}
+	if (Input::Get().Triger(INPUT_Z))
+	{
+		atk_flg = true;
+	}
+	if (CheckAnimEnd())
+	{
+		SetState((atk_flg == true ? "attack2" : "wait"));
+		atk_flg = false;
 	}
 }
 
@@ -123,6 +151,11 @@ void Player::Attack2(void)
 	{
 		return;
 	}
+	if (CheckAnimEnd())
+	{
+		SetState("wait");
+	}
+
 }
 
 // スライディング時の処理
@@ -132,8 +165,22 @@ void Player::Sliding(void)
 	{
 		return;
 	}
-}
 
+	if (!reverse)
+	{
+		pos.x += speed * 2.4;
+	}
+	else
+	{
+		pos.x -= speed * 2.4;
+	}
+
+	if (CheckAnimEnd())
+	{
+		SetState("wait");
+	}
+
+}
 // ダメージ時の処理
 void Player::Damage(void)
 {
