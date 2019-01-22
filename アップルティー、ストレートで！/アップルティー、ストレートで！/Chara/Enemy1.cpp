@@ -94,11 +94,20 @@ void Enemy1::Walk(void)
 		pos.y -= speed;
 	}
 
-	Vec2f tmp = target - GetCenter();
+	Vec2f tmp = pl.lock()->GetCenter() - GetCenter();
 	float distance = std::hypot(tmp.x, tmp.y);
-	if (distance <= OFFSET)
+	if (distance <= size.x / 2.0f)
 	{
-		SetState("wait");
+		SetState("attack");
+	}
+	else
+	{
+		tmp = target - GetCenter();
+		distance = std::hypot(tmp.x, tmp.y);
+		if (distance <= OFFSET)
+		{
+			SetState("wait");
+		}
 	}
 }
 
