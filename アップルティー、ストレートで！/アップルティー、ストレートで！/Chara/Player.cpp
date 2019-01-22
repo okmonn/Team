@@ -85,7 +85,7 @@ void Player::Walk(void)
 		return;
 	}
 
-	static bool walking = false;
+	bool walking = false;
 
 	if (Input::Get().InputKey(INPUT_RIGHT))
 	{
