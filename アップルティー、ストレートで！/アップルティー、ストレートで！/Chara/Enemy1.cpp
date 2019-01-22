@@ -159,6 +159,10 @@ void Enemy1::Draw(void)
 	{
 		app.lock()->DrawBox(i.rect.pos, i.rect.size, { 1.0f, 0.0f, 0.0f, 0.5f });
 	}
+	for (auto& i : GetRect())
+	{
+		app.lock()->DrawBox(i.rect.pos, i.rect.size, { 1.0f, 0.0f, 0.0f, 0.5f });
+	}
 }
 
 // èàóù
@@ -166,6 +170,11 @@ void Enemy1::UpData(void)
 {
 	UpDataLocal();
 	Animator();
+	if (CheckHit())
+	{
+		SetState("damage");
+	}
+
 	func[state](this);
 
 	reverse = (target.x < GetCenter().x) ? false : true;

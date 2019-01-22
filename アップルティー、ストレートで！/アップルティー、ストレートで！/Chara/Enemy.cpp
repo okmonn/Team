@@ -1,4 +1,5 @@
 #include "Enemy.h"
+#include "../Camera/Camera.h"
 #include "Player.h"
 #include "../Application/Application.h"
 #include <random>
@@ -12,6 +13,12 @@ Enemy::Enemy() :
 // デストラクタ
 Enemy::~Enemy()
 {
+}
+
+// ローカル座標の更新
+void Enemy::UpDataLocal(void)
+{
+	lpos = pos - cam.lock()->GetPos();
 }
 
 // ランダムなターゲット座標の生成
@@ -31,5 +38,32 @@ Vec2f Enemy::GetRandomPos(const Vec2f & range)
 // あたり判定
 bool Enemy::CheckHit(void)
 {
+	for (auto& p : pl.lock()->GetRect())
+	{
+		for (auto& e : GetRect())
+		{
+			/*if (!(p.type == HitType::attack && e.type == HitType::damage
+				|| p.type == HitType::damage && e.type == HitType::attack))
+			{
+				continue;
+			}*/
+
+			auto plCenter = p.rect.pos + p.rect.size / 2.0f;
+			auto enCenter = e.rect.pos + e.rect.size / 2.0f;
+			float dis1 = std::hypot(plCenter.x - enCenter.x, plCenter.y - enCenter.y);
+			float angle = std::atan2(plCenter.x - enCenter.x, plCenter.y - enCenter.y);
+
+			Vec2f pSize = { std::abs(p.rect.size.x), p.rect.size.y };
+			pSize /= 2.0f;
+			Vec2f eSize = { std::abs(e.rect.size.x), e.rect.size.y };
+			eSize /= 2.0f;
+			float dis2 = std::hypot((pSize.x + eSize.x) * sin(angle), (pSize.y + eSize.y) * cos(angle));
+			if (dis1 <= dis2)
+			{
+				return true;
+			}
+		}
+	}
+
 	return false;
 }

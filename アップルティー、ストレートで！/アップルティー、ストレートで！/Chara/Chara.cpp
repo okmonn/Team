@@ -37,8 +37,16 @@ std::vector<HitRect<Vec2f>> Chara::GetRect(void)
 {
 	auto tmp = InfoLoader::Get().GetInfo(info)->at(state).rect[index].hit;
 	std::for_each(tmp.begin(), tmp.end(), [&](HitRect<Vec2f>& rect)->void {
-		rect.rect.pos  = pos - rect.rect.pos;
-		rect.rect.size = rect.rect.size * size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
+		if (reverse == false)
+		{
+			rect.rect.pos  = pos - rect.rect.pos;
+			rect.rect.size = rect.rect.size * size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
+		}
+		else
+		{
+			rect.rect.pos  = Vec2f(pos.x + size.x, pos.y) - rect.rect.pos;
+			rect.rect.size = Vec2f(-rect.rect.size.x, rect.rect.size.y) * size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
+		}
 	});
 	
 	return tmp;
