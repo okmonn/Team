@@ -44,9 +44,17 @@ void EnemyMane::Draw(void)
 // ˆ—
 void EnemyMane::UpData(void)
 {
-	for (auto itr = enemy.begin(); itr != enemy.end(); ++itr)
+	for (auto itr = enemy.begin(); itr != enemy.end();)
 	{
 		(*itr)->UpData();
+		if ((*itr)->GetDead())
+		{
+			itr = enemy.erase(itr);
+		}
+		else
+		{
+			++itr;
+		}
 	}
 }
 

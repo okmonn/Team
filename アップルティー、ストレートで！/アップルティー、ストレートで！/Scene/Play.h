@@ -25,12 +25,12 @@ private:
 	void Create(void);
 
 
+	// カメラ
+	std::shared_ptr<Camera>cam;
+
 	// プレイヤー
 	std::shared_ptr<Player>pl;
 
 	// 敵
 	std::shared_ptr<EnemyMane>enemy;
-
-	// カメラ（描画位置オフセット）
-	std::shared_ptr<Camera>cam;
 };
