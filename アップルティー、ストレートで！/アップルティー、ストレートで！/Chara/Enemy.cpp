@@ -36,17 +36,17 @@ Vec2f Enemy::GetRandomPos(const Vec2f & range)
 }
 
 // ‚ ‚½‚è”»’è
-bool Enemy::CheckHit(void)
+void Enemy::CheckHit(void)
 {
 	for (auto& p : pl.lock()->GetRect())
 	{
 		for (auto& e : GetRect())
 		{
-			/*if (!(p.type == HitType::attack && e.type == HitType::damage
+			if (!(p.type == HitType::attack && e.type == HitType::damage
 				|| p.type == HitType::damage && e.type == HitType::attack))
 			{
 				continue;
-			}*/
+			}
 
 			auto plCenter = p.rect.pos + p.rect.size / 2.0f;
 			auto enCenter = e.rect.pos + e.rect.size / 2.0f;
@@ -60,10 +60,17 @@ bool Enemy::CheckHit(void)
 			float dis2 = std::hypot((pSize.x + eSize.x) * sin(angle), (pSize.y + eSize.y) * cos(angle));
 			if (dis1 <= dis2)
 			{
-				return true;
+				if (p.type == HitType::attack)
+				{
+					SetState("damage");
+				}
+				else
+				{
+					pl.lock()->SetState("damage");
+				}
+
+				return;
 			}
 		}
 	}
-
-	return false;
 }

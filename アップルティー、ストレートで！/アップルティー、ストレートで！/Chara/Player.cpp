@@ -147,6 +147,10 @@ void Player::Damage(void)
 void Player::Draw(void)
 {
 	DrawImg("pl");
+
+#if _DEBUG
+	DrawRect();
+#endif
 }
 
 // ˆ—

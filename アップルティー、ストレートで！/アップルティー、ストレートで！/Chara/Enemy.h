@@ -20,7 +20,7 @@ protected:
 	Vec2f GetRandomPos(const Vec2f& range);
 
 	// ‚ ‚½‚è”»’è
-	bool CheckHit(void);
+	void CheckHit(void);
 
 
 	// ƒvƒŒƒCƒ„[

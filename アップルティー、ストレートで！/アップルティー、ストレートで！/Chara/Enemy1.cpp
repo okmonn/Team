@@ -155,14 +155,9 @@ void Enemy1::Draw(void)
 {
 	DrawImg("1");
 
-	for (auto& i : pl.lock()->GetRect())
-	{
-		app.lock()->DrawBox(i.rect.pos, i.rect.size, { 1.0f, 0.0f, 0.0f, 0.5f });
-	}
-	for (auto& i : GetRect())
-	{
-		app.lock()->DrawBox(i.rect.pos, i.rect.size, { 1.0f, 0.0f, 0.0f, 0.5f });
-	}
+#if _DEBUG
+	DrawRect();
+#endif
 }
 
 // èàóù
@@ -170,12 +165,8 @@ void Enemy1::UpData(void)
 {
 	UpDataLocal();
 	Animator();
-	if (CheckHit())
-	{
-		SetState("damage");
-	}
-
 	func[state](this);
+	CheckHit();
 
 	reverse = (target.x < GetCenter().x) ? false : true;
 }
