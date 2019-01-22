@@ -1,12 +1,12 @@
 #include "Chara.h"
 #include "../InfoLoader/InfoLoader.h"
-#include "../Application/Application.h"
-
 #include "../Camera/Camera.h"
+#include "../Application/Application.h"
+#include <algorithm>
 
 // コンストラクタ
 Chara::Chara() :
-	state("wait"), index(0), speed(1.0f), flam(0.0f), reverse(false)
+	state("wait"), index(0), speed(1.0f), flam(0.0f), reverse(false), dead(false)
 {
 	image.clear();
 }
@@ -26,6 +26,30 @@ void Chara::SetState(const std::string & state)
 	this->state = state;
 	index       = 0;
 	flam        = 0.0f;
+	if (state == "damage")
+	{
+		hp -= (hp != 0) ? 1 : 0;
+	}
+}
+
+// あたり矩形の取得
+std::vector<HitRect<Vec2f>> Chara::GetRect(void)
+{
+	auto tmp = InfoLoader::Get().GetInfo(info)->at(state).rect[index].hit;
+	std::for_each(tmp.begin(), tmp.end(), [&](HitRect<Vec2f>& rect)->void {
+		if (reverse == false)
+		{
+			rect.rect.pos  = pos - rect.rect.pos;
+			rect.rect.size = rect.rect.size * size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
+		}
+		else
+		{
+			rect.rect.pos  = Vec2f(pos.x + size.x, pos.y) - rect.rect.pos;
+			rect.rect.size = Vec2f(-rect.rect.size.x, rect.rect.size.y) * size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
+		}
+	});
+	
+	return tmp;
 }
 
 // アニメーション・矩形情報の読み込み
@@ -70,21 +94,31 @@ bool Chara::CheckAnimEnd(void)
 }
 
 // 画像の描画
-void Chara::DrawImg(const std::string & name, const Vec2f & pos, const Vec2f & size, const float & alpha, const bool & turnY)
+void Chara::DrawImg(const std::string & name, const float & alpha, const bool & turnY)
 {
 	if (image.find(name) == image.end())
 	{
 		return;
 	}
-	app.lock()->DrawTex(image[name], pos + cam.lock()->GetPos(), size,
+	app.lock()->DrawTex(image[name], lpos, size,
 		InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.pos, InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size,
 		alpha, reverse, turnY);
+}
 
+// あたり矩形の描画
+void Chara::DrawRect(void)
+{
 	for (auto& i : InfoLoader::Get().GetInfo(info)->at(state).rect[index].hit)
 	{
-		app.lock()->DrawBox(pos - i.rect.pos, i.rect.size * (size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size),
+		app.lock()->DrawBox(lpos - i.rect.pos, i.rect.size * (size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size),
 			{ 1.0f, 0.0f, 0.0f, 0.5f });
 	}
+}
+
+// ローカル座標の更新
+void Chara::UpDataLocal(void)
+{
+	lpos = pos + cam.lock()->GetPos();
 }
 
 // 画像の削除

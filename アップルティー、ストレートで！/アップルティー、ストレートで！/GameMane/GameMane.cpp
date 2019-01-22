@@ -32,7 +32,9 @@ void GameMane::Init(void)
 // •`‰æ
 void GameMane::Draw(void)
 {
+	app->Clear();
 	scene->Draw();
+	app->Execution();
 }
 
 // ˆ—
@@ -47,10 +49,8 @@ void GameMane::Run(void)
 	Init();
 	while (app->CheckMsg() && Input::Get().InputKey(INPUT_ESCAPE) == false)
 	{
-		app->Clear();
 		Draw();
 		UpData();
-		app->Execution();
 	}
 	End();
 }
