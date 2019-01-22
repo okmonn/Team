@@ -51,10 +51,6 @@ void Player::Wait(void)
 	{
 		SetState("attack1");
 	}
-	if (Input::Get().Triger(INPUT_X))
-	{
-		SetState("sliding");
-	}
 
 	if (Input::Get().InputKey(INPUT_LEFT))
 	{
@@ -85,7 +81,7 @@ void Player::Walk(void)
 		return;
 	}
 
-	static bool walking = false;
+	bool walking = false;
 
 	if (Input::Get().InputKey(INPUT_RIGHT))
 	{
@@ -109,6 +105,12 @@ void Player::Walk(void)
 		pos.y += speed;
 		walking = true;
 	}
+
+	 if (Input::Get().Triger(INPUT_X))
+	 {
+		 SetState("sliding");
+	 }
+
 	if(!walking)
 	{
 		SetState("wait");

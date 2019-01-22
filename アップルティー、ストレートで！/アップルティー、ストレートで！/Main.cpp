@@ -18,7 +18,7 @@ int __stdcall WinMain(void* hInstance, void* hPrevInstance, char* lpCmdLine, int
 			//ステータス名
 			wait.st = "wait";
 			//アニメーション移行時間
-			wait.animTime = 6.0f;
+			wait.animTime = 1.0f;
 			//アニメーション矩形の数セット
 			wait.rect.resize(16);
 			for (unsigned int i = 0; i < wait.rect.size(); ++i)
@@ -224,6 +224,8 @@ int __stdcall WinMain(void* hInstance, void* hPrevInstance, char* lpCmdLine, int
 	tmp.push_back(sliding);
 	tmp.push_back(kick);
 	tmp.push_back(damage);
+	InfoLoader::Get().Write("_rsc/info/player.info", tmp);
+
 	//敵1
 	{
 		unsigned int index = 0;
