@@ -6,7 +6,7 @@ class Player :
 {
 public:
 	// コンストラクタ
-	Player(std::weak_ptr<Application> app, std::weak_ptr<Camera>cam, const Vec2f & pos, const Vec2f & size);
+	Player(std::weak_ptr<Application> app, const Vec2f & pos, const Vec2f & size, std::shared_ptr<Camera> cam);
 	// デストラクタ
 	~Player();
 
