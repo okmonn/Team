@@ -5,12 +5,13 @@
 #include <unordered_map>
 
 class Camera;
+
 class Application;
 
 class Chara
 {
 public:
-	// コンストラクタ
+	// デフォルトコンストラクタ
 	Chara();
 	// デストラクタ
 	virtual ~Chara();
@@ -29,13 +30,21 @@ public:
 	void SetPos(const Vec2f& pos) {
 		this->pos = pos;
 	}
+	// ローカル座標の取得
+	Vec2f GetLocal(void) const {
+		return lpos;
+	}
+	// ローカル座標のセット
+	void SetLocal(const Vec2f& pos) {
+		lpos = pos;
+	}
 	// サイズの取得
 	Vec2f GetSize(void) const {
 		return size;
 	}
-	// 中心座標の取得
-	Vec2f GetCenter(void) const {
-		return pos + size / 2.0f;
+	// サイズのセット
+	void SetSize(const Vec2f& size) {
+		this->size = size;
 	}
 	// ステータスの取得
 	std::string GetState(void) const {
@@ -43,16 +52,6 @@ public:
 	}
 	// ステータスのセット
 	void SetState(const std::string& state);
-	// あたり矩形の取得
-	std::vector<HitRect<Vec2f>> GetRect(void);
-	// 体力の取得
-	unsigned int GetHp(void) const {
-		return hp;
-	}
-	// 体力のセット
-	void SetHp(const unsigned int& hp) {
-		this->hp = hp;
-	}
 	// 反転フラグの取得
 	bool GetReverse(void) const {
 		return reverse;
@@ -60,10 +59,6 @@ public:
 	// 反転フラグのセット
 	void SetReverse(const bool& flag) {
 		reverse = flag;
-	}
-	// 死亡フラグの取得
-	bool GetDead(void) const {
-		return dead;
 	}
 
 protected:
@@ -80,13 +75,7 @@ protected:
 	bool CheckAnimEnd(void);
 
 	// 画像の描画
-	void DrawImg(const std::string& name, const float& alpha = 1.0f, const bool& turnY = false);
-
-	// あたり矩形の描画
-	void DrawRect(void);
-
-	// ローカル座標の更新
-	void UpDataLocal(void);
+	void DrawImg(const std::string& name, const Vec2f& pos, const Vec2f& size, const float& alpha = 1.0f, const bool& turnY = false);
 
 	// 画像の削除
 	void Delete(const std::string& name);
@@ -95,9 +84,6 @@ protected:
 
 	// アプリケーション
 	std::weak_ptr<Application>app;
-
-	// カメラ
-	std::weak_ptr<Camera>cam;
 
 	// 座標
 	Vec2f pos;
@@ -114,9 +100,6 @@ protected:
 	// infoファイル名
 	std::string info;
 
-	// 体力
-	unsigned int hp;
-
 	// 配列用インデックス
 	unsigned int index;
 
@@ -129,9 +112,10 @@ protected:
 	// 反転フラグ
 	bool reverse;
 
-	// 死亡フラグ
-	bool dead;
-
 	// 画像ID
 	std::unordered_map<std::string, int>image;
+
+	// カメラ(描画位置オフセット)
+	std::weak_ptr<Camera> cam;
+
 };
