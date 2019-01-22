@@ -98,7 +98,6 @@ void Window::Create(void * parent)
 
 	instance = wnd.hInstance;
 	name     = wnd.lpszClassName;
-	size     = { static_cast<int>(rect.right), static_cast<int>(rect.bottom) };
 
 	ShowWindow(reinterpret_cast<HWND>(handle), SW_SHOW);
 }

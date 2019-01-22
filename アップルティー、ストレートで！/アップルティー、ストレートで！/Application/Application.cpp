@@ -52,6 +52,17 @@ Vec2 Application::GetWinSize(void)
 	return win->GetSize();
 }
 
+// マウスのクライアント位置
+Vec2 Application::GetMousePos(void)
+{
+	POINT point{};
+	point.x = static_cast<long>(help::GetMousePos().x);
+	point.y = static_cast<long>(help::GetMousePos().y);
+	ScreenToClient(reinterpret_cast<HWND>(win->Get()), &point);
+
+	return { static_cast<int>(point.x), static_cast<int>(point.y) };
+}
+
 // ルートの生成
 void Application::CreateRoot(void)
 {

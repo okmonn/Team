@@ -136,7 +136,7 @@ void help::GetKeys(int * key)
 // マウス座標の取得
 Vec2 help::GetMousePos(void)
 {
-	POINT point;
+	POINT point{};
 	GetCursorPos(&point);
 	return { static_cast<int>(point.x), static_cast<int>(point.y) };
 }

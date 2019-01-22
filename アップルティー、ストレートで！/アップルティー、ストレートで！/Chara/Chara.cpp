@@ -39,7 +39,7 @@ std::vector<HitRect<Vec2f>> Chara::GetRect(void)
 	std::for_each(tmp.begin(), tmp.end(), [&](HitRect<Vec2f>& rect)->void {
 		if (reverse == false)
 		{
-			rect.rect.pos = pos - rect.rect.pos;
+			rect.rect.pos = pos + rect.rect.pos;
 			rect.rect.size = rect.rect.size * size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
 		}
 		else

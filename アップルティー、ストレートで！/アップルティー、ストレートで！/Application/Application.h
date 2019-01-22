@@ -28,6 +28,9 @@ public:
 	// ウィンドウサイズの取得
 	Vec2 GetWinSize(void);
 
+	// マウスのクライアント位置
+	Vec2 GetMousePos(void);
+
 	// メッセージの確認
 	bool CheckMsg(void);
 
