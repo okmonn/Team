@@ -148,6 +148,9 @@
     <Filter Include="Game\Chara\Enemy\Enemy2">
       <UniqueIdentifier>{a3001df6-81ca-41fe-9bd6-71f2844a515d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Chara\Enemy\Boss">
+      <UniqueIdentifier>{26590a76-8730-461c-8ebb-77c1d40fe5a5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -278,6 +281,9 @@
     </ClCompile>
     <ClCompile Include="Main.cpp">
       <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Chara\Boss.cpp">
+      <Filter>Game\Chara\Enemy\Boss</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -433,6 +439,9 @@
     </ClInclude>
     <ClInclude Include="Chara\Enemy2.h">
       <Filter>Game\Chara\Enemy\Enemy2</Filter>
+    </ClInclude>
+    <ClInclude Include="Chara\Boss.h">
+      <Filter>Game\Chara\Enemy\Boss</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

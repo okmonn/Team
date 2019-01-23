@@ -121,6 +121,7 @@
   <ItemGroup>
     <ClCompile Include="Application\Application.cpp" />
     <ClCompile Include="Camera\Camera.cpp" />
+    <ClCompile Include="Chara\Boss.cpp" />
     <ClCompile Include="Chara\Chara.cpp" />
     <ClCompile Include="Chara\Enemy.cpp" />
     <ClCompile Include="Chara\Enemy1.cpp" />
@@ -176,6 +177,7 @@
   <ItemGroup>
     <ClInclude Include="Application\Application.h" />
     <ClInclude Include="Camera\Camera.h" />
+    <ClInclude Include="Chara\Boss.h" />
     <ClInclude Include="Chara\Chara.h" />
     <ClInclude Include="Chara\Enemy.h" />
     <ClInclude Include="Chara\Enemy1.h" />
