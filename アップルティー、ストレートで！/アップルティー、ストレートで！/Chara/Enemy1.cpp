@@ -176,7 +176,7 @@ void Enemy1::UpData(void)
 {
 	UpDataLocal();
 	Animator();
-	//func[state](this);
+	func[state](this);
 	CheckHit();
 
 	reverse = (target.x < GetCenter().x) ? false : true;
