@@ -173,7 +173,7 @@ int main()
 				if (Input::Get().InputKey(INPUT_CTRL) && Input::Get().Triger(INPUT_S))
 				{
 					info.rect[i].hit = hit;
-					printf("%dŒÂ‚Ì‹éŒ`î•ñ‚ğ•Û‘¶‚µ‚Ü‚µ‚½\n", hit.size());
+					printf("%dŒÂ‚Ì‹éŒ`î•ñ‚ğ•Û‘¶‚µ‚Ü‚µ‚½\n", static_cast<int>(hit.size()));
 					break;
 				}
 			}

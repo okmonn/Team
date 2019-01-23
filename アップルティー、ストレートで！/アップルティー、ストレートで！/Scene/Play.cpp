@@ -24,6 +24,7 @@ void Play::Create(void)
 	pl    = std::make_shared<Player>(app, cam, 400.0f, 100.0f);
 	enemy = std::make_shared<EnemyMane>(app,cam, pl);
 	enemy->Create("1", 100.0f, 100.0f);
+	enemy->Create("2", 300.0f, 100.0f);
 
 	cam->SetTarget(pl);
 }
