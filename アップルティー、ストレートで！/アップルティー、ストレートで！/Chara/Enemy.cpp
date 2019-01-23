@@ -15,12 +15,6 @@ Enemy::~Enemy()
 {
 }
 
-// ローカル座標の更新
-void Enemy::UpDataLocal(void)
-{
-	lpos = pos - cam.lock()->GetPos();
-}
-
 // ランダムなターゲット座標の生成
 Vec2f Enemy::GetRandomPos(const Vec2f & range)
 {
@@ -42,11 +36,11 @@ void Enemy::CheckHit(void)
 	{
 		for (auto& e : GetRect())
 		{
-			if (!(p.type == HitType::attack && e.type == HitType::damage
+			/*if (!(p.type == HitType::attack && e.type == HitType::damage
 				|| p.type == HitType::damage && e.type == HitType::attack))
 			{
 				continue;
-			}
+			}*/
 
 			auto plCenter = p.rect.pos + p.rect.size / 2.0f;
 			auto enCenter = e.rect.pos + e.rect.size / 2.0f;

@@ -13,9 +13,6 @@ public:
 	virtual ~Enemy();
 
 protected:
-	// ローカル座標の更新
-	void UpDataLocal(void);
-
 	// ランダムなターゲット座標の生成
 	Vec2f GetRandomPos(const Vec2f& range);
 

@@ -39,12 +39,12 @@ std::vector<HitRect<Vec2f>> Chara::GetRect(void)
 	std::for_each(tmp.begin(), tmp.end(), [&](HitRect<Vec2f>& rect)->void {
 		if (reverse == false)
 		{
-			rect.rect.pos = pos + rect.rect.pos;
+			rect.rect.pos  = pos + rect.rect.pos * size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
 			rect.rect.size = rect.rect.size * size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
 		}
 		else
 		{
-			rect.rect.pos  = Vec2f(pos.x + size.x, pos.y) - rect.rect.pos;
+			rect.rect.pos  = Vec2f(pos.x + size.x, pos.y) + Vec2f(-rect.rect.pos.x, rect.rect.pos.y) * size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
 			rect.rect.size = Vec2f(-rect.rect.size.x, rect.rect.size.y) * size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
 		}
 	});
@@ -108,9 +108,32 @@ void Chara::DrawImg(const std::string & name, const float & alpha, const bool & 
 // ‚ ‚½‚è‹éŒ`‚Ì•`‰æ
 void Chara::DrawRect(void)
 {
-	for (auto& i : GetRect())
+	for (auto& i : InfoLoader::Get().GetInfo(info)->at(state).rect[index].hit)
 	{
-		app.lock()->DrawBox(i.rect.pos, i.rect.size, { 1.0f, 0.0f, 0.0f, 0.5f });
+		Vec2f pos{};
+		Vec2f size{};
+		if (reverse == false)
+		{
+			pos  = lpos + i.rect.pos * this->size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
+			size = i.rect.size * this->size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
+		}
+		else
+		{
+			pos  = Vec2f(lpos.x + this->size.x, lpos.y) + Vec2f(-i.rect.pos.x, i.rect.pos.y) * this->size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
+			size = Vec2f(-i.rect.size.x, i.rect.size.y) * this->size / InfoLoader::Get().GetInfo(info)->at(state).rect[index].anim.size;
+		}
+
+		Color color{};
+		if (i.type == HitType::damage)
+		{
+			color.g = 1.0f;
+		}
+		else
+		{
+			color.r = 1.0f;
+		}
+		color.a = 0.5f;
+		app.lock()->DrawBox(pos, size, color);
 	}
 }
 

@@ -2,6 +2,8 @@
 #include "../Camera/Camera.h"
 #include "Player.h"
 #include "../Application/Application.h"
+#include "../InfoLoader/InfoLoader.h"
+#include "../Typedef.h"
 
 // 移行オフセット
 #define OFFSET 1.0f
@@ -174,7 +176,7 @@ void Enemy1::UpData(void)
 {
 	UpDataLocal();
 	Animator();
-	func[state](this);
+	//func[state](this);
 	CheckHit();
 
 	reverse = (target.x < GetCenter().x) ? false : true;
