@@ -49,17 +49,18 @@ void Enemy2::Wait(void)
 		return;
 	}
 
+	// Player‚Ì’†“_
 	target = pl.lock()->GetCenter();
 
 	// ˆÚ“®
-	if (GetCenter().x > target.x
-		|| GetCenter().x < target.x
-		|| GetCenter().y > target.y
-		|| GetCenter().y < target.y)
+	Vec2f tmp = GetCenter() - target;
+	if ( tmp.x < 240.0f
+		|| tmp.y < 270.0f) 
 	{
 		SetState("walk");
 	}
 
+	// UŒ‚ˆ—
 	if (GetCenter().y >= pl.lock()->GetCenter().y
 		&& GetCenter().y <= (pl.lock()->GetPos().y + pl.lock()->GetSize().y))
 	{
@@ -68,7 +69,10 @@ void Enemy2::Wait(void)
 			if ((pos.x + size.x) <= target.x
 				&& (pos.x + (size.x * 2)) >= target.x)
 			{
-				SetState("attack");
+				if (pl.lock()->GetState() != "damage")	// ‹N‚«U‚ß‘Îô
+				{
+					SetState("attack");
+				}
 			}
 		}
 		else
@@ -76,7 +80,10 @@ void Enemy2::Wait(void)
 			if (pos.x >= target.x
 				&& (pos.x - size.x) <= target.x)
 			{
-				SetState("attack");
+				if (pl.lock()->GetState() != "damage")	// ‹N‚«U‚ß‘Îô
+				{
+					SetState("attack");
+				}
 			}
 		}
 	}
@@ -108,6 +115,7 @@ void Enemy2::Walk(void)
 		pos.y += speed;
 	}
 
+	// ’†“_
 	target = pl.lock()->GetCenter();
 
 	if (GetCenter().y >= target.y
