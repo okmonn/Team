@@ -151,6 +151,12 @@
     <Filter Include="Game\Chara\Enemy\Boss">
       <UniqueIdentifier>{26590a76-8730-461c-8ebb-77c1d40fe5a5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\BackGround">
+      <UniqueIdentifier>{810012f8-437f-487c-8b21-6c65892024c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\Map">
+      <UniqueIdentifier>{b2d30376-31cb-43d0-b68a-0c2cdc795e20}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Window\Window.cpp">
@@ -284,6 +290,12 @@
     </ClCompile>
     <ClCompile Include="Chara\Boss.cpp">
       <Filter>Game\Chara\Enemy\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround\BackGround.cpp">
+      <Filter>Game\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="Map\Map.cpp">
+      <Filter>Game\Map</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -442,6 +454,12 @@
     </ClInclude>
     <ClInclude Include="Chara\Boss.h">
       <Filter>Game\Chara\Enemy\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround\BackGround.h">
+      <Filter>Game\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="Map\Map.h">
+      <Filter>Game\Map</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -2,6 +2,7 @@
 #include "Scene.h"
 
 class Camera;
+class BackGround;
 class Player;
 class EnemyMane;
 
@@ -27,6 +28,9 @@ private:
 
 	// カメラ
 	std::shared_ptr<Camera>cam;
+
+	// 背景
+	std::shared_ptr<BackGround>back;
 
 	// プレイヤー
 	std::shared_ptr<Player>pl;
