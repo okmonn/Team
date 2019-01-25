@@ -3,6 +3,7 @@
 
 class Camera;
 class BackGround;
+class Map;
 class Player;
 class EnemyMane;
 
@@ -31,6 +32,9 @@ private:
 
 	// 背景
 	std::shared_ptr<BackGround>back;
+
+	// マップ
+	std::shared_ptr<Map>map;
 
 	// プレイヤー
 	std::shared_ptr<Player>pl;

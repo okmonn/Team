@@ -13,6 +13,9 @@ public:
 	// デストラクタ
 	~Map();
 
+	// マップデータの取得
+	std::vector<int> GetData(const Vec2f& pos);
+
 	// １マス分のサイズの取得
 	Vec2f GetSize(void) const {
 		return size;
@@ -24,6 +27,14 @@ public:
 	// 地面座標の取得
 	float GetGround(void) const {
 		return ground;
+	}
+	// マップサイズの取得
+	float GetMapSize(void) const {
+		return size.x * mass.x;
+	}
+	// 読み込み位置の取得
+	int GetRead(void) const {
+		return read;
 	}
 	// マップデータの取得
 	std::vector<int> GetData(void) const {
@@ -46,6 +57,9 @@ private:
 
 	// 地面位置
 	float ground;
+
+	// 読み込み位置
+	int read;
 
 	// マップデータ
 	std::vector<int>id;

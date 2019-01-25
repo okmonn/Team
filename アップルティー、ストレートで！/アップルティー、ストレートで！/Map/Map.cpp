@@ -5,7 +5,7 @@
 
 // コンストラクタ
 Map::Map(std::weak_ptr<Application> app) : app(app),
-	size({300.0f, 100.0f}), mass(0), ground(0.0f)
+	size({300.0f, 100.0f}), mass(0), ground(0.0f), read(0)
 {
 	id.clear();
 
@@ -31,4 +31,27 @@ void Map::Init(void)
 	std::for_each(id.begin(), id.end(), [&](int& id)->void {
 		id = dist(mt);
 	});
+}
+
+// マップデータの取得
+std::vector<int> Map::GetData(const Vec2f & pos)
+{
+	int index = pos.x / size.x;
+	if (read >= index)
+	{
+		return std::vector<int>();
+	}
+
+	std::vector<int>tmp;
+	for (int i = read; i < index; ++i)
+	{
+		for (int n = 0; n < mass.y; ++n)
+		{
+			tmp.push_back(id[mass.x * n + i]);
+		}
+	}
+
+	read = index;
+
+	return tmp;
 }
