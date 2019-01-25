@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Enemy1.h"
 #include "Enemy2.h"
+#include "Boss.h"
 #include "../Application/Application.h"
 
 // コンストラクタ
@@ -28,6 +29,10 @@ void EnemyMane::Init(void)
 
 	func["2"] = [&](std::list<std::shared_ptr<Enemy>>& list, std::weak_ptr<Application>app, std::weak_ptr<Camera>cam, std::weak_ptr<Player>pl, const Vec2f& pos, const Vec2f& size)->void {
 		list.push_back(std::make_shared<Enemy2>(app, cam, pl, pos, size));
+	};
+
+	func["3"] = [&](std::list<std::shared_ptr<Enemy>>& list, std::weak_ptr<Application>app, std::weak_ptr<Camera>cam, std::weak_ptr<Player>pl, const Vec2f& pos, const Vec2f& size)->void {
+		list.push_back(std::make_shared<Boss>(app, cam, pl, pos, size));
 	};
 
 }
