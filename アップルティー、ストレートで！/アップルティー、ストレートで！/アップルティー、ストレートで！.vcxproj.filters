@@ -285,9 +285,6 @@
     <ClCompile Include="Chara\Enemy2.cpp">
       <Filter>Game\Chara\Enemy\Enemy2</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Chara\Boss.cpp">
       <Filter>Game\Chara\Enemy\Boss</Filter>
     </ClCompile>
@@ -296,6 +293,9 @@
     </ClCompile>
     <ClCompile Include="Map\Map.cpp">
       <Filter>Game\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

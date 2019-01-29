@@ -32,10 +32,10 @@ void Player::SetFunc(void)
 
 	func["wait"]    = &Player::Wait;
 	func["walk"]    = &Player::Walk;
-	func["avoid"]   = &Player::Avoid;
+	func["sliding"] = &Player::Sliding;
 	func["attack1"] = &Player::Attack1;
 	func["attack2"] = &Player::Attack2;
-	func["sliding"] = &Player::Sliding;
+	func["avoid"]   = &Player::Avoid;
 	func["damage"]  = &Player::Damage;
 }
 
