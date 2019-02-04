@@ -92,6 +92,10 @@ protected:
 	void Delete(const std::string& name);
 	void Delete(void);
 
+	// 値に応じた距離のヒットバック	
+	void KnockBack(float dis);
+
+	bool KnockBackEnd;
 
 	// アプリケーション
 	std::weak_ptr<Application>app;

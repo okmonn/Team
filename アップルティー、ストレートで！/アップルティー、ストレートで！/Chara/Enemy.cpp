@@ -57,6 +57,28 @@ void Enemy::CheckHit(void)
 				if (p.type == HitType::attack)
 				{
 					SetState("damage");
+					if (pl.lock()->GetState() == "attack1")
+					{
+						KnockBack(0.7f);
+					}
+					else if (pl.lock()->GetState() == "attack2")
+					{
+						KnockBack(8.7f);
+
+					}
+					else
+					{
+						KnockBack(3.7f);
+					}
+
+					if (pl.lock()->GetReverse() == true)
+					{
+						SetReverse(true);
+					}
+					else
+					{
+						SetReverse(false);
+					}
 				}
 				else
 				{

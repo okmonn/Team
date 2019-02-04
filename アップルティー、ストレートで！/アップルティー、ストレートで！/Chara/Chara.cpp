@@ -161,3 +161,38 @@ void Chara::Delete(void)
 		app.lock()->DeleteTex(itr->second);
 	}
 }
+
+void Chara::KnockBack(float dis)
+{
+	// ノックバック有効中であるか
+	static bool kb_flg = false;
+	static float kb_dis = 0;
+	
+	if (dis != 0)
+	{
+		kb_dis = dis;
+		kb_flg = true;
+	}
+
+	if (kb_flg == true)
+	{
+		if (reverse == true)
+		{
+			pos.x -= kb_dis;
+		}
+		else
+		{
+			pos.x += kb_dis;
+		}
+
+		kb_dis /= 2;
+		
+		if (kb_dis < 0.1f)
+		{
+			kb_flg = false;
+			kb_dis = 0;
+		}
+	}
+	
+}
+

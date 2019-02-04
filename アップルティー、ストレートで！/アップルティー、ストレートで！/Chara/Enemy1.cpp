@@ -133,14 +133,15 @@ void Enemy1::Damage(void)
 	if (state != "damage")
 	{
 		return;
-	}
+	}	
+	KnockBack(0);
+
 
 	if (hp <= 0)
 	{
 		SetState("dead");
 		return;
 	}
-
 	if (CheckAnimEnd())
 	{
 		SetState("wait");

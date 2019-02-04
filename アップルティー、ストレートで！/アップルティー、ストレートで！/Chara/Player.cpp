@@ -85,7 +85,16 @@ void Player::Walk(void)
 		return;
 	}
 
+	// 
 	bool walking = false;
+
+
+	if (Input::Get().InputKey(INPUT_X))
+	{
+		SetState("sliding");
+		walking = false;
+		return;
+	}
 
 	if (Input::Get().InputKey(INPUT_RIGHT))
 	{
@@ -118,10 +127,24 @@ void Player::Walk(void)
 // ‰ñ”ğ‚Ìˆ—
 void Player::Avoid(void)
 {
+	if (!reverse)
+	{
+		pos.x += speed * 3.4;
+	}
+	else
+	{
+		pos.x -= speed * 3.4;
+	}
 	if (state != "avoid")
 	{
 		return;
+	}	
+	if (CheckAnimEnd())
+	{
+		SetState("wait");
 	}
+
+
 }
 
 // UŒ‚2‚Ìˆ—
@@ -165,14 +188,21 @@ void Player::Sliding(void)
 	{
 		return;
 	}
+	
 
 	if (!reverse)
 	{
-		pos.x += speed * 2.4;
+		pos.x += speed * 3.4;
 	}
 	else
 	{
-		pos.x -= speed * 2.4;
+		pos.x -= speed * 3.4;
+	}
+
+	if (Input::Get().InputKey(INPUT_Z))
+	{
+		SetState("avoid");
+		return;
 	}
 
 	if (CheckAnimEnd())
@@ -187,6 +217,10 @@ void Player::Damage(void)
 	if (state != "damage")
 	{
 		return;
+	}	
+	if (CheckAnimEnd())
+	{
+		SetState("wait");
 	}
 }
 
